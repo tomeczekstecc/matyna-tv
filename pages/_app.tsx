@@ -3,11 +3,12 @@ import { Inter as FontSans } from "@next/font/google"
 import { ThemeProvider } from "next-themes"
 
 import "@/styles/globals.css"
+import { Layout } from "../components/layout"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: 'swap',
+  display: "swap",
 })
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
 				}
 			}`}</style>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   )

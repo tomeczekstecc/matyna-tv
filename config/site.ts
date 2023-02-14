@@ -12,13 +12,21 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Next.js",
+  name: "MartynaTV",
   description:
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
   mainNav: [
     {
-      title: "Home",
-      href: "/",
+      title: "Filmy",
+      href: "/films",
+    },
+    {
+      title: "Blog",
+      href: "/blog",
+    },
+    {
+      title: "Sklep",
+      href: "/sklep",
     },
   ],
   links: {
