@@ -9,7 +9,12 @@
  - [ ] 4. user may see blogs page
  - [ ] 5. user may see blog details page
  - [ ] 6. user may search blog
-
+ - [ ] 7. user may persist data
+         - [ ] add trpc
+         - [ ] prisma
+         - [ ] add supabase
+         - [ ] add auth
+         - [ ] add models
 
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.

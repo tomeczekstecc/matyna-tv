@@ -5,23 +5,95 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="qwdfqwd">
-      <change afterPath="$PROJECT_DIR$/components/WYCIWYG.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/wysiwyg.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/blog/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/blog/new.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/icons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/main-nav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/theme-toggle.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/accordion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/aspect-ratio.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/avatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/checkbox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/collapsible.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/context-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/dropdown-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/hover-card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/menubar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/navigation-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/popover.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/progress.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/radio-group.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/scroll-area.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/separator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/slider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/switch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/tabs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/textarea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/tooltip.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/site.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/wysiwyg.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/nav.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/filmCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/filmCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/films.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/films.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/films/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WYCIWYG.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/icons.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/main-nav.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/site-header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/theme-toggle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/Header.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/accordion.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/alert-dialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/aspect-ratio.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/avatar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/checkbox.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/collapsible.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/context-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/dialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/dropdown-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/filmCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/hover-card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/input.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/label.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/menubar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/navigation-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/popover.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/progress.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/radio-group.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/scroll-area.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/select.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/separator.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/slider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/switch.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/tabs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/textarea.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/tooltip.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/site.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/wysiwyg.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/films.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/films.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/blog/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/new.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/nav.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +143,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\dev\martyna-tv\pages" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
@@ -94,7 +169,8 @@
       <updated>1676392148422</updated>
       <workItem from="1676392160257" duration="3079000" />
       <workItem from="1676480251666" duration="5660000" />
-      <workItem from="1676567678438" duration="1455000" />
+      <workItem from="1676567678438" duration="2102000" />
+      <workItem from="1676570015090" duration="827000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
