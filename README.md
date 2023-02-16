@@ -1,8 +1,15 @@
 # next-template
 
 ## user use-case
- - [ ] 1. user may see films page
+ - [X] 1. user may see films page
  - [ ] 2. admin may add films, remove films, edit films
+ - [ ] 3. admin may add blogs, remove blogs, edit blogs
+        - [ ] fields: title, subtitle, content, category, image
+        - [ ] features: image upload, comment, like, share, unlike
+ - [ ] 4. user may see blogs page
+ - [ ] 5. user may see blog details page
+ - [ ] 6. user may search blog
+
 
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.

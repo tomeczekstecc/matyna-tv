@@ -1,15 +1,13 @@
 "use client"
-
 import React from "react"
-
-const Header = ({ title, subtitle }) => {
+export const  Header =  ({ title, subtitle }) => {
   return (
-    <div>
-      <h1>
-        {title} wfwfw
+  <div>
+    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        {title}
       </h1>
       {subtitle ? (
-        <p className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
+        <p className="text-slate-500 dark:text-slate-400">{subtitle}</p>
       ) : (
         ""
       )}
@@ -17,14 +15,5 @@ const Header = ({ title, subtitle }) => {
   )
 }
 
-Header.defaultProps = {
-  title: "Title",
-}
-
-// Header.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   subtitle: PropTypes.string,
-// }
 
 
-export default Header

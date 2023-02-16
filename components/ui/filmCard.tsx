@@ -1,6 +1,7 @@
 import React from "react"
-// import  formatDistance  from "date-fns/esm/formatDistance"
+import formatDistance from "date-fns/esm/formatDistance"
 import PropTypes from "prop-types"
+import pl from "date-fns/esm/locale/pl"
 
 const FilmCard = ({ title, subtitle, createdAt, url }) => {
   return (
@@ -24,10 +25,10 @@ const FilmCard = ({ title, subtitle, createdAt, url }) => {
             {subtitle}
           </p>
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            {/*{formatDistance(new Date(createdAt), new Date(), {*/}
-            {/*  // locale: pl,*/}
-            {/*  addSuffix: true,*/}
-            {/*})}{" "}*/}
+            {formatDistance(new Date(createdAt), new Date(), {
+              locale: pl,
+              addSuffix: true,
+            })}{" "}
           </p>
         </div>
       </div>
