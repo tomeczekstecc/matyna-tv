@@ -1,11 +1,9 @@
 import type { AppProps } from "next/app"
 import { Inter as FontSans } from "@next/font/google"
 import { ThemeProvider } from "next-themes"
-// import { trpc } from '../utils/trpc';
-
-
+import { trpc } from '@/utils/trpc';
 import "@/styles/globals.css"
-import { Layout } from "../components/layout"
+import { Layout } from "@/components/layout"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,6 +27,6 @@ const fontSans = FontSans({
     </>
   )
 }
-// export default trpc.withTRPC(App);
+export default trpc.withTRPC(App);
 
-export default App
+// export default App

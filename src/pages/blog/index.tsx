@@ -9,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Link from "next/link";
 
 export default function IndexPage() {
   return (
@@ -19,10 +20,11 @@ export default function IndexPage() {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
+          <Link href={'blog/new'}>
           <Button variant="outline" className="w-10 rounded-full p-0">
             <Plus className="h-4 w-4" />
             <span className="sr-only">Dodaj wpis bloga</span>
-          </Button>
+          </Button></Link>
         </TooltipTrigger>
         <TooltipContent>
           <p>Dodaj wpis bloga</p>
