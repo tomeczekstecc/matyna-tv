@@ -4,19 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="qwdfqwd">
-      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/trpc/[trpc].ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/routers/_app.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/trpc.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/trpc.ts" afterDir="false" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="trpc add">
+      <change afterPath="$PROJECT_DIR$/public/noimage.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/gallery.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/env.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/media/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/root.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/routers/example.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/trpc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/db.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/options/cataegories.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/site.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/site.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/trpc/[trpc].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/trpc/[trpc].ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/new.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/routers/_app.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/trpc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/trpc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +67,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/pages&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/src/pages&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -64,9 +80,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src\pages" />
       <recent name="C:\dev\martyna-tv\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\public" />
       <recent name="C:\dev\martyna-tv\src" />
     </key>
   </component>
@@ -95,7 +113,12 @@
       <workItem from="1676567678438" duration="2102000" />
       <workItem from="1676570015090" duration="827000" />
       <workItem from="1676753640869" duration="1868000" />
-      <workItem from="1676755578348" duration="3360000" />
+      <workItem from="1676755578348" duration="3832000" />
+      <workItem from="1676823192304" duration="3045000" />
+      <workItem from="1676833422588" duration="11666000" />
+      <workItem from="1676913803404" duration="5173000" />
+      <workItem from="1677095150189" duration="6613000" />
+      <workItem from="1677101961285" duration="788000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -104,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676395341844</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="trpc add">
+      <created>1676759691100</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676759691100</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +154,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="qwdfqwd" />
-    <option name="LAST_COMMIT_MESSAGE" value="qwdfqwd" />
+    <MESSAGE value="trpc add" />
+    <option name="LAST_COMMIT_MESSAGE" value="trpc add" />
   </component>
 </project>

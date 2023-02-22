@@ -1,16 +1,10 @@
 import Head from "next/head"
 import Link from "next/link"
-import { siteConfig } from "@/config/site"
-import {trpc} from "@/utils/trpc";
 
+import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
-
-  const {data, refetch} = trpc.hello.useQuery({ text: 'client' },{
-    enabled: false,
-  });
-  if (data) console.log(data);
   // @ts-ignore
 
   return (
@@ -51,7 +45,7 @@ export default function IndexPage() {
         >
           GitHub
         </Link>
-        <button onClick={()=>refetch()} >Fetch</button>
+        <button onClick={() => null}>Fetch</button>
       </div>
     </>
   )

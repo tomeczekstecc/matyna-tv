@@ -25,6 +25,10 @@ export const siteConfig: SiteConfig = {
       href: "/blog",
     },
     {
+      title: "Media",
+      href: "/media",
+    },
+    {
       title: "Sklep",
       href: "/sklep",
     },
