@@ -13,15 +13,15 @@ import Link from "next/link";
 import {api} from "@/utils/api";
 import Image from "next/image";
 import BlogCard from "@/components/blogCard";
+import {Header} from "@/components/ui/Header";
 
 export default function IndexPage() {
   const {data: posts, refetch} = api.blog.getAllPosts.useQuery()
-  const {mutate: deletePost} = api.blog.deletePost.useMutation({
-    onSuccess: () => refetch()
-  })
+
   // @ts-ignore
   return (
     <div>
+      <Header title={'Blog'} subtitle={'Najnowsze wpisy bloga'} className={undefined}/>
       {/*// TODO: only admin*/}
       <div className={'flex justify-between'}>
         <div>{' '}</div>
@@ -41,10 +41,10 @@ export default function IndexPage() {
             </Tooltip>
           </TooltipProvider></div>
       </div>
-      <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'}
+      <div className={'grid grid-cols-1 gap-10'}
       >
         {posts?.map((post) => (
-          <BlogCard key={post.id} post={post}/>
+          <BlogCard refetch={refetch} key={post.id} post={post}/>
 
         ))}
       </div>

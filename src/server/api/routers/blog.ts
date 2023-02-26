@@ -41,13 +41,53 @@ export const blogRouter = createTRPCRouter({
       }
     })
   }),
-  deletePost: publicProcedure.input(z.object({id: z.string()})).mutation(async ({input, ctx}) => {
-    await ctx.prisma.blogPost.delete({
+  getOnePost: publicProcedure.input(z.object({slug: z.string()})).query(async ({input, ctx}) => {
+    return ctx.prisma.blogPost.findUnique({
       where: {
-        id: input.id
+        slug: input.slug
+      },
+      include: {
+        category: {
+          select: {
+            name: true,
+            color: true,
+          }
+        }
       }
     })
+  }),
+  updateOnePost: publicProcedure.input(z.object({
+    id: z.string(),
+    title: z.string(),
+    content: z.string(),
+    subtitle: z.string(),
+    categoryId: z.string(),
+    imgURL: z.string(),
+    slug: z.string()
+  })).mutation(async ({input, ctx}) => {
+    await ctx.prisma.blogPost.update({
+      where: {
+        id: input.id
+      },
+      data: {
+        title: input.title,
+        subtitle: input.subtitle,
+        // @ts-ignore
+        categoryId: input.categoryId,
+        imgURL: input.imgURL,
+        content: input.content,
+        slug: input.slug,
+      },
+    })
     return true
-  }
+  }),
+  deletePost: publicProcedure.input(z.object({id: z.string()})).mutation(async ({input, ctx}) => {
+      await ctx.prisma.blogPost.delete({
+        where: {
+          id: input.id
+        }
+      })
+      return true
+    }
   ),
 })
