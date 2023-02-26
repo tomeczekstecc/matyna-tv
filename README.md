@@ -28,6 +28,9 @@ A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 - Dark mode with `next-themes`
 - Automatic import sorting with `@ianvs/prettier-plugin-sort-imports`
 
+##
+cloudinary
+
 ## Tailwind CSS Features
 
 - Class merging with `taiwind-merge`

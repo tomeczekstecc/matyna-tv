@@ -21,7 +21,6 @@ export default function WYSIWYG(props: { label: string, value: string, onChange:
         init={getWysiwygConfig(theme)}
         value={props.value}
         onChange={(e) => {
-          console.log(e.target.getContent())
           props.onChange(e.target.getContent())
           }
         }

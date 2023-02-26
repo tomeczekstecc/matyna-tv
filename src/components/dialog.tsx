@@ -12,8 +12,9 @@ import PropTypes from "prop-types";
 const DialogModal = ({children, triggerText, title}) => {
   return <Dialog>
     <Button>
-    <DialogTrigger>{triggerText}</DialogTrigger>
-  </Button><DialogContent>
+      <DialogTrigger>{triggerText}</DialogTrigger>
+    </Button>
+    <DialogContent className={'overflow-y-auto max-h-[95vh]'} style={{minWidth: '50vw'}}>
       <DialogHeader>
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>
@@ -25,8 +26,8 @@ const DialogModal = ({children, triggerText, title}) => {
 }
 
 DialogModal.defaultProps = {
-  triggerText: "Otworz",
-  title: "Czy na pewno?"
+  triggerText: "Otwórz",
+  title: "Wybierz zdjęcie"
 }
 
 

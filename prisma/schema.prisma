@@ -26,6 +26,8 @@ enum Role {
 
 model Category {
   id       CategoryEnum @id
+  name     String
+  color    String
   BlogPost BlogPost[]
 }
 
@@ -66,6 +68,7 @@ model BlogPost {
   category    Category     @relation(fields: [categoryId], references: [id])
   categoryId  CategoryEnum
   imgURL      String?
+  slug        String       @unique
   // author      User         @relation(fields: [authorId], references: [id])
   // authorId    String
   // Comment     Comment[]

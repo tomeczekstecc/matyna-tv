@@ -1,3 +1,4 @@
+'use client'
 import {useState} from "react"
 import {api} from "@/utils/api"
 import {
@@ -7,8 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
-
+import slugify from "slugify"
 import WYSIWYG from "@/components/WYCIWYG"
 import {Button} from "@/components/ui/button"
 import {Input} from "@/components/ui/input"
@@ -17,6 +17,9 @@ import {categories} from "@/utils/options/cataegories";
 import Image from "next/image";
 import DialogModal from "@/components/dialog";
 import Gallery from "@/components/gallery";
+import {transformImg} from "@/utils/transformImg";
+import {mapImages, search} from "@/lib/cloudinary";
+import {AxiosCloudinary} from "@/utils/axios";
 
 type Post = {
   title: string
@@ -24,23 +27,28 @@ type Post = {
   categoryId: string
   content: string
   imgURL: string
-
+  slug: string
 }
 
 
-export async function getServerSideProps(ctx) {
-  const res = await fetch('https://api.cloudinary.com/v1_1/dgii182dt/resources/image', {
-    headers: {
-      Authorization: `Basic  ${Buffer.from('187784577678993' + ':' + 'JicWO-F4j7QvBeoWBUBg05x0oEw').toString('base64')}`
+export async function getStaticProps(ctx) {
+  const res = await search({
+    max_results: 12,
+    // expression: 'folder:""' // root folder
+    expression: 'folder:martyna-tv'
 
-    }
   })
 
-  const data = await res.json()
+  const {resources, next_cursor: nextCursor} = res
+
+  const images = mapImages(resources)
+
   return {
     props: {
-      data
-    }
+      data: images,
+      nextCursor: nextCursor || ''
+    },
+    revalidate: 10
   }
 }
 
@@ -51,13 +59,23 @@ export default function NewBlogPage(props) {
     title: "",
     content: "",
     categoryId: "Gry",
-    imgURL:  "",
+    imgURL: "",
+    slug: "",
   })
 
-  const {mutate} = api.blog.addBlogPost.useMutation({})
+  const {mutate: addBlog} = api.blog.addBlogPost.useMutation({})
+  const [images, setImages] = useState(props.data)
+  const [nextCursor, setNextCursor] = useState(props.nextCursor)
+  const handleLoadMore = async (event) => {
+    if (!nextCursor) return
+    event.preventDefault();
+    const res = await AxiosCloudinary.post('/api/cloudinary/search', {next_cursor: nextCursor})
+    const {resources, next_cursor: updatedNextCursor} = res.data
+    const images = mapImages(resources)
+    setImages(prev => [...prev, ...images])
+    setNextCursor(updatedNextCursor)
 
-
-
+  }
   return (
     <div
       className={
@@ -70,9 +88,12 @@ export default function NewBlogPage(props) {
           Tytuł
         </Label>
         <Input
-          onChange={(e) =>
+          onChange={(e) => {
             setPost((prev) => ({...prev, title: e.target.value}))
-          }
+            setPost((prev) => ({...prev, slug: slugify(e.target.value, {lower: true})}))
+          }}
+
+
           value={post.title}
           name={"title"}
           type="text"
@@ -85,8 +106,7 @@ export default function NewBlogPage(props) {
         </Label>
         <Input
           onChange={(e) =>
-            setPost((prev) => ({...prev, subtitle: e.target.value}))
-          }
+            setPost((prev) => ({...prev, subtitle: e.target.value}))}
           name={"subtitle"}
           type="text"
           placeholder="Podaj podtytuł"
@@ -119,18 +139,19 @@ export default function NewBlogPage(props) {
           </Label>
           <span className={'pl-2'}>
           <DialogModal>
-            <Gallery data={props.data} setCurUrl={(e)=>setPost((prev) => ({...prev, imgURL: e}))}/>
+            <Gallery data={images} setCurUrl={(e) => setPost((prev) => ({...prev, imgURL: e}))}/>
+            <Button className={'my-10'} disabled={!nextCursor} onClick={handleLoadMore}>Załaduj więcej zdjęć</Button>
+
           </DialogModal>
       </span>
         </article>
         {post.imgURL &&
-          <Image blurDataURL={'/noimage.jpg'} src={post.imgURL} alt={'image to upload'} height={200} width={200}/>
+          <Image blurDataURL={'/noimage.jpg'} src={transformImg(post.imgURL, 500, 600)} alt={'image to upload'}
+                 height={200} width={200}/>
         }
-
-
       </div>
       <WYSIWYG value={post.content} onChange={e => setPost(prev => ({...prev, content: e}))}/>
-      <Button onClick={() => mutate(post)}>Zapisz</Button>
+      <Button onClick={() => addBlog(post)}>Zapisz</Button>
     </div>
   )
 }
