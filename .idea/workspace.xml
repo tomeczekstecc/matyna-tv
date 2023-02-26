@@ -5,30 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="zdjęcia">
-      <change afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/cloudinary.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/cloudinary/search.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/transformImg.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/routers/media.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gallery.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/new.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/media/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/media/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/root.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/root.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,25 +46,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/src/pages&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\dev\\martyna-tv\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/dev/martyna-tv/src/server/api/routers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "C:\\dev\\martyna-tv\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src\server\api\routers" />
       <recent name="C:\dev\martyna-tv\src\pages" />
       <recent name="C:\dev\martyna-tv\pages" />
     </key>
@@ -151,7 +134,7 @@
       <workItem from="1677182877565" duration="7325000" />
       <workItem from="1677256789192" duration="10974000" />
       <workItem from="1677313161758" duration="13466000" />
-      <workItem from="1677397502970" duration="7028000" />
+      <workItem from="1677397502970" duration="12115000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -167,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676759691100</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="zdjęcia">
+      <created>1677414299702</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677414299702</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

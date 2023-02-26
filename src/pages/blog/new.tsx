@@ -30,29 +30,6 @@ type Post = {
   slug: string
 }
 
-
-export async function getStaticProps(ctx) {
-  const res = await search({
-    max_results: 12,
-    // expression: 'folder:""' // root folder
-    expression: 'folder:martyna-tv'
-
-  })
-
-  const {resources, next_cursor: nextCursor} = res
-
-  const images = mapImages(resources)
-
-  return {
-    props: {
-      data: images,
-      nextCursor: nextCursor || ''
-    },
-    revalidate: 10
-  }
-}
-
-
 export default function NewBlogPage(props) {
   const [post, setPost] = useState({
     subtitle: "",
@@ -64,18 +41,8 @@ export default function NewBlogPage(props) {
   })
 
   const {mutate: addBlog} = api.blog.addBlogPost.useMutation({})
-  const [images, setImages] = useState(props.data)
   const [nextCursor, setNextCursor] = useState(props.nextCursor)
-  const handleLoadMore = async (event) => {
-    if (!nextCursor) return
-    event.preventDefault();
-    const res = await AxiosCloudinary.post('/api/cloudinary/search', {next_cursor: nextCursor})
-    const {resources, next_cursor: updatedNextCursor} = res.data
-    const images = mapImages(resources)
-    setImages(prev => [...prev, ...images])
-    setNextCursor(updatedNextCursor)
 
-  }
   return (
     <div
       className={
@@ -139,9 +106,7 @@ export default function NewBlogPage(props) {
           </Label>
           <span className={'pl-2'}>
           <DialogModal>
-            <Gallery data={images} setCurUrl={(e) => setPost((prev) => ({...prev, imgURL: e}))}/>
-            <Button className={'my-10'} disabled={!nextCursor} onClick={handleLoadMore}>Załaduj więcej zdjęć</Button>
-
+            <Gallery setCurUrl={(e) => setPost((prev) => ({...prev, imgURL: e}))}/>
           </DialogModal>
       </span>
         </article>
