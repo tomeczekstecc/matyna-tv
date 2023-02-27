@@ -69,9 +69,7 @@ const BlogForm = ({setPost, post, addBlog}) => {
           </SelectContent>
         </Select>
         <article className={'my-6'}>
-          <Label htmlFor={"iamge"} className={"mb-0"}>
-            Wybierz zdjęcie
-          </Label>
+          <Label htmlFor={"iamge"} className={"mb-0"}>Wybierz zdjęcie</Label>
           <span className={'pl-2'}>
           <DialogModal>
             <Gallery setCurUrl={(e) => setPost((prev) => ({...prev, imgURL: e}))}/>
@@ -79,8 +77,8 @@ const BlogForm = ({setPost, post, addBlog}) => {
       </span>
         </article>
         {post.imgURL &&
-          <Image blurDataURL={'/noimage.jpg'} src={transformImg(post.imgURL, 500, 600)} alt={'image to upload'}
-                 height={200} width={200}/>
+          <Image blurDataURL={'/noimage.jpg'} src={transformImg(post.imgURL, 450, 300)} alt={'image to upload'}
+                 height={300} width={450}/>
         }
       </div>
       <WYSIWYG value={post.content} onChange={e => setPost(prev => ({...prev, content: e}))}/>

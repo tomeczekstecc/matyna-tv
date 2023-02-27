@@ -9,7 +9,7 @@ const EditBlogPage = () => {
   const [post, setPost] = useState()
 
   // @ts-ignore
-  const {data: postData, isLoading} = api.blog.getOnePost.useQuery({slug})
+  const {data: postData, isLoading} = api.blog.getOnePost.useQuery({slug}, {refetchOnWindowFocus: false})
   const {mutate: updatePost} = api.blog.updateOnePost.useMutation()
 
 

@@ -31,6 +31,10 @@ export const blogRouter = createTRPCRouter({
     //get all post with category
 
     return ctx.prisma.blogPost.findMany({
+      // @ts-ignore
+      orderBy: {
+        createdAt: 'desc'
+      },
       include: {
         category: {
           select: {
@@ -38,7 +42,8 @@ export const blogRouter = createTRPCRouter({
             color: true,
           }
         }
-      }
+      },
+
     })
   }),
   getOnePost: publicProcedure.input(z.object({slug: z.string()})).query(async ({input, ctx}) => {
