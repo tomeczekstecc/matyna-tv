@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="zdjęcia">
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="detail page">
+      <change afterPath="$PROJECT_DIR$/src/components/Ago.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Category.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +65,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\dev\\martyna-tv\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -138,6 +144,14 @@
       <workItem from="1677313161758" duration="13466000" />
       <workItem from="1677397502970" duration="18691000" />
       <workItem from="1677532949912" duration="2493000" />
+      <workItem from="1678221413238" duration="80000" />
+      <workItem from="1678221513270" duration="1618000" />
+      <workItem from="1678485716695" duration="2377000" />
+      <workItem from="1678574103552" duration="1376000" />
+      <workItem from="1678827907708" duration="1676000" />
+      <workItem from="1679086486365" duration="733000" />
+      <workItem from="1679087564304" duration="23000" />
+      <workItem from="1679150239065" duration="6684000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -189,7 +203,8 @@
     <MESSAGE value="qwdfqwd" />
     <MESSAGE value="trpc add" />
     <MESSAGE value="zdjęcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="zdjęcia" />
+    <MESSAGE value="detail page" />
+    <option name="LAST_COMMIT_MESSAGE" value="detail page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -198,12 +213,6 @@
           <url>file://$PROJECT_DIR$/src/components/gallery.tsx</url>
           <line>21</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/ui/filmCard.tsx</url>
-          <line>17</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

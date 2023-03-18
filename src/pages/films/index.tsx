@@ -9,9 +9,8 @@ export default function index() {
     <>
       <Header
         title={"Filmy"}
-        subtitle={"Ciekawe filmy do obejrzenia"}
-      />
-      <section  className=" grid grid-cols-3 gap-4">
+        subtitle={"Ciekawe filmy do obejrzenia"} className={undefined}/>
+      <section className=" grid grid-cols-3 gap-4">
         {filmsList.map((film) => {
           return (
             <FilmCard

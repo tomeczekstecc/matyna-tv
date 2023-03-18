@@ -15,12 +15,17 @@ import Image from "next/image";
 import BlogCard from "@/components/blogCard";
 import {Header} from "@/components/ui/Header";
 
+
+export const metadata = {
+  title: 'Blog',
+}
+
 export default function IndexPage() {
   const {data: posts, refetch} = api.blog.getAllPosts.useQuery()
 
   // @ts-ignore
   return (
-    <div>
+    <div className={'w-9/12 justify-self-center'}>
       <Header title={'Blog'} subtitle={'Najnowsze wpisy bloga'} className={undefined}/>
       {/*// TODO: only admin*/}
       <div className={'flex justify-between'}>
