@@ -10,7 +10,7 @@ import {transformImg} from "@/utils/transformImg";
 import WYSIWYG from "@/components/WYCIWYG";
 import {Button} from "@/components/ui/button";
 import {Header} from "@/components/ui/Header";
-import {router} from "next/client";
+import router from "next/router";
 
 const BlogForm = ({setPost, post, addBlog}) => {
   return (
