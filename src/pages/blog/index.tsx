@@ -14,6 +14,9 @@ import {api} from "@/utils/api";
 import Image from "next/image";
 import BlogCard from "@/components/blogCard";
 import {Header} from "@/components/ui/Header";
+import {Suspense} from "react";
+import Blog from "./components/Blog";
+import Loading from "@/components/Loading";
 
 
 export const metadata = {
@@ -21,10 +24,12 @@ export const metadata = {
 }
 
 export default function IndexPage() {
-  const {data: posts, refetch} = api.blog.getAllPosts.useQuery()
+  const {data: posts, refetch, isLoading} = api.blog.getAllPosts.useQuery()
 
   // @ts-ignore
+  if (isLoading) return <Loading/>
   return (
+
     <div className={'w-9/12 justify-self-center'}>
       <Header title={'Blog'} subtitle={'Najnowsze wpisy bloga'} className={undefined}/>
       {/*// TODO: only admin*/}
@@ -48,10 +53,9 @@ export default function IndexPage() {
       </div>
       <div className={'grid grid-cols-1 gap-10'}
       >
-        {posts?.map((post) => (
-          <BlogCard refetch={refetch} key={post.id} post={post}/>
-
-        ))}
+        <Suspense fallback={<div>LOADING... LOADING...</div>}>
+          <Blog refetch={refetch} posts={posts}/>
+        </Suspense>
       </div>
     </div>
   )

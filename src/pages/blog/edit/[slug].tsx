@@ -1,7 +1,9 @@
 import {useRouter} from "next/router";
 import BlogForm from "@/components/blogForm";
-import {useEffect, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 import {api} from "@/utils/api";
+import {is} from "date-fns/locale";
+import Loading from "@/components/Loading";
 
 const EditBlogPage = () => {
   const router = useRouter();
@@ -10,7 +12,7 @@ const EditBlogPage = () => {
 
   // @ts-ignore
   const {data: postData, isLoading} = api.blog.getOnePost.useQuery({slug}, {refetchOnWindowFocus: false})
-  const {mutate: updatePost} = api.blog.updateOnePost.useMutation()
+  const {mutate: updatePost} = api.blog.updateOnePost.useMutation({onSuccess: () => router.push('/blog')})
 
 
   useEffect(() => {
@@ -24,7 +26,10 @@ const EditBlogPage = () => {
 
   return (
     <div>
-      <BlogForm setPost={setPost} post={post} addBlog={updatePost}/>
+      {isLoading && <Loading/>}
+      <Suspense fallback={<div>LOADING... LOADING...</div>}>
+        <BlogForm setPost={setPost} post={post} addBlog={updatePost}/>
+      </Suspense>
     </div>
   );
 };

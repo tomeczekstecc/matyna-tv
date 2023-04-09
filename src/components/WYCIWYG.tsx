@@ -1,13 +1,13 @@
-import React, { useRef } from "react"
-import { getWysiwygConfig } from "@/config/wysiwyg"
-import { Editor } from "@tinymce/tinymce-react"
-import { useTheme } from "next-themes"
+import React, {useRef} from "react"
+import {getWysiwygConfig} from "@/config/wysiwyg"
+import {Editor} from "@tinymce/tinymce-react"
+import {useTheme} from "next-themes"
 import PropTypes from "prop-types"
 
-import { Label } from "@/components/ui/label"
+import {Label} from "@/components/ui/label"
 
 export default function WYSIWYG(props: { label: string, value: string, onChange: (value: string) => void }) {
-  const { theme } = useTheme()
+  const {theme} = useTheme()
   const editorRef = useRef(null)
   return (
     <>
@@ -20,10 +20,8 @@ export default function WYSIWYG(props: { label: string, value: string, onChange:
         // initialValue="<p>Tutaj umieść treść</p>"
         init={getWysiwygConfig(theme)}
         value={props.value}
-        onChange={(e) => {
-          props.onChange(e.target.getContent())
-          }
-        }
+        onEditorChange={props.onChange}
+
       />
     </>
   )

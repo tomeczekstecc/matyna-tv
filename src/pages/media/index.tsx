@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {Suspense, useEffect, useState} from 'react';
 import {Button} from "@/components/ui/button";
 import {Upload} from "lucide-react";
 import Image from "next/image";
@@ -94,7 +94,9 @@ export default function MediaPage(props) {
         <TabsContent value="images">
           <div className={'flex-2'}>
             <Header className={'mb-8'} title={'Przesłane zdjęcia'} subtitle={'lista plików na serwerze'}/>
-            <Gallery/>
+            <Suspense fallback={<h1>LOADING... LOADING...</h1>}>
+              <Gallery/>
+            </Suspense>
           </div>
         </TabsContent>
       </Tabs>

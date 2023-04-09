@@ -9,6 +9,8 @@ import Image from "next/image";
 import {transformImg} from "@/utils/transformImg";
 import WYSIWYG from "@/components/WYCIWYG";
 import {Button} from "@/components/ui/button";
+import {Header} from "@/components/ui/Header";
+import {router} from "next/client";
 
 const BlogForm = ({setPost, post, addBlog}) => {
   return (
@@ -19,6 +21,7 @@ const BlogForm = ({setPost, post, addBlog}) => {
     >
 
       <div>
+        <Header title={'Dodaj lub edytuj wpis bloga'} subtitle={'Wypełnij formularz poniżej'} className={'mb-10'}/>
         <Label htmlFor={"title"} className={"mb-0"}>
           Tytuł
         </Label>
@@ -82,7 +85,10 @@ const BlogForm = ({setPost, post, addBlog}) => {
         }
       </div>
       <WYSIWYG value={post.content} onChange={e => setPost(prev => ({...prev, content: e}))}/>
-      <Button onClick={() => addBlog(post)}>Zapisz</Button>
+      <Button onClick={() => {
+        addBlog(post)
+        router.push('/blog')
+      }}>Zapisz</Button>
     </div>
   )
 }

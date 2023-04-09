@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="detail page">
-      <change afterPath="$PROJECT_DIR$/src/components/Ago.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Category.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/blog/components/Blog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WYCIWYG.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/media/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/media/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,12 +58,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/src/pages&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\dev\\martyna-tv\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\dev\\martyna-tv\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -77,9 +78,9 @@
       <recent name="C:\dev\martyna-tv\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src" />
       <recent name="C:\dev\martyna-tv\src\pages\blog" />
       <recent name="C:\dev\martyna-tv\public" />
-      <recent name="C:\dev\martyna-tv\src" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -151,7 +152,12 @@
       <workItem from="1678827907708" duration="1676000" />
       <workItem from="1679086486365" duration="733000" />
       <workItem from="1679087564304" duration="23000" />
-      <workItem from="1679150239065" duration="6684000" />
+      <workItem from="1679150239065" duration="7320000" />
+      <workItem from="1679177092756" duration="1858000" />
+      <workItem from="1679256738307" duration="2923000" />
+      <workItem from="1679342555361" duration="585000" />
+      <workItem from="1681032886082" duration="273000" />
+      <workItem from="1681033170428" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -181,11 +187,24 @@
       <option name="project" value="LOCAL" />
       <updated>1677430956382</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="detail page">
+      <created>1679168794813</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679168794813</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:prettier" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tailwindcss" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:next" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:postcss" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -211,8 +230,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/gallery.tsx</url>
-          <line>21</line>
-          <option name="timeStamp" value="1" />
+          <line>59</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
