@@ -21,7 +21,9 @@ const DetailBlogPage = () => {
       <div className="flex justify-center gap-10">
         <Image
           className="rounded-lg"
+          placeholder={'blur'}
           src={data?.imgURL!}
+          blurDataURL={'/noimage.jpg'}
           width={600}
           height={400}
           alt={data?.title || "Blog Image"}

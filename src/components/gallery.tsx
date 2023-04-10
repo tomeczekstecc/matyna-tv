@@ -46,8 +46,10 @@ const Gallery = (props) => {
                 <div onClick={() => props.setCurUrl(item.image)}>
 
                   <Image
-                    className={'rounded-xl'}
+                    placeholder={'blur'}
 
+                    className={'rounded-xl'}
+                    blurDataURL={'/noimage.jpg'}
                     // @ts-ignore
                     src={transformImg(item.image, 450, 300)}
                     alt={'picture'} width={450} height={300}/>

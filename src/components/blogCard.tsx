@@ -3,7 +3,6 @@ import {api} from "@/utils/api"
 import {transformImg} from "@/utils/transformImg"
 import {Edit, Trash} from "lucide-react"
 
-import {Button} from "@/components/ui/button"
 import Category from "./Category"
 import Ago from "@/components/Ago";
 
@@ -17,7 +16,6 @@ const BlogCard = ({post, refetch}) => {
     onSuccess: () => refetch(),
   })
 
-  console.log(post, "post")
 
   // @ts-ignore
   return (

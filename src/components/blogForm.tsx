@@ -80,8 +80,11 @@ const BlogForm = ({setPost, post, addBlog}) => {
       </span>
         </article>
         {post.imgURL &&
-          <Image blurDataURL={'/noimage.jpg'} src={transformImg(post.imgURL, 450, 300)} alt={'image to upload'}
-                 height={300} width={450}/>
+          <Image
+            placeholder={'blur'}
+            blurDataURL={'/noimage.jpg'}
+            src={transformImg(post.imgURL, 450, 300)} alt={'image to upload'}
+            height={300} width={450}/>
         }
       </div>
       <WYSIWYG value={post.content} onChange={e => setPost(prev => ({...prev, content: e}))}/>

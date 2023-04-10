@@ -73,8 +73,13 @@ export default function MediaPage(props) {
             <form className={'mt-9'} method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
               <input type="file" name="file"/>
               {imageSrc && !uploadData &&
-                <Image className={'my-9'} src={transformImg(imageSrc, 450, 300)} height={300} width={450}
-                       alt={'preview'}/>
+                <Image
+                  placeholder={'blur'}
+
+                  blurDataURL={'/noimage.jpg'}
+                  className={'my-9'}
+                  src={transformImg(imageSrc, 450, 300)} height={300} width={450}
+                  alt={'preview'}/>
               }
               {imageSrc && !uploadData && (
                 <Button>

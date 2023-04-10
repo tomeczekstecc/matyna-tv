@@ -11,8 +11,6 @@ import {
 } from "@/components/ui/tooltip"
 import Link from "next/link";
 import {api} from "@/utils/api";
-import Image from "next/image";
-import BlogCard from "@/components/blogCard";
 import {Header} from "@/components/ui/Header";
 import {Suspense} from "react";
 import Blog from "./components/Blog";

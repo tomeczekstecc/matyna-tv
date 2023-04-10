@@ -4,10 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="fix router">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="switch to planet scale">
+      <change afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/noimage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/noimage.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gallery.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/icons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/site.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/site.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/media/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/media/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/root.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/root.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +96,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\dev\martyna-tv\src" />
+      <recent name="C:\dev\martyna-tv" />
       <recent name="C:\dev\martyna-tv\src\pages\blog" />
       <recent name="C:\dev\martyna-tv\public" />
     </key>
@@ -199,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681035349583</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="switch to planet scale">
+      <created>1681054604013</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681054604013</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,14 +256,15 @@
     <MESSAGE value="zdjęcia" />
     <MESSAGE value="detail page" />
     <MESSAGE value="fix router" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix router" />
+    <MESSAGE value="switch to planet scale" />
+    <option name="LAST_COMMIT_MESSAGE" value="switch to planet scale" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/gallery.tsx</url>
-          <line>59</line>
+          <line>61</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

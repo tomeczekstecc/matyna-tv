@@ -4,6 +4,7 @@ import {Inter as FontSans} from "@next/font/google"
 import {ThemeProvider} from "next-themes"
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
+import {SessionProvider} from "next-auth/react";
 
 import "@/styles/globals.css"
 import {Layout} from "@/components/layout"
@@ -28,11 +29,13 @@ function App({Component, pageProps}: AppProps) {
 
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false}/>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </SessionProvider>
       </QueryClientProvider>
     </>
   )

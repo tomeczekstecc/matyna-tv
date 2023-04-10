@@ -1,4 +1,4 @@
-import { NavItem } from "@/types/nav"
+import {NavItem} from "@/types/nav"
 
 interface SiteConfig {
   name: string
@@ -8,6 +8,7 @@ interface SiteConfig {
     twitter: string
     github: string
     docs: string
+    logout: string
   }
 }
 
@@ -37,5 +38,6 @@ export const siteConfig: SiteConfig = {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
     docs: "https://ui.shadcn.com",
+    logout: "#",
   },
 }
