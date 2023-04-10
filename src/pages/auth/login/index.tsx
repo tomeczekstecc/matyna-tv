@@ -12,16 +12,16 @@ const LoginPage = () => {
 
   const {query} = useRouter()
 
-  // useEffect(() => {
-  //   if (query.callbackUrl && session?.user?.email) {
-  //     router.push(query.callbackUrl as string)
-  //   }
-  //
-  //   if (session?.user?.email) {
-  //     router.push('/')
-  //   }
-  // }, [query.callbackUrl, router, session])
-  //
+  useEffect(() => {
+    if (query.callbackUrl && session?.user?.email) {
+      router.push(query.callbackUrl as string)
+    }
+
+    if (session?.user?.email) {
+      router.push('/')
+    }
+  }, [query.callbackUrl, router, session])
+
 
   const [form, setForm] = React.useState({
     email: '',
