@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="add next-auth">
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="useEffect" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +153,7 @@
       <workItem from="1679342555361" duration="585000" />
       <workItem from="1681032886082" duration="273000" />
       <workItem from="1681033170428" duration="36000" />
-      <workItem from="1681111731133" duration="611000" />
+      <workItem from="1681111731133" duration="823000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -215,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681111764045</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="useEffect">
+      <created>1681112390956</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681112390956</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +250,8 @@
     <MESSAGE value="fix router" />
     <MESSAGE value="switch to planet scale" />
     <MESSAGE value="add next-auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="add next-auth" />
+    <MESSAGE value="useEffect" />
+    <option name="LAST_COMMIT_MESSAGE" value="useEffect" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
