@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="useEffect" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="useEffect">
+      <change afterPath="$PROJECT_DIR$/redux/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +83,7 @@
       <recent name="C:\dev\martyna-tv\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src\pages\auth\forget" />
       <recent name="C:\dev\martyna-tv\src" />
       <recent name="C:\dev\martyna-tv" />
       <recent name="C:\dev\martyna-tv\src\pages\blog" />
@@ -153,7 +165,7 @@
       <workItem from="1679342555361" duration="585000" />
       <workItem from="1681032886082" duration="273000" />
       <workItem from="1681033170428" duration="36000" />
-      <workItem from="1681111731133" duration="823000" />
+      <workItem from="1681111731133" duration="10280000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -218,7 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681112390956</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="useEffect">
+      <created>1681112589678</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681112589678</updated>
+    </task>
+    <task id="LOCAL-00011" summary="useEffect">
+      <created>1681113017380</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681113017380</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

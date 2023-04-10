@@ -33,16 +33,20 @@ model Category {
 }
 
 model User {
-  id        String     @id @default(cuid())
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  email     String     @unique
-  password  String
-  name      String
-  surname   String
-  role      Role       @default(USER)
-  BlogPost  BlogPost[]
-  Comment   Comment[]
+  id         String     @id @default(cuid())
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  email      String     @unique
+  password   String
+  name       String
+  surname    String
+  role       Role       @default(USER)
+  resetToken String?
+  banned     Boolean    @default(false)
+  verified   Boolean    @default(false)
+  verifiedAt DateTime?
+  BlogPost   BlogPost[]
+  Comment    Comment[]
 }
 
 model Comment {

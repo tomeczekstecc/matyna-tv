@@ -2,6 +2,7 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials";
 import {PrismaClient} from "@prisma/client";
 import bcrypt from "bcryptjs";
+import {TRPCError} from "@trpc/server";
 
 const prisma = new PrismaClient();
 
@@ -28,14 +29,27 @@ export default NextAuth({
           throw new Error('No user found')
         }
 
+        console.log(user, '')
         const isValid = await bcrypt.compare(password, user.password)
 
-        if (!isValid) {
-          throw new Error('Invalid password')
+        if (!isValid || !user.verified) {
+          throw new TRPCError({
+            code: 'UNAUTHORIZED',
+            message: 'Invalid credentials or user not verified',
+            cause: 'Invalid credentials or user not verified'
+          })
         }
         if (user) {
+
           // Any object returned will be saved in `user` property of the JWT
-          return user
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            surname: user.surname,
+            role: user.role,
+            
+          }
         } else {
           console.log('no user')
         }
@@ -43,12 +57,6 @@ export default NextAuth({
 
     })
   ],
-  logger: {
-    error: (message) => {
-      console.log(message)
-
-    }
-  },
   pages: {
     signIn: '/auth/login',
     signOut: '/',
