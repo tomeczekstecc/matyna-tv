@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Checkbox} from "@/components/ui/checkbox"
 import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button";
@@ -12,9 +12,16 @@ const LoginPage = () => {
 
   const {query} = useRouter()
 
-  if (query.callbackUrl && session?.user?.email) {
-    router.push(query.callbackUrl as string)
-  }
+  useEffect(() => {
+    if (query.callbackUrl && session?.user?.email) {
+      router.push(query.callbackUrl as string)
+    }
+
+    if (session?.user?.email) {
+      router.push('/')
+    }
+  }, [query.callbackUrl, router, session])
+
 
   const [form, setForm] = React.useState({
     email: '',
