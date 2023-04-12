@@ -21,10 +21,10 @@ export function SiteHeader() {
 
         <div className="flex flex-1 items-center justify-end space-x-4">
           {session ? <Button onClick={() => signOut()} size="sm" variant="ghost">
-            Sign out
+            Wyloguj się
           </Button> : <Link href="/auth/login">
             <Button size="sm" variant="ghost">
-              Sign in
+              Zaloguj się
             </Button>
           </Link>}
           <nav className="flex items-center space-x-1">
@@ -62,13 +62,13 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
-            <Link href={"#"}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    return signOut()
-                  }}
+            {session?.user?.email && <Link href={"#"}
+                                           target="_blank"
+                                           rel="noreferrer"
+                                           onClick={(e) => {
+                                             e.preventDefault()
+                                             return signOut()
+                                           }}
             >
               <div
                 className={buttonVariants({
@@ -80,7 +80,7 @@ export function SiteHeader() {
                 <Icons.logOut className="h-5 w-5 fill-current"/>
                 <span className="sr-only">Facebook</span>
               </div>
-            </Link>
+            </Link>}
 
             <ThemeToggle/>
 

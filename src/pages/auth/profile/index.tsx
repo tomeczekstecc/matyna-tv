@@ -5,28 +5,19 @@ import {Button} from "@/components/ui/button";
 import {signIn, useSession} from "next-auth/react";
 import {useRouter} from 'next/router'
 import Link from "next/link";
+import {api} from "@/utils/api";
+import {z} from "zod";
 
 
 const LoginPage = () => {
   const router = useRouter()
   const {data: session} = useSession();
 
-  const {query} = useRouter()
-
-  useEffect(() => {
-    if (query.callbackUrl && session?.user?.email) {
-      router.push(query.callbackUrl as string)
-    }
-
-    if (session?.user?.email) {
-      router.push('/')
-    }
-  }, [query.callbackUrl, router, session])
-
-
   const [form, setForm] = React.useState({
     email: '',
-    password: ''
+    oldPassword: '',
+    newPassword: '',
+    confirmPassword: '',
   })
 
   const handleChange = (e) => {
@@ -37,15 +28,15 @@ const LoginPage = () => {
     })
   }
 
+  const {mutate: change} = api.user.changePassword.useMutation({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const data = await signIn('credentials', {
-        redirect: false,
-        email: form.email,
-        password: form.password
+      await change({
+        ...form
       })
+
     } catch (e) {
       console.log(e)
     }
@@ -57,7 +48,7 @@ const LoginPage = () => {
         <div>
 
           <h2 className="mt-6 text-center text-3xl font-extrabold">
-            Zaloguj się do swojego konta
+            Zmień hasło
           </h2>
 
         </div>
@@ -65,28 +56,28 @@ const LoginPage = () => {
           <div className="mt-6">
             <form onSubmit={handleSubmit} method="POST" className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium ">
-                  Email address
+                <label htmlFor="oldPassword" className="block text-sm font-medium ">
+                  Stare hasło
                 </label>
                 <div className="mt-1">
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
+                    id="oldPassword"
+                    name="oldPassword"
+                    type="password"
+                    autoComplete="password"
                     required
                     onChange={handleChange}
                   />
                 </div>
               </div>
               <div className="space-y-1">
-                <label htmlFor="password" className="block text-sm font-medium">
-                  Password
+                <label htmlFor="newPassword" className="block text-sm font-medium">
+                  Nowe hasło
                 </label>
                 <div className="mt-1">
                   <Input
-                    id="password"
-                    name="password"
+                    id="newPassword"
+                    name="newPassword"
                     type="password"
                     autoComplete="current-password"
                     required
@@ -94,31 +85,26 @@ const LoginPage = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Checkbox
-                    id="remember_me"
-                    name="remember_me"
+              <div className="space-y-1">
+                <label htmlFor="confirmPassword" className="block text-sm font-medium">
+                  Potwierdź nowe hasło
+                </label>
+                <div className="mt-1">
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    onChange={handleChange}
                   />
-                  <label htmlFor="remember_me" className="ml-2 block text-sm">
-                    Zapamiętaj mie
-                  </label>
-                </div>
-                <div className="text-sm">
-                  <Link href="/auth/forget" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Odzyskaj hasło
-                  </Link>
-                </div>
-                <div className="text-sm">
-                  <Link href="/auth/register" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Zarejestruj się
-                  </Link>
                 </div>
               </div>
+
               <div className={'w-full'}>
                 <Button
                   className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
-                  Zaloguj się
+                  Zmień hasło
                 </Button>
               </div>
             </form>

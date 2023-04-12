@@ -5,6 +5,7 @@ import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button";
 // import ReactJson from 'react-json-view'
 import {api} from "@/utils/api";
+import Link from "next/link";
 
 
 const RegisterPage = () => {
@@ -145,10 +146,16 @@ const RegisterPage = () => {
                 </label>
               </div>
               <div>
+                <div className="my-3 text-sm">
+                  <Link href="/auth/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Wróć do logowania
+                  </Link>
+                </div>
+
                 <Button
                   type="submit"
                   className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                  Sign in
+                  Zaloguj się
                 </Button>
               </div>
             </form>

@@ -4,16 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="useEffect">
-      <change afterPath="$PROJECT_DIR$/redux/store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="forget front">
+      <change afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/auth/verify/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/config/nodemailer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/helpers/makeToken.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/helpers/validVerificationUrl.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/services/sendMail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/next-auth.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/trpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/trpc.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +74,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/src/pages/auth&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,17 +88,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src\pages\auth" />
       <recent name="C:\dev\martyna-tv" />
       <recent name="C:\dev\martyna-tv\src\pages" />
       <recent name="C:\dev\martyna-tv\src\server\api\routers" />
       <recent name="C:\dev\martyna-tv\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src\types" />
+      <recent name="C:\dev\martyna-tv\src\server\services" />
       <recent name="C:\dev\martyna-tv\src\pages\auth\forget" />
       <recent name="C:\dev\martyna-tv\src" />
       <recent name="C:\dev\martyna-tv" />
-      <recent name="C:\dev\martyna-tv\src\pages\blog" />
-      <recent name="C:\dev\martyna-tv\public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -165,7 +177,10 @@
       <workItem from="1679342555361" duration="585000" />
       <workItem from="1681032886082" duration="273000" />
       <workItem from="1681033170428" duration="36000" />
-      <workItem from="1681111731133" duration="10280000" />
+      <workItem from="1681111731133" duration="27133000" />
+      <workItem from="1681148923886" duration="46887000" />
+      <workItem from="1681236572450" duration="12122000" />
+      <workItem from="1681330873240" duration="854000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -244,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681113017380</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="forget front">
+      <created>1681129008839</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681129008839</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +299,8 @@
     <MESSAGE value="switch to planet scale" />
     <MESSAGE value="add next-auth" />
     <MESSAGE value="useEffect" />
-    <option name="LAST_COMMIT_MESSAGE" value="useEffect" />
+    <MESSAGE value="forget front" />
+    <option name="LAST_COMMIT_MESSAGE" value="forget front" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

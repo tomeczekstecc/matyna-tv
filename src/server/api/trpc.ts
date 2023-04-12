@@ -22,11 +22,13 @@
  * This is where the tRPC API is initialized, connecting the context and
  * transformer.
  */
-import { TRPCError, initTRPC } from "@trpc/server"
-import { type CreateNextContextOptions } from "@trpc/server/adapters/next"
+import {TRPCError, initTRPC} from "@trpc/server"
+import {type CreateNextContextOptions} from "@trpc/server/adapters/next"
 import superjson from "superjson"
 
-import { prisma } from "../db"
+import {prisma} from "../db"
+import {decode} from "next-auth/jwt";
+import {ZodError} from "zod";
 
 type CreateContextOptions = Record<string, never>
 
@@ -52,17 +54,39 @@ const createInnerTRPCContext = (_opts: CreateContextOptions) => {
  *
  * @see https://trpc.io/docs/context
  */
-export const createTRPCContext = (_opts: CreateNextContextOptions) => {
-  const { req, res } = _opts
-  return { ...createInnerTRPCContext({}), req, res }
-}
+export const createTRPCContext = async (opts: CreateNextContextOptions) => {
+  const {req} = opts;
 
+  const user = await decode({
+    token: req.cookies?.['next-auth.session-token'], secret: process.env.NEXTAUTH_SECRET as string
+  })
+
+
+  return {
+    prisma,
+    user,
+    req,
+  };
+};
+
+/**
+ * 2. INITIALIZATION
+ *
+ * This is where the tRPC API is initialized, connecting the context and transformer.
+ */
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
-  errorFormatter({ shape }) {
-    return shape
-  },
-})
+  errorFormatter({shape, error}) {
+    return {
+      ...shape,
+      data: {
+        ...shape.data,
+        zodError:
+          error.cause instanceof ZodError ? error.cause.flatten() : null
+      }
+    };
+  }
+});
 
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)

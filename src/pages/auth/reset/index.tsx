@@ -3,15 +3,17 @@ import {signIn} from "next-auth/react";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {api} from "@/utils/api";
-import Link from "next/link";
+import {useRouter} from "next/router";
 
-const ForgetPassword = () => {
+const ResetPassword = () => {
   const [form, setForm] = React.useState({
     email: '',
-    password: ''
+    password: '',
   })
 
-  const {mutate: requestResetPassword} = api.user.requestResetPassword.useMutation({})
+  const router = useRouter()
+  const {token, signature} = router.query
+  const {mutate: resetPassword} = api.user.resetPassword.useMutation({})
 
   const handleChange = (e) => {
     const {name, value, type, checked} = e.target
@@ -25,7 +27,7 @@ const ForgetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await requestResetPassword(form)
+      await resetPassword({...form, token: token as string, signature: signature as string})
 
     } catch (e) {
       console.log(e)
@@ -36,8 +38,9 @@ const ForgetPassword = () => {
     <div className="-mt-28 flex h-[80vh] flex-col items-center justify-center py-2 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
         <div>
+
           <h2 className="mt-6 text-center text-3xl font-extrabold">
-            Zresetuj hasło
+            Podaj nowe hasło
           </h2>
 
         </div>
@@ -60,22 +63,27 @@ const ForgetPassword = () => {
                   />
                 </div>
               </div>
-              <div className={'flex justify-between'}>
-                <div className="text-sm">
-                  <Link href="/auth/login" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Wróć do logowania
-                  </Link>
-                </div>
-                <div className="text-sm">
-                  <Link href="/auth/register" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Zarejestruj się
-                  </Link>
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium ">
+                  Nowe hasło
+                </label>
+                <div className="mt-1">
+                  <Input
+                    placeholder={'Nowe hasło'}
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="password"
+                    required
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
+
               <div className={'w-full'}>
                 <Button
                   className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
-                  Resetuj hasło
+                  Utwórz nowe hasło
                 </Button>
               </div>
             </form>
@@ -85,4 +93,4 @@ const ForgetPassword = () => {
     </div>
   )
 }
-export default ForgetPassword
+export default ResetPassword
