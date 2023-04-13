@@ -1,5 +1,6 @@
 import NextAuth, {NextAuthOptions} from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials";
+import GooleProvider from "next-auth/providers/google";
 import {PrismaClient} from "@prisma/client";
 import {PrismaAdapter} from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
@@ -14,12 +15,14 @@ const prisma = new PrismaClient();
 export const authOptions: NextAuthOptions =
   {
     // adapter: PrismaAdapter(prisma),
+
     // Configure one or more authentication providers
     session: {
       strategy: 'jwt',
     },
     providers: [
       CredentialsProvider({
+        name: 'credentials',
         // @ts-ignore
         async authorize(credentials, req) {
           // Add logic here to look up the user from the credentials supplied
@@ -60,11 +63,17 @@ export const authOptions: NextAuthOptions =
           }
         },
 
-      })
+      }),
+      GooleProvider({
+          name: 'google',
+          clientId: process.env.GOOGLE_CLIENT_ID as string,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        }
+      ),
     ],
     pages: {
       signIn: '/auth/login',
-      signOut: '/',
+      signOut: '/auth/login',
     },
     callbacks: {
       async session({token, session}) {

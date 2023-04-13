@@ -1,3 +1,5 @@
+'use client'
+
 import React, {useEffect} from 'react'
 import {Checkbox} from "@/components/ui/checkbox"
 import {Input} from "@/components/ui/input"
@@ -117,14 +119,23 @@ const LoginPage = () => {
               </div>
               <div className={'w-full'}>
                 <Button
+                  type="submit"
                   className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
                   Zaloguj się
+                </Button>
+              </div>
+              <div className={'w-full'}>
+                <Button
+                  onClick={() => signIn('google')}
+                  className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                  Zaloguj się z Google
                 </Button>
               </div>
             </form>
           </div>
         </div>
       </div>
+
     </div>
 
   )

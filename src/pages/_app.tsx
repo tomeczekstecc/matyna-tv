@@ -17,7 +17,7 @@ const fontSans = FontSans({
 
 const queryClient = new QueryClient();
 
-function App({Component, pageProps}: AppProps) {
+function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
   return (
     <>
       <style jsx global>{`
@@ -29,7 +29,7 @@ function App({Component, pageProps}: AppProps) {
 
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false}/>
-        <SessionProvider>
+        <SessionProvider session={session}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Layout>
               <Component {...pageProps} />
