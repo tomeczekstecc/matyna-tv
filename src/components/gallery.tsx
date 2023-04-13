@@ -5,7 +5,7 @@ import {api} from "@/utils/api";
 import {useEffect, useState} from "react";
 import {AxiosCloudinary} from "@/utils/axios";
 import {mapImages} from "@/lib/cloudinary";
-
+import {LoadingPage} from "@/components/loading";
 
 const Gallery = (props) => {
   const [images, setImages] = useState([])
@@ -33,11 +33,13 @@ const Gallery = (props) => {
     }
   }, [media])
 
-  return (
+  return (<div>  {isLoading && <LoadingPage size={30}/>}
     <section className={'grid grid-cols-4 gap-6'}>
+
       {images?.map((item, index) => {
           // @ts-ignore
           return (
+
             <div className={'flex justify-items-center rounded-xl align-middle transition hover:scale-150'}
                  key={index}>
               <div className={'cursor-pointer'}>
@@ -65,7 +67,7 @@ const Gallery = (props) => {
 
     </section>
 
-  )
+  </div>)
 }
 
 export default Gallery

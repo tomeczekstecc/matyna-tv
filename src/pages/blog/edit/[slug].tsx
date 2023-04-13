@@ -3,7 +3,7 @@ import BlogForm from "@/components/blogForm";
 import {Suspense, useEffect, useState} from "react";
 import {api} from "@/utils/api";
 import {is} from "date-fns/locale";
-import Loading from "@/components/Loading";
+import {LoadingSpinner, LoadingPage} from "@/components/loading"
 
 const EditBlogPage = () => {
   const router = useRouter();
@@ -26,8 +26,8 @@ const EditBlogPage = () => {
 
   return (
     <div>
-      {isLoading && <Loading/>}
-      <Suspense fallback={<div>LOADING... LOADING...</div>}>
+      {isLoading && <LoadingPage/>}
+      <Suspense fallback={<LoadingPage/>}>
         <BlogForm setPost={setPost} post={post} addBlog={updatePost}/>
       </Suspense>
     </div>

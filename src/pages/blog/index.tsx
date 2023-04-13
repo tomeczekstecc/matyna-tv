@@ -14,7 +14,8 @@ import {api} from "@/utils/api";
 import {Header} from "@/components/ui/Header";
 import {Suspense} from "react";
 import Blog from "./components/Blog";
-import Loading from "@/components/Loading";
+import {LoadingPage} from "@/components/loading";
+import {useSession} from "next-auth/react";
 
 
 export const metadata = {
@@ -24,8 +25,12 @@ export const metadata = {
 export default function IndexPage() {
   const {data: posts, refetch, isLoading} = api.blog.getAllPosts.useQuery()
 
+  const {data: session} = useSession()
+
+  console.log(session?.user)
+
   // @ts-ignore
-  if (isLoading) return <Loading/>
+  if (isLoading) return <LoadingPage size={50}/>
   return (
 
     <div className={'w-9/12 justify-self-center'}>
@@ -34,7 +39,7 @@ export default function IndexPage() {
       <div className={'flex justify-between'}>
         <div>{' '}</div>
         <div className={'mb-3'}>
-          <TooltipProvider>
+          {session?.user?.role === 'ADMIN' && <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link href={'blog/new'}>
@@ -47,11 +52,12 @@ export default function IndexPage() {
                 <p>Dodaj wpis bloga</p>
               </TooltipContent>
             </Tooltip>
-          </TooltipProvider></div>
+          </TooltipProvider>}
+        </div>
       </div>
       <div className={'grid grid-cols-1 gap-10'}
       >
-        <Suspense fallback={<div>LOADING... LOADING...</div>}>
+        <Suspense fallback={<LoadingPage size={50}/>}>
           <Blog refetch={refetch} posts={posts}/>
         </Suspense>
       </div>

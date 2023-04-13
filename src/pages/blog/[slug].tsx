@@ -13,8 +13,6 @@ const DetailBlogPage = () => {
   // @ts-ignore
   const {data, error, isLoading} = api.blog.getOnePost.useQuery({slug})
 
-  // @ts-ignore
-  // @ts-ignore
   return (
     <div className={'cent'}>
       <h1 className={"mb-4 text-center text-5xl font-bold"}>{data?.title}</h1>

@@ -6,6 +6,7 @@ import {Header} from "@/components/ui/Header";
 import Gallery from "@/components/gallery";
 import {transformImg} from "@/utils/transformImg";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {LoadingSpinner} from "@/components/loading";
 
 export default function MediaPage(props) {
 
@@ -99,7 +100,7 @@ export default function MediaPage(props) {
         <TabsContent value="images">
           <div className={'flex-2'}>
             <Header className={'mb-8'} title={'Przesłane zdjęcia'} subtitle={'lista plików na serwerze'}/>
-            <Suspense fallback={<h1>LOADING... LOADING...</h1>}>
+            <Suspense fallback={<LoadingSpinner size={30}/>}>
               <Gallery/>
             </Suspense>
           </div>
