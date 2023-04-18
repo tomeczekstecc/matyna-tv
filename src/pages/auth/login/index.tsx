@@ -32,7 +32,7 @@ const LoginPage = () => {
   })
 
   const handleChange = (e) => {
-    const {name, value, type, checked} = e.target
+    const {name, value} = e.target
     setForm({
       ...form,
       [name]: value
@@ -43,7 +43,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const data = await signIn('credentials', {
+      await signIn('credentials', {
         redirect: false,
         email: form.email,
         password: form.password
@@ -124,14 +124,23 @@ const LoginPage = () => {
                   Zaloguj się
                 </Button>
               </div>
-              <div className={'w-full'}>
-                <Button
-                  onClick={() => signIn('google')}
-                  className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
-                  Zaloguj się z Google
-                </Button>
-              </div>
             </form>
+          </div>
+          <div className={'flex space-x-6'}>
+            <div className={'mt-6 w-full'}>
+              <Button
+                onClick={() => signIn('google')}
+                className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                Zaloguj się z Google
+              </Button>
+            </div>
+            <div className={'mt-6 w-full'}>
+              <Button
+                onClick={() => signIn('google')}
+                className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                Zaloguj się z Facebook
+              </Button>
+            </div>
           </div>
         </div>
       </div>
