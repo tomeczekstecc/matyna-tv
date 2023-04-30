@@ -21,12 +21,22 @@ export function SiteHeader() {
 
         <div className="flex flex-1 items-center justify-end space-x-4">
           {session ? <Button onClick={() => signOut()} size="sm" variant="ghost">
-            Wyloguj się
-          </Button> : <Link href="/auth/login">
-            <Button size="sm" variant="ghost">
-              Zaloguj się
-            </Button>
-          </Link>}
+              Wyloguj się
+            </Button> :
+            (<>
+                <Link href="/auth/login">
+                  <Button size="sm" variant="ghost">
+                    Zaloguj się
+                  </Button>
+                </Link>
+                <Link href="/auth/register">
+                  <Button size="sm" variant="ghost">
+                    Zarejestruj się
+                  </Button>
+                </Link>
+              </>
+            )
+          }
           <nav className="flex items-center space-x-1">
             <Link
               href={siteConfig.links.github}

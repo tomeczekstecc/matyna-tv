@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="refactor posts list">
+      <change afterPath="$PROJECT_DIR$/public/g1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Category.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/components/Blog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/media.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/media.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +179,12 @@
       <workItem from="1681488954190" duration="743000" />
       <workItem from="1681759758884" duration="4091000" />
       <workItem from="1681844277747" duration="3028000" />
+      <workItem from="1682263430070" duration="4000" />
+      <workItem from="1682263751281" duration="21000" />
+      <workItem from="1682280754221" duration="2859000" />
+      <workItem from="1682796413718" duration="51000" />
+      <workItem from="1682808781871" duration="595000" />
+      <workItem from="1682882037825" duration="4063000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>

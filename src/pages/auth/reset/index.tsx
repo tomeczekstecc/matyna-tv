@@ -4,6 +4,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {api} from "@/utils/api";
 import {useRouter} from "next/router";
+import {Icons} from "@/components/icons";
 
 const ResetPassword = () => {
   const [form, setForm] = React.useState({
@@ -36,6 +37,7 @@ const ResetPassword = () => {
   }
   return (
     <div className="-mt-28 flex h-[80vh] flex-col items-center justify-center py-2 sm:px-6 lg:px-8">
+      <Icons.logo className="mb-1 h-20 w-20 "/>
       <div className="w-full max-w-md">
         <div>
 

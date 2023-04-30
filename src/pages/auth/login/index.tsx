@@ -7,7 +7,10 @@ import {Button} from "@/components/ui/button";
 import {signIn, useSession} from "next-auth/react";
 import {useRouter} from 'next/router'
 import Link from "next/link";
-
+import Image from "next/image";
+import {FacebookIcon, Facebook} from "lucide-react"
+import {Separator} from "@/components/ui/separator"
+import {Icons} from "@/components/icons";
 
 const LoginPage = () => {
   const router = useRouter()
@@ -55,6 +58,8 @@ const LoginPage = () => {
   }
   return (
     <div className="-mt-28 flex h-[80vh] flex-col items-center justify-center py-2 sm:px-6 lg:px-8">
+      <Icons.logo className="mb-1 h-20 w-20 "/>
+
       <div className="w-full max-w-md">
         <div>
 
@@ -97,15 +102,15 @@ const LoginPage = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Checkbox
-                    id="remember_me"
-                    name="remember_me"
-                  />
-                  <label htmlFor="remember_me" className="ml-2 block text-sm">
-                    Zapamiętaj mie
-                  </label>
-                </div>
+                {/*<div className="flex items-center">*/}
+                {/*  <Checkbox*/}
+                {/*    id="remember_me"*/}
+                {/*    name="remember_me"*/}
+                {/*  />*/}
+                {/*  <label htmlFor="remember_me" className="ml-2 block text-sm">*/}
+                {/*    Zapamiętaj mie*/}
+                {/*  </label>*/}
+                {/*</div>*/}
                 <div className="text-sm">
                   <Link href="/auth/forget" className="font-medium text-indigo-600 hover:text-indigo-500">
                     Odzyskaj hasło
@@ -113,7 +118,7 @@ const LoginPage = () => {
                 </div>
                 <div className="text-sm">
                   <Link href="/auth/register" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Zarejestruj się
+                    Nie masz konta? - zarejestruj się
                   </Link>
                 </div>
               </div>
@@ -126,19 +131,25 @@ const LoginPage = () => {
               </div>
             </form>
           </div>
+          <div className={'flex items-center gap-3 mt-5'}><Separator className="my-4"/>
+            lub
+            <Separator className="my-4"/></div>
           <div className={'flex space-x-6'}>
             <div className={'mt-6 w-full'}>
               <Button
                 onClick={() => signIn('google')}
-                className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
-                Zaloguj się z Google
+                className="flex w-full justify-center px-2 py-2 text-sm font-medium text-white">
+                <Image src={'/g1.svg'} alt={'google'} width={50} height={50}/>
+                <div>Zaloguj się z Google</div>
               </Button>
             </div>
             <div className={'mt-6 w-full'}>
               <Button
                 onClick={() => signIn('google')}
                 className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                <Facebook color={'#1877F2'}/>
                 Zaloguj się z Facebook
+                {/* eslint-disable-next-line react/jsx-no-undef */}
               </Button>
             </div>
           </div>

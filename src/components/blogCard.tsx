@@ -1,33 +1,70 @@
 import Link from "next/link"
 import {api} from "@/utils/api"
 import {ArrowBigRight, Edit, Trash} from "lucide-react"
-
+import {Button} from "@/components/ui/button"
 import Category from "./Category"
 import Ago from "@/components/Ago";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter
+} from "@/components/ui/dialog"
+import React from "react";
+import {DialogClose} from "@radix-ui/react-dialog";
 
 const BlogCard = ({post, refetch, featured}) => {
   const imgHeight = 500
   const imgWidth = 650
+  const [open, setOpen] = React.useState(false)
+  const [currentId, setCurrentId] = React.useState(null)
 
   const {title, subtitle, slug, imgURL, category, createdAt} = post
 
   const {mutate: deletePost} = api.blog.deletePost.useMutation({
     onSuccess: () => refetch(),
   })
+  const handleOnDeleteClick = (id) => {
+    setCurrentId(id)
+    setOpen(true)
+  }
+
+  const dialogDelete = (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogClose asChild onClick={() => setOpen(false)}/>
+          <DialogTitle>Czy na pewno?</DialogTitle>
+          <DialogDescription>
+            Zamierzasz usunąć wpis bloga o tytule {title}. Czy jesteś pewna/pewien? operacja jest
+            nieodwracalna.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button color={'red'} onClick={() => setOpen(false)} type="submit">REZYGNUJĘ</Button>
+          <Button onClick={() => deletePost({id: post.id})} variant={'destructive'} type="submit">usuwam</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
 
 
   // @ts-ignore
   return (
     <div className={"relative"}>
-
+      {dialogDelete}
       <div
         className={"absolute top-4 left-4 flex gap-2 rounded border-2 border-slate-600 bg-slate-900 px-4 py-2 opacity-80"}>
         <Link title={'Edytuj wpis'} href={`/blog/edit/${slug}`}>
-          <Edit size={22}/>
+          <Edit className={'text-white'} size={22}/>
         </Link>
-        <div onClick={() => deletePost({id: post.id})} title={'Usuń wpis'}>
-          <Trash size={22}
+        <div
+          // onClick={() => deletePost({id: post.id})}
+          title={'Usuń wpis'}>
+          <Trash onClick={() => handleOnDeleteClick(post.id)} size={22}
                  className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/></div>
       </div>
 

@@ -1,6 +1,7 @@
 import NextAuth, {NextAuthOptions} from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials";
 import GooleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import {PrismaClient} from "@prisma/client";
 import {PrismaAdapter} from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
@@ -70,6 +71,13 @@ export const authOptions: NextAuthOptions =
           clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }
       ),
+      FacebookProvider({
+          name: 'facebook',
+          clientId: process.env.FACEBOOK_CLIENT_ID as string,
+          clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
+
+        }
+      ),
     ],
     pages: {
       signIn: '/auth/login',
@@ -92,8 +100,6 @@ export const authOptions: NextAuthOptions =
 
       async jwt({token, user}) {
 
-        console.log(token, 'token')
-        console.log(user, 'user')
         if (user?.email) {
           const dbUser = await prisma.user.findUnique({
             where: {
