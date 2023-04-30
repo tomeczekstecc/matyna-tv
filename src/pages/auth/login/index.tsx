@@ -145,7 +145,7 @@ const LoginPage = () => {
             </div>
             <div className={'mt-6 w-full'}>
               <Button
-                onClick={() => signIn('google')}
+                onClick={() => signIn('facebook')}
                 className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
                 <Facebook color={'#1877F2'}/>
                 Zaloguj się z Facebook

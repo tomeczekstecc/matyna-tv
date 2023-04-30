@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="refactor posts list">
-      <change afterPath="$PROJECT_DIR$/public/g1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="logos, facebook login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/components/Blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/components/Blog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/media.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/media.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +172,7 @@
       <workItem from="1682280754221" duration="2859000" />
       <workItem from="1682796413718" duration="51000" />
       <workItem from="1682808781871" duration="595000" />
-      <workItem from="1682882037825" duration="4063000" />
+      <workItem from="1682882037825" duration="5276000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -284,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681423056789</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="logos, facebook login">
+      <created>1682888789397</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682888789397</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +316,7 @@
     <MESSAGE value="session" />
     <MESSAGE value="google" />
     <MESSAGE value="refactor posts list" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor posts list" />
+    <MESSAGE value="logos, facebook login" />
+    <option name="LAST_COMMIT_MESSAGE" value="logos, facebook login" />
   </component>
 </project>
