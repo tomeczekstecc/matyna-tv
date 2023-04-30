@@ -7,6 +7,8 @@ import {useRouter} from 'next/router'
 import Link from "next/link";
 import {api} from "@/utils/api";
 import {z} from "zod";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import Image from "next/image";
 
 
 const LoginPage = () => {
@@ -43,12 +45,37 @@ const LoginPage = () => {
 
   }
   return (
-    <div className="-mt-28 flex h-[80vh] flex-col items-center justify-center py-2 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md">
-        <div>
+    <div className="flex items-center gap-20 ">
+      <Card className={'m-auto w-2/3'}>
+        <div className={'flex items-center justify-between'}><CardHeader>
+          <CardTitle>Dane zalogowanego użytkownika</CardTitle>
+          <CardDescription>Szczegółowe dane zalogowanej osoby</CardDescription>
+        </CardHeader>
+          <img className={'mr-7 w-16 rounded-full'} src={session?.user?.image} alt={'Zdjęcie profilowe'}/>
+        </div>
 
-          <h2 className="mt-6 text-center text-3xl font-extrabold">
-            Zmień hasło
+        <CardContent>
+          <p>Email:</p>
+          <p className={'text-xl'}>{session?.user?.email}</p>
+        </CardContent>
+        {session?.user?.id && <CardContent>
+          <p>Id:</p>
+          <p className={'text-xl'}>{session?.user?.id}</p>
+        </CardContent>}
+        <CardContent>
+          <p>Imię/Nazwisko/Nazwa:</p>
+          <p className={'text-xl'}>{session?.user?.name}</p>
+        </CardContent>
+        <CardContent>
+          <p>Rola:</p>
+          <p className={'text-xl'}>{session?.user?.role || 'Użytkownik'}</p>
+        </CardContent>
+
+      </Card>
+      <div className="w-1/3 pb-4">
+        <div>
+          <h2 className="mt-6 text-center text-xl font-bold">
+            Zmiana hasła
           </h2>
 
         </div>

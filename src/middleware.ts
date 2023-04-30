@@ -1,5 +1,5 @@
 export {default} from 'next-auth/middleware'
 
 export const config = {
-  matcher: ["/media", "/blog/new"]
+  matcher: ["/media", "/blog/new", "/auth/profile"]
 }

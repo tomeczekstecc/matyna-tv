@@ -16,7 +16,6 @@ export const sendMail = async (email: string, token: string, type = 'reset') => 
     })
     return {status: 'ok', message: 'Email sent'}
   } catch (e) {
-    console.log(e)
     throw new TRPCError({
       code: 'FORBIDDEN',
       message: 'Something went wrong',

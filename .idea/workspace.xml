@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="logos, facebook login">
+      <change afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,11 +79,11 @@
       <recent name="C:\dev\martyna-tv\src\server\api\routers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\src\components\ui" />
       <recent name="C:\dev\martyna-tv\src\types" />
       <recent name="C:\dev\martyna-tv\src\server\services" />
       <recent name="C:\dev\martyna-tv\src\pages\auth\forget" />
       <recent name="C:\dev\martyna-tv\src" />
-      <recent name="C:\dev\martyna-tv" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -172,7 +175,7 @@
       <workItem from="1682280754221" duration="2859000" />
       <workItem from="1682796413718" duration="51000" />
       <workItem from="1682808781871" duration="595000" />
-      <workItem from="1682882037825" duration="5276000" />
+      <workItem from="1682882037825" duration="11148000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -279,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682888789397</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="logos, facebook login">
+      <created>1682889448728</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682889448728</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

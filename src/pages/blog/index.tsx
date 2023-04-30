@@ -27,8 +27,6 @@ export default function IndexPage() {
 
   const {data: session} = useSession()
 
-  console.log(session?.user)
-
   // @ts-ignore
   if (isLoading) return <LoadingPage size={50}/>
   return (
