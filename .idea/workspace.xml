@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="logos, facebook login">
-      <change afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="user info">
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/register/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/verify/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/verify/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +179,8 @@
       <workItem from="1682280754221" duration="2859000" />
       <workItem from="1682796413718" duration="51000" />
       <workItem from="1682808781871" duration="595000" />
-      <workItem from="1682882037825" duration="11148000" />
+      <workItem from="1682882037825" duration="12634000" />
+      <workItem from="1682965526095" duration="4000000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -289,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682889448728</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="user info">
+      <created>1682895401232</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682895401232</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +339,7 @@
     <MESSAGE value="google" />
     <MESSAGE value="refactor posts list" />
     <MESSAGE value="logos, facebook login" />
-    <option name="LAST_COMMIT_MESSAGE" value="logos, facebook login" />
+    <MESSAGE value="user info" />
+    <option name="LAST_COMMIT_MESSAGE" value="user info" />
   </component>
 </project>

@@ -7,11 +7,31 @@ import {Button} from "@/components/ui/button";
 import {api} from "@/utils/api";
 import Link from "next/link";
 import {Icons} from "@/components/icons";
+import toast from "react-hot-toast";
+import {useRouter} from "next/router";
 
 
 const RegisterPage = () => {
 
-  const {mutate: register} = api.user.register.useMutation({})
+  const router = useRouter()
+
+  const {mutate: register} = api.user.register.useMutation({
+    onSuccess: () => {
+      toast.success('Zarejestrowano pomyślnie. \n\ Sprawdź wiadomość wysłaną na podany adres email', {
+          duration: 7000,
+        }
+      )
+      router.push('/')
+    },
+    onError: (err) => {
+      const errorMessage = err.data?.zodError?.fieldErrors?.content;
+      if (errorMessage && errorMessage[0]) {
+        toast.error(errorMessage[0]);
+      } else {
+        toast.error("Nie udało się zarejestrować");
+      }
+    }
+  })
 
   const [form, setForm] = React.useState({
     email: '',

@@ -5,6 +5,7 @@ import {ThemeProvider} from "next-themes"
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import {SessionProvider} from "next-auth/react";
+import {Toaster} from 'react-hot-toast';
 
 import "@/styles/globals.css"
 import {Layout} from "@/components/layout"
@@ -32,6 +33,7 @@ function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
         <SessionProvider session={session}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Layout>
+              <Toaster position={"bottom-center"}/>
               <Component {...pageProps} />
             </Layout>
           </ThemeProvider>

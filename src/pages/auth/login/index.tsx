@@ -11,6 +11,7 @@ import Image from "next/image";
 import {FacebookIcon, Facebook} from "lucide-react"
 import {Separator} from "@/components/ui/separator"
 import {Icons} from "@/components/icons";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
   const router = useRouter()
@@ -46,12 +47,18 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await signIn('credentials', {
+      const res = await signIn('credentials', {
         redirect: false,
         email: form.email,
         password: form.password
       })
+      if (res?.error) {
+        toast.error('Nie udało się zalogować')
+        return
+      }
+      toast.success('Zalogowano pomyślnie')
     } catch (e) {
+      toast.error('Nie udało się zalogować')
       console.log(e)
     }
 
