@@ -15,8 +15,11 @@ import {
 } from "@/components/ui/dialog"
 import React from "react";
 import {DialogClose} from "@radix-ui/react-dialog";
+import {useSession} from "next-auth/react";
+import toast from "react-hot-toast";
 
 const BlogCard = ({post, refetch, featured}) => {
+  const {data: session, status: authStatus} = useSession()
   const imgHeight = 500
   const imgWidth = 650
   const [open, setOpen] = React.useState(false)
@@ -24,8 +27,15 @@ const BlogCard = ({post, refetch, featured}) => {
 
   const {title, subtitle, slug, imgURL, category, createdAt} = post
 
+  if (session) {
+    console.table(session.user)
+  }
+
   const {mutate: deletePost} = api.blog.deletePost.useMutation({
-    onSuccess: () => refetch(),
+    onSuccess: () => {
+      toast.success('Wpis został usunięty')
+      refetch()
+    },
   })
   const handleOnDeleteClick = (id) => {
     setCurrentId(id)
@@ -56,7 +66,7 @@ const BlogCard = ({post, refetch, featured}) => {
   return (
     <div className={"relative"}>
       {dialogDelete}
-      <div
+      {(authStatus === 'authenticated' && session?.user?.role === 'ADMIN') && <div
         className={"absolute top-4 left-4 flex gap-2 rounded border-2 border-slate-600 bg-slate-900 px-4 py-2 opacity-80"}>
         <Link title={'Edytuj wpis'} href={`/blog/edit/${slug}`}>
           <Edit className={'text-white'} size={22}/>
@@ -66,7 +76,7 @@ const BlogCard = ({post, refetch, featured}) => {
           title={'Usuń wpis'}>
           <Trash onClick={() => handleOnDeleteClick(post.id)} size={22}
                  className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/></div>
-      </div>
+      </div>}
 
       <Image
         className={"rounded-sm object-cover"}

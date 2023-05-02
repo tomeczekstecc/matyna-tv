@@ -9,6 +9,9 @@ import {api} from "@/utils/api";
 import {z} from "zod";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import Image from "next/image";
+import toast from "react-hot-toast";
+import {LoadingSpinner} from "@/components/loading";
+import {is} from "date-fns/locale";
 
 
 const LoginPage = () => {
@@ -30,7 +33,20 @@ const LoginPage = () => {
     })
   }
 
-  const {mutate: change} = api.user.changePassword.useMutation({})
+  const {mutate: change, isLoading} = api.user.changePassword.useMutation({
+    onSuccess: async (data) => {
+      await signIn('credentials', {
+        redirect: false,
+        email: session?.user?.email,
+        password: form.newPassword
+      })
+      toast.success('Hasło zostało zmienione')
+      await router.push('/')
+    },
+    onError: async (e) => {
+      toast.error('Nie udało się zmienić hasła')
+    }
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -51,7 +67,8 @@ const LoginPage = () => {
           <CardTitle>Dane zalogowanego użytkownika</CardTitle>
           <CardDescription>Szczegółowe dane zalogowanej osoby</CardDescription>
         </CardHeader>
-          <img className={'mr-7 w-16 rounded-full'} src={session?.user?.image} alt={'Zdjęcie profilowe'}/>
+          {session?.user?.image &&
+            <img className={'mr-7 w-16 rounded-full'} src={session?.user?.image} alt={'Zdjęcie profilowe'}/>}
         </div>
 
         <CardContent>
@@ -131,7 +148,7 @@ const LoginPage = () => {
               <div className={'w-full'}>
                 <Button
                   className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
-                  Zmień hasło
+                  {isLoading ? <LoadingSpinner size={22}/> : 'Zmień hasło'}
                 </Button>
               </div>
             </form>

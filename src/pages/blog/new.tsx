@@ -21,6 +21,9 @@ import {transformImg} from "@/utils/transformImg";
 import {mapImages, search} from "@/lib/cloudinary";
 import {AxiosCloudinary} from "@/utils/axios";
 import BlogForm from "@/components/blogForm";
+import toast from "react-hot-toast";
+import {LoadingPage} from "@/components/loading";
+import {useRouter} from "next/router";
 
 type Post = {
   title: string
@@ -32,6 +35,7 @@ type Post = {
 }
 
 export default function NewBlogPage(props) {
+  const router = useRouter()
   const [post, setPost] = useState({
     subtitle: "",
     title: "",
@@ -41,9 +45,17 @@ export default function NewBlogPage(props) {
     slug: "",
   })
 
-  const {mutate: addBlog} = api.blog.addBlogPost.useMutation({})
+  const {mutate: addBlog, isLoading} = api.blog.addBlogPost.useMutation({
+    onSuccess: async (data) => {
+      toast.success('Post został dodany')
+      router.push(`/blog/${data.slug}`)
+    },
+    onError: async (e) => {
+      toast.error('Nie udało się dodać postu')
+    }
+  })
 
   return (
-    <BlogForm setPost={setPost} post={post} addBlog={addBlog}/>
+    <BlogForm isLoading={isLoading} setPost={setPost} post={post} addBlog={addBlog}/>
   )
 }

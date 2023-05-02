@@ -13,7 +13,7 @@ export const blogRouter = createTRPCRouter({
       slug: z.string()
     }))
     .mutation(async ({input, ctx}) => {
-      await ctx.prisma.blogPost.create({
+      const post = await ctx.prisma.blogPost.create({
         data: {
           title: input.title,
           subtitle: input.subtitle,
@@ -25,7 +25,7 @@ export const blogRouter = createTRPCRouter({
         },
       })
 
-      return true
+      return post
     }),
   getAllPosts: publicProcedure.query(({ctx}) => {
     //get all post with category

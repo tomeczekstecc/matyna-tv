@@ -11,8 +11,9 @@ import WYSIWYG from "@/components/WYCIWYG";
 import {Button} from "@/components/ui/button";
 import {Header} from "@/components/ui/Header";
 import router from "next/router";
+import {LoadingSpinner} from "@/components/loading";
 
-const BlogForm = ({setPost, post, addBlog}) => {
+const BlogForm = ({setPost, post, addBlog, isLoading}) => {
   return (
     <div
       className={
@@ -91,7 +92,11 @@ const BlogForm = ({setPost, post, addBlog}) => {
       <Button onClick={() => {
         addBlog(post)
         router.push('/blog')
-      }}>Zapisz</Button>
+      }}>
+        {isLoading && <LoadingSpinner size={22}/>}
+        {!isLoading && `Zapisz`}
+
+      </Button>
     </div>
   )
 }

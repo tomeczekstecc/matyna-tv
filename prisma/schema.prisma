@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // relationMode = "prisma"
 }
 
 enum CategoryEnum {
@@ -79,7 +79,7 @@ model BlogPost {
   publishedAt DateTime?
   title       String       @unique @db.VarChar(255)
   subtitle    String       @db.Text
-  content     String       @db.LongText
+  content     String       @db.Text
   category    Category     @relation(fields: [categoryId], references: [id])
   categoryId  CategoryEnum
   imgURL      String?
