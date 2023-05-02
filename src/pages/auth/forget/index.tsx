@@ -5,6 +5,9 @@ import {Button} from "@/components/ui/button";
 import {api} from "@/utils/api";
 import Link from "next/link";
 import {Icons} from "@/components/icons";
+import toast from "react-hot-toast";
+import router from "next/router";
+import {LoadingSpinner} from "@/components/loading";
 
 const ForgetPassword = () => {
   const [form, setForm] = React.useState({
@@ -12,7 +15,16 @@ const ForgetPassword = () => {
     password: ''
   })
 
-  const {mutate: requestResetPassword} = api.user.requestResetPassword.useMutation({})
+  const {mutate: requestResetPassword, isLoading} = api.user.requestResetPassword.useMutation({
+    onSuccess: async (data) => {
+      toast.success('Link do zmiany hasła został wysłany na podany adres email')
+      router.push('/auth/login')
+    },
+    onError: async (e) => {
+      toast.error('Nie udało się wysłać linku do zmiany hasła')
+
+    }
+  })
 
   const handleChange = (e) => {
     const {name, value, type, checked} = e.target
@@ -48,7 +60,7 @@ const ForgetPassword = () => {
             <form onSubmit={handleSubmit} method="POST" className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium ">
-                  Email address
+                  Adres email
                 </label>
                 <div className="mt-1">
                   <Input
@@ -76,8 +88,9 @@ const ForgetPassword = () => {
               </div>
               <div className={'w-full'}>
                 <Button
+                  disabled={!form.email || isLoading}
                   className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
-                  Resetuj hasło
+                  {isLoading && <div className={'mr-2'}><LoadingSpinner size={22}/></div>}Resetuj hasło
                 </Button>
               </div>
             </form>

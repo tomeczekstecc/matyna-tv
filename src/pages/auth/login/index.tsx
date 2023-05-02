@@ -80,7 +80,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit} method="POST" className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium ">
-                  Email address
+                  Adres email
                 </label>
                 <div className="mt-1">
                   <Input

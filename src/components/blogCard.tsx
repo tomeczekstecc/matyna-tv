@@ -17,6 +17,7 @@ import React from "react";
 import {DialogClose} from "@radix-ui/react-dialog";
 import {useSession} from "next-auth/react";
 import toast from "react-hot-toast";
+import {LoadingSpinner} from "@/components/loading";
 
 const BlogCard = ({post, refetch, featured}) => {
   const {data: session, status: authStatus} = useSession()
@@ -31,7 +32,7 @@ const BlogCard = ({post, refetch, featured}) => {
     console.table(session.user)
   }
 
-  const {mutate: deletePost} = api.blog.deletePost.useMutation({
+  const {mutate: deletePost, isLoading} = api.blog.deletePost.useMutation({
     onSuccess: () => {
       toast.success('Wpis został usunięty')
       refetch()
@@ -55,7 +56,8 @@ const BlogCard = ({post, refetch, featured}) => {
         </DialogHeader>
         <DialogFooter>
           <Button color={'red'} onClick={() => setOpen(false)} type="submit">REZYGNUJĘ</Button>
-          <Button onClick={() => deletePost({id: post.id})} variant={'destructive'} type="submit">usuwam</Button>
+          <Button onClick={() => deletePost({id: post.id})} variant={'destructive'} type="submit">{isLoading &&
+            <div className={'mr-2'}><LoadingSpinner size={18}/></div>} usuwam</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
