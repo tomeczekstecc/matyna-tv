@@ -1,9 +1,9 @@
 import {z} from "zod"
 
-import {createTRPCRouter, publicProcedure} from "../trpc"
+import {adminProcedure, authProcedure, createTRPCRouter, publicProcedure} from "../trpc"
 
 export const blogRouter = createTRPCRouter({
-  addBlogPost: publicProcedure
+  addBlogPost: adminProcedure
     .input(z.object({
       title: z.string(),
       content: z.string(),
@@ -61,7 +61,7 @@ export const blogRouter = createTRPCRouter({
       }
     })
   }),
-  updateOnePost: publicProcedure.input(z.object({
+  updateOnePost: adminProcedure.input(z.object({
     id: z.string(),
     title: z.string(),
     content: z.string(),
@@ -86,7 +86,7 @@ export const blogRouter = createTRPCRouter({
     })
     return true
   }),
-  deletePost: publicProcedure.input(z.object({id: z.string()})).mutation(async ({input, ctx}) => {
+  deletePost: adminProcedure.input(z.object({id: z.string()})).mutation(async ({input, ctx}) => {
       await ctx.prisma.blogPost.delete({
         where: {
           id: input.id
@@ -95,4 +95,7 @@ export const blogRouter = createTRPCRouter({
       return true
     }
   ),
+
 })
+
+

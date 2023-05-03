@@ -21,16 +21,12 @@ const BlogForm = ({setPost, post, addBlog, isLoading}) => {
 
       <Header title={'Dodaj lub edytuj wpis bloga'} subtitle={'Wypełnij formularz poniżej'} className={'mb-10'}/>
       {!post ? <LoadingSpinner size={30}/> : <div>
-        <Label htmlFor={"title"} className={"mb-0"}>
-          Tytuł
-        </Label>
+        <Label htmlFor={"title"} className={"mb-0"}>Tytuł</Label>
         <Input
           onChange={(e) => {
             setPost((prev) => ({...prev, title: e.target.value}))
             setPost((prev) => ({...prev, slug: slugify(e.target.value, {lower: true})}))
           }}
-
-
           value={post.title}
           name={"title"}
           type="text"

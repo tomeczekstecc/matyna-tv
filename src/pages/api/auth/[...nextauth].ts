@@ -13,9 +13,10 @@ const prisma = new PrismaClient();
 
 // @ts-ignore
 // @ts-ignore
+// @ts-ignore
 export const authOptions: NextAuthOptions =
   {
-    // adapter: PrismaAdapter(prisma),
+    adapter: PrismaAdapter(prisma),
 
     // Configure one or more authentication providers
     session: {
@@ -97,7 +98,7 @@ export const authOptions: NextAuthOptions =
         }
         return session
       },
-
+      // @ts-ignore
       async jwt({token, user}) {
 
         if (user?.email) {
@@ -115,7 +116,7 @@ export const authOptions: NextAuthOptions =
           }
 
         }
-        return token
+        return {...token, ...user}
       },
     },
     secret: process.env.NEXTAUTH_SECRET,

@@ -28,10 +28,6 @@ const BlogCard = ({post, refetch, featured}) => {
 
   const {title, subtitle, slug, imgURL, category, createdAt} = post
 
-  if (session) {
-    console.table(session.user)
-  }
-
   const {mutate: deletePost, isLoading} = api.blog.deletePost.useMutation({
     onSuccess: () => {
       toast.success('Wpis został usunięty')

@@ -110,3 +110,32 @@ export const createTRPCRouter = t.router
  * can still access user session data if they are logged in.
  */
 export const publicProcedure = t.procedure
+
+
+const isAdmin = t.middleware((opts) => {
+  const {ctx} = opts;
+
+  const {req} = ctx;
+
+  console.log(req.headers.authorization, 'req.headers.authorization')
+
+  if (!ctx.user || ctx.user.role !== 'ADMIN') {
+    throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
+  }
+  return opts.next();
+});
+
+
+const isAuthenticated = t.middleware((opts) => {
+    const {ctx} = opts;
+    if (!ctx.user) {
+      throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
+    }
+    return opts.next();
+  }
+);
+
+export const adminProcedure = t.procedure.use(isAuthenticated).use(isAdmin);
+export const authProcedure = t.procedure.use(isAuthenticated);
+
+

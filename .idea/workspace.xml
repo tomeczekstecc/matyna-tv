@@ -4,8 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="delete post notification">
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="added postinstall script">
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503161842_refactot/migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503162349_revert/migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503162645_wfwef/migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503163504_wjfe/migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma.bck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/schema2.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/trpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/trpc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/dev/nextjs-davegray/lesson6_blog_markdown",
+    "last_opened_file_path": "C:/dev/martyna-tv/prisma",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,17 +81,17 @@
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "C:\\dev\\martyna-tv\\node_modules\\prettier",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2021.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\dev\\martyna-tv\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\martyna-tv\prisma" />
       <recent name="C:\dev\martyna-tv" />
       <recent name="C:\dev\martyna-tv\src\components" />
       <recent name="C:\dev\martyna-tv\src\pages\auth" />
       <recent name="C:\dev\martyna-tv\src\pages" />
-      <recent name="C:\dev\martyna-tv\src\server\api\routers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\dev\martyna-tv\src\components\ui" />
@@ -173,7 +192,8 @@
       <workItem from="1682808781871" duration="595000" />
       <workItem from="1682882037825" duration="12634000" />
       <workItem from="1682965526095" duration="4493000" />
-      <workItem from="1683042333090" duration="10609000" />
+      <workItem from="1683042333090" duration="11428000" />
+      <workItem from="1683124661882" duration="6852000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -322,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683067568640</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added postinstall script">
+      <created>1683068521194</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683068521194</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +391,7 @@
     <MESSAGE value="notifications" />
     <MESSAGE value="notifications vol2" />
     <MESSAGE value="delete post notification" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete post notification" />
+    <MESSAGE value="added postinstall script" />
+    <option name="LAST_COMMIT_MESSAGE" value="added postinstall script" />
   </component>
 </project>

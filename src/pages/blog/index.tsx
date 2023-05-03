@@ -32,7 +32,7 @@ export default function IndexPage() {
   return (
 
     <div>
-      <div className={'flex align-middle gap-3'}>
+      <div className={'flex gap-3 align-middle'}>
         <Header title={'Blog'} subtitle={'Najnowsze wpisy bloga'} className={'mb-10'}/>
         {session?.user?.role === 'ADMIN' && <TooltipProvider>
           <Tooltip>
