@@ -6,12 +6,14 @@ const prisma = new PrismaClient()
 
 const load = async () => {
   try {
+    await prisma.blogPost.deleteMany()
     await prisma.category.deleteMany()
+
+    
     await prisma.category.createMany({
       data: categories
     })
 
-    await prisma.blogPost.deleteMany()
     await prisma.blogPost.createMany({
       data: blogPosts
     })

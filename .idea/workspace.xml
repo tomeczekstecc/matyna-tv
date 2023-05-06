@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="added postinstall script">
-      <change afterPath="$PROJECT_DIR$/prisma/seeders/data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/seeders/seed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/blutURI.ts" afterDir="false" />
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="seeders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seeders/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seeders/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seeders/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seeders/seed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +177,7 @@
       <workItem from="1682965526095" duration="4493000" />
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
-      <workItem from="1683397128478" duration="9384000" />
+      <workItem from="1683397128478" duration="9723000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -351,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683397469607</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="seeders">
+      <created>1683414579843</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1683414579843</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,6 +397,7 @@
     <MESSAGE value="notifications vol2" />
     <MESSAGE value="delete post notification" />
     <MESSAGE value="added postinstall script" />
-    <option name="LAST_COMMIT_MESSAGE" value="added postinstall script" />
+    <MESSAGE value="seeders" />
+    <option name="LAST_COMMIT_MESSAGE" value="seeders" />
   </component>
 </project>

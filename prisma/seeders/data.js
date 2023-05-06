@@ -17,7 +17,7 @@ const categories = [
   {
     id: "Zwierzeta",
     name: 'Zwierzęta',
-    color: 'sky',
+    color: 'blue',
   },
   {
     id: "Moda",
