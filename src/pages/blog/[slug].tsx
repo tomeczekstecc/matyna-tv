@@ -5,6 +5,7 @@ import {api} from "@/utils/api"
 import Ago from "@/components/Ago"
 import Category from "@/components/Category"
 
+``
 const DetailBlogPage = () => {
   const router = useRouter()
   const {slug} = router.query

@@ -51,13 +51,13 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
+// model Session {
+//   id           String   @id @default(cuid())
+//   sessionToken String   @unique
+//   userId       String
+//   expires      DateTime
+//   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
 
 model User {
   id                String     @id @default(cuid())
@@ -70,7 +70,7 @@ model User {
   resetToken        String?
   verificationToken String?
   accounts          Account[]
-  sessions          Session[]
+  // sessions          Session[]
   Comment           Comment[]
   BlogPost          BlogPost[]
   role              Role       @default(USER)

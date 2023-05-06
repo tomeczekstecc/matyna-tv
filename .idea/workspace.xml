@@ -5,26 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="added postinstall script">
-      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503164624_wfw/migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503170825_/migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503171104_jjjj/migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/migrations/20230503195837_dfwd/migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma.bck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/schema2.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/seeders/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/seeders/seed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/blutURI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/theme-toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/theme-toggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/reset/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/verify/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/verify/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[slug].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/trpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/trpc.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +181,7 @@
       <workItem from="1682965526095" duration="4493000" />
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
-      <workItem from="1683397128478" duration="278000" />
+      <workItem from="1683397128478" duration="9384000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -357,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683131961978</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="added postinstall script">
+      <created>1683397469607</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683397469607</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
