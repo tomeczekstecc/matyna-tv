@@ -66,7 +66,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
     prisma,
     user,
     req,
-  };
+  }; 
 };
 
 /**
@@ -116,8 +116,6 @@ const isAdmin = t.middleware((opts) => {
   const {ctx} = opts;
 
   const {req} = ctx;
-
-  console.log(req.headers.authorization, 'req.headers.authorization')
 
   if (!ctx.user || ctx.user.role !== 'ADMIN') {
     throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});

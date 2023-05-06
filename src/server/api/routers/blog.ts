@@ -22,7 +22,7 @@ export const blogRouter = createTRPCRouter({
           imgURL: input.imgURL,
           content: input.content,
           slug: input.slug,
-        },
+        }
       })
 
       return post

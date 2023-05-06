@@ -10,10 +10,6 @@ import {TRPCError} from "@trpc/server";
 
 const prisma = new PrismaClient();
 
-
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
 export const authOptions: NextAuthOptions =
   {
     adapter: PrismaAdapter(prisma),
@@ -31,18 +27,34 @@ export const authOptions: NextAuthOptions =
           //@ts-ignore
           const {email, password} = credentials;
 
+          if (!email || !password) {
+            throw new TRPCError({
+              code: 'UNAUTHORIZED',
+              message: 'Nie podano prawidłowego hasła lub adresu email',
+              cause: 'Invalid credentials or user not verified'
+            })
+          }
+
           const user = await prisma.user.findUnique({
             where: {
               email: email,
+            },
+            include: {
+              accounts: {
+                select: {
+                  provider: true,
+                }
+              }
             }
           })
+
           if (!user) {
             throw new Error('No user found')
           }
 
           const isValid = await bcrypt.compare(password, user.password)
 
-          if (!isValid || !user.verified) {
+          if (!isValid || !user.emailVerified) {
             throw new TRPCError({
               code: 'UNAUTHORIZED',
               message: 'Invalid credentials or user not verified',
@@ -93,10 +105,11 @@ export const authOptions: NextAuthOptions =
             session.user.name = token.name
             session.user.surname = token.surname
             session.user.id = token.id
+            session.user.accounts = token.accounts
 
           }
         }
-        return session
+        return {...session, ...token}
       },
       // @ts-ignore
       async jwt({token, user}) {
@@ -105,14 +118,22 @@ export const authOptions: NextAuthOptions =
           const dbUser = await prisma.user.findUnique({
             where: {
               email: user.email,
+            },
+            include: {
+              accounts: {
+                select: {
+                  provider: true,
+                }
+              }
             }
           })
           if (dbUser) {
             token.id = dbUser.id
-            token.email = dbUser.email
-            token.name = dbUser.name
-            token.surname = dbUser.surname
+            token.email = dbUser.email || ''
+            token.name = dbUser.name || ''
+            token.surname = dbUser.surname || ''
             token.role = dbUser.role
+            token.accounts = dbUser.accounts
           }
 
         }

@@ -97,7 +97,7 @@ export const userRouter = createTRPCRouter({
           })
         }
 
-        if (user.verified) {
+        if (user.emailVerified) {
           throw new TRPCError({
             code: 'CONFLICT',
             message: 'User already verified',
@@ -118,8 +118,7 @@ export const userRouter = createTRPCRouter({
               email,
             },
             data: {
-              verified: true,
-              verifiedAt: new Date(),
+              emailVerified: new Date(),
               verificationToken: null
             }
           })
@@ -133,7 +132,8 @@ export const userRouter = createTRPCRouter({
         }
       }
     )
-  , requestResetPassword: publicProcedure.input(z.object({
+  ,
+  requestResetPassword: publicProcedure.input(z.object({
     email: z.string(),
   }))
     .mutation(async ({input, ctx}) => {

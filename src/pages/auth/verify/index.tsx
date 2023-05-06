@@ -1,12 +1,9 @@
+'use client'
 import React, {useEffect} from 'react'
-import {signIn} from "next-auth/react";
-import {Input} from "@/components/ui/input";
-import {Button} from "@/components/ui/button";
 import {api} from "@/utils/api";
 import {useRouter} from "next/router";
-import jwt from "jsonwebtoken";
 import toast from "react-hot-toast";
-import {LoadingPage, LoadingSpinner} from "@/components/loading";
+import {LoadingPage} from "@/components/loading";
 
 const VerifyPassword = () => {
 
