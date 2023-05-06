@@ -18,6 +18,7 @@ import {DialogClose} from "@radix-ui/react-dialog";
 import {useSession} from "next-auth/react";
 import toast from "react-hot-toast";
 import {LoadingSpinner} from "@/components/loading";
+import {blurURI} from "@/config/blutURI";
 
 const BlogCard = ({post, refetch, featured}) => {
   const {data: session, status: authStatus} = useSession()
@@ -77,6 +78,8 @@ const BlogCard = ({post, refetch, featured}) => {
       </div>}
 
       <Image
+        placeholder={'blur'}
+        blurDataURL={blurURI}
         className={"rounded-sm object-cover"}
         src={imgURL}
         alt="picture"

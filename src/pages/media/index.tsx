@@ -7,6 +7,7 @@ import Gallery from "@/components/gallery";
 import {transformImg} from "@/utils/transformImg";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
 import {LoadingSpinner} from "@/components/loading";
+import {blurURI} from "@/config/blutURI";
 
 export default function MediaPage(props) {
 
@@ -76,8 +77,7 @@ export default function MediaPage(props) {
               {imageSrc && !uploadData &&
                 <Image
                   placeholder={'blur'}
-
-                  blurDataURL={'/noimage.jpg'}
+                  blurDataURL={blurURI}
                   className={'my-9'}
                   src={transformImg(imageSrc, 450, 300)} height={300} width={450}
                   alt={'preview'}/>

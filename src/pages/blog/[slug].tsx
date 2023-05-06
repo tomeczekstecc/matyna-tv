@@ -4,6 +4,7 @@ import {api} from "@/utils/api"
 
 import Ago from "@/components/Ago"
 import Category from "@/components/Category"
+import {blurURI} from "@/config/blutURI";
 
 ``
 const DetailBlogPage = () => {
@@ -15,13 +16,13 @@ const DetailBlogPage = () => {
 
   return (
     <div className={'cent'}>
-      <h1 className={"mb-4 text-center text-5xl font-bold"}>{data?.title}</h1>
-      <div className="flex justify-center gap-10">
+      <h1 className={"mb-4 text-4xl font-bold"}>{data?.title}</h1>
+      <div className="flex gap-10">
         <Image
           className="rounded-lg"
           placeholder={'blur'}
+          blurDataURL={blurURI}
           src={data?.imgURL!}
-          blurDataURL={'/noimage.jpg'}
           width={600}
           height={400}
           alt={data?.title || "Blog Image"}

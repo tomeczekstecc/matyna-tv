@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {AxiosCloudinary} from "@/utils/axios";
 import {mapImages} from "@/lib/cloudinary";
 import {LoadingPage} from "@/components/loading";
+import {blurURI} from "@/config/blutURI";
 
 const Gallery = (props) => {
   const [images, setImages] = useState([])
@@ -49,9 +50,9 @@ const Gallery = (props) => {
 
                   <Image
                     placeholder={'blur'}
+                    blurDataURL={blurURI}
 
                     className={'rounded-xl'}
-                    blurDataURL={'/noimage.jpg'}
                     // @ts-ignore
                     src={transformImg(item.image, 450, 300)}
                     alt={'picture'} width={450} height={300}/>

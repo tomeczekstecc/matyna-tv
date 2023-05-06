@@ -12,6 +12,7 @@ import {Button} from "@/components/ui/button";
 import {Header} from "@/components/ui/Header";
 import router from "next/router";
 import {LoadingPage, LoadingSpinner} from "@/components/loading";
+import {blurURI} from "@/config/blutURI";
 
 const BlogForm = ({setPost, post, addBlog, isLoading}) => {
 
@@ -76,7 +77,7 @@ const BlogForm = ({setPost, post, addBlog, isLoading}) => {
           {post.imgURL &&
             <Image
               placeholder={'blur'}
-              blurDataURL={'/noimage.jpg'}
+              blurDataURL={blurURI}
               src={transformImg(post.imgURL, 450, 300)} alt={'image to upload'}
               height={300} width={450}/>
           }
