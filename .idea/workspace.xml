@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="trpc validation forms, clear validation in client">
-      <change afterPath="$PROJECT_DIR$/src/components/Validation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/clearError.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/new.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/services/sendMail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/services/sendMail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +180,7 @@
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
       <workItem from="1683397128478" duration="10532000" />
-      <workItem from="1683441698880" duration="9246000" />
+      <workItem from="1683441698880" duration="12368000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -387,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683448194270</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="trpc validation forms, clear validation in client">
+      <created>1683452317797</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1683452317797</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

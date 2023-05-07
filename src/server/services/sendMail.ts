@@ -18,7 +18,7 @@ export const sendMail = async (email: string, token: string, type = 'reset') => 
   } catch (e) {
     throw new TRPCError({
       code: 'FORBIDDEN',
-      message: 'Something went wrong',
+      message: 'Something went wrong during email sending',
     })
   }
 }
