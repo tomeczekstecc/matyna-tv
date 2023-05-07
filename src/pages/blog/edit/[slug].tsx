@@ -1,10 +1,7 @@
 import {useRouter} from "next/router";
 import BlogForm from "@/components/blogForm";
-import {Suspense, useEffect, useState} from "react";
+import {useState} from "react";
 import {api} from "@/utils/api";
-import {is} from "date-fns/locale";
-import {LoadingSpinner, LoadingPage} from "@/components/loading"
-import Blog from "@/pages/blog/components/Blog";
 import {BlogPost} from "@prisma/client";
 
 const EditBlogPage = () => {
@@ -13,7 +10,7 @@ const EditBlogPage = () => {
   const [post, setPost] = useState<BlogPost>()
 
   // @ts-ignore
-  const {data: postData, isLoading} = api.blog.getOnePost.useQuery({slug}, {
+  const {isLoading} = api.blog.getOnePost.useQuery({slug}, {
     refetchOnWindowFocus: false,
     onSuccess: (data) => {
       setPost(data as BlogPost)
@@ -22,11 +19,19 @@ const EditBlogPage = () => {
   const {
     mutate: updatePost,
     isLoading: isUpdating
-  } = api.blog.updateOnePost.useMutation({onSuccess: () => router.push('/blog')})
+  } = api.blog.updateOnePost.useMutation({
+    onSuccess: () => {
+      return router.push('/blog')
+    },
+    useErrorBoundary: true,
+    onError: (error) => {
+      console.log(error, 'errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
+    }
+  })
 
   return (
     <div>
-      <BlogForm setPost={setPost} post={post} addBlog={updatePost} isLoading={isLoading || isUpdating}/>
+      <BlogForm errors={[]} setPost={setPost} post={post} addBlog={updatePost} isLoading={isLoading || isUpdating}/>
     </div>
   );
 };

@@ -10,11 +10,10 @@ import {transformImg} from "@/utils/transformImg";
 import WYSIWYG from "@/components/WYCIWYG";
 import {Button} from "@/components/ui/button";
 import {Header} from "@/components/ui/Header";
-import router from "next/router";
-import {LoadingPage, LoadingSpinner} from "@/components/loading";
+import {LoadingSpinner} from "@/components/loading";
 import {blurURI} from "@/config/blutURI";
 
-const BlogForm = ({setPost, post, addBlog, isLoading}) => {
+const BlogForm = ({setPost, post, addBlog, isLoading, errors}) => {
 
   return (
     <div
@@ -24,6 +23,7 @@ const BlogForm = ({setPost, post, addBlog, isLoading}) => {
       {!post ? <LoadingSpinner size={30}/> : <div>
         <Label htmlFor={"title"} className={"mb-0"}>Tytuł</Label>
         <Input
+          className={`${errors?.title ? '!border-red-500' : ''}`}
           onChange={(e) => {
             setPost((prev) => ({...prev, title: e.target.value}))
             setPost((prev) => ({...prev, slug: slugify(e.target.value, {lower: true})}))
@@ -33,6 +33,7 @@ const BlogForm = ({setPost, post, addBlog, isLoading}) => {
           type="text"
           placeholder="Podaj tytuł"
         />
+        {errors?.title && <div className={'text-red-500'}>{errors?.title}</div>}
         <div>
           <Label htmlFor={"subtitle"} className={"mb-0"}>
             Podtytuł
@@ -85,11 +86,9 @@ const BlogForm = ({setPost, post, addBlog, isLoading}) => {
         <WYSIWYG value={post.content} onChange={e => setPost(prev => ({...prev, content: e}))}/>
         <Button
           className={'mt-4 mr-2 w-full'}
-          onClick={() => {
-            addBlog(post)
-            router.push('/blog')
-          }}>
+          onClick={() => addBlog(post)}>
           {isLoading && <LoadingSpinner size={22}/>}
+
           Zapisz
 
         </Button>
