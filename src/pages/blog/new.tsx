@@ -4,6 +4,7 @@ import {api} from "@/utils/api"
 import BlogForm from "@/components/blogForm";
 import toast from "react-hot-toast";
 import {useRouter} from "next/router";
+import {clearError} from "@/lib/clearError";
 
 type BlogPost = {
   title: string
@@ -15,6 +16,7 @@ type BlogPost = {
 }
 
 export default function NewBlogPage() {
+
   const router = useRouter()
   const [post, setPost] = useState<BlogPost>({
     subtitle: "",
@@ -26,21 +28,21 @@ export default function NewBlogPage() {
   })
   const [errors, setErrors] = useState<any>(null)
 
+
   const {mutate: addBlog, isLoading} = api.blog.addBlogPost.useMutation({
     onSuccess: async (data) => {
       toast.success('Post został dodany')
       return router.push(`/blog/${data.slug}`)
     },
     onError: async (error) => {
-      console.log(error?.data, 'data')
-      console.log(error?.message, 'message')
-      console.log(error?.shape, 'shape')
       setErrors(error?.data?.zodError?.fieldErrors as any)
       toast.error('Nie udało się dodać postu')
     }
   })
 
   return (
-    <BlogForm errors={errors} isLoading={isLoading} setPost={setPost} post={post} addBlog={addBlog}/>
+    <BlogForm errors={errors} setErrors={setErrors} isLoading={isLoading} setPost={setPost} post={post}
+              addBlog={addBlog}
+              clearError={clearError}/>
   )
 }

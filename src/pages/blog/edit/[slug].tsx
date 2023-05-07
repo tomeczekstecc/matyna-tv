@@ -3,11 +3,15 @@ import BlogForm from "@/components/blogForm";
 import {useState} from "react";
 import {api} from "@/utils/api";
 import {BlogPost} from "@prisma/client";
+import {clearError} from "@/lib/clearError";
+import toast from "react-hot-toast";
 
 const EditBlogPage = () => {
   const router = useRouter();
   const {slug} = router.query;
   const [post, setPost] = useState<BlogPost>()
+  const [errors, setErrors] = useState<any>(null)
+
 
   // @ts-ignore
   const {isLoading} = api.blog.getOnePost.useQuery({slug}, {
@@ -18,21 +22,23 @@ const EditBlogPage = () => {
   })
   const {
     mutate: updatePost,
-    isLoading: isUpdating
   } = api.blog.updateOnePost.useMutation({
     onSuccess: () => {
       return router.push('/blog')
     },
-    useErrorBoundary: true,
     onError: (error) => {
-      console.log(error, 'errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
+      setErrors(error?.data?.zodError?.fieldErrors as any)
+      toast.error('Nie udało się zapisać postu')
     }
   })
 
   return (
-    <div>
-      <BlogForm errors={[]} setPost={setPost} post={post} addBlog={updatePost} isLoading={isLoading || isUpdating}/>
-    </div>
+
+    <BlogForm
+      errors={errors} setErrors={setErrors} isLoading={isLoading} setPost={setPost} post={post}
+      addBlog={updatePost}
+      clearError={clearError}/>
+
   );
 };
 
