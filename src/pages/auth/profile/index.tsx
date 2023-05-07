@@ -123,7 +123,7 @@ const LoginPage = () => {
       <Tabs defaultValue="profile">
         <TabsList>
           <TabsTrigger value="profile">Dane podstawowe</TabsTrigger>
-          <TabsTrigger value="pass">Zmień hasło</TabsTrigger>
+          {!session?.user?.accounts?.[0]?.provider && <TabsTrigger value="pass">Zmień hasło</TabsTrigger>}
           <TabsTrigger value="danger">Strefa niebezpieczna</TabsTrigger>
         </TabsList>
 
