@@ -4,10 +4,9 @@ import {TRPCError} from "@trpc/server";
 import {z} from "zod";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import {hasValidVerificationUrl, makeVerificationUrl} from "@/server/helpers/validVerificationUrl";
+import {hasValidVerificationUrl} from "@/server/helpers/validVerificationUrl";
 import {makeJWTToken} from "@/server/helpers/makeToken";
 import {sendMail} from "@/server/services/sendMail";
-import {decode} from 'next-auth/jwt';
 
 
 export const userRouter = createTRPCRouter({
@@ -134,7 +133,7 @@ export const userRouter = createTRPCRouter({
     )
   ,
   requestResetPassword: publicProcedure.input(z.object({
-    email: z.string(),
+    email: z.string().email('Niepoprawny adres email'),
   }))
     .mutation(async ({input, ctx}) => {
         const user = await ctx.prisma.user.findUnique({

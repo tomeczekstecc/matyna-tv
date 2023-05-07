@@ -6,6 +6,8 @@ import {
   Tv,
   Twitter,
   LogOut,
+  User,
+  UserCog,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -18,6 +20,8 @@ export const Icons = {
   twitter: Twitter,
   logo: Tv,
   logOut: LogOut,
+  profile: User,
+  settings: UserCog,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

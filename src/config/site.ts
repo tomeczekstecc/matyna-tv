@@ -15,7 +15,7 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "MartynaTV",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Blog MartynaTV - blog o filmach, serialach, książkach, grach i nie tylko.",
   mainNav: [
     {
       title: "Filmy",

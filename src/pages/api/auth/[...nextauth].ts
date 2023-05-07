@@ -106,10 +106,10 @@ export const authOptions: NextAuthOptions =
             session.user.surname = token.surname
             session.user.id = token.id
             session.user.accounts = token.accounts
-
+            session.user.createdAt = token.createdAt
           }
         }
-        return {...session, ...token}
+        return session
       },
       // @ts-ignore
       async jwt({token, user}) {
@@ -134,10 +134,11 @@ export const authOptions: NextAuthOptions =
             token.surname = dbUser.surname || ''
             token.role = dbUser.role
             token.accounts = dbUser.accounts
+            token.createdAt = dbUser.createdAt
           }
 
         }
-        return {...token, ...user}
+        return token
       },
     },
     secret: process.env.NEXTAUTH_SECRET,

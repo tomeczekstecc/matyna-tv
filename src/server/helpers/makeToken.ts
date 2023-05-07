@@ -5,7 +5,8 @@ export const makeJWTToken = async (user, type = 'reset') => {
   return await jwt.sign({
       id: user.id,
       email: user.email,
-      role: user.role
+      role: user.role,
+      createdAt: user.createdAt,
     }, secret, {
       expiresIn: process.env.JWT_SECRET_EXP,
     }

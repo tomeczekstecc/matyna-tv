@@ -8,6 +8,8 @@ import {Icons} from "@/components/icons";
 import toast from "react-hot-toast";
 import router from "next/router";
 import {LoadingSpinner} from "@/components/loading";
+import {Validation} from "@/components/Validation";
+import {clearError} from "@/lib/clearError";
 
 const ForgetPassword = () => {
   const [form, setForm] = React.useState({
@@ -15,23 +17,28 @@ const ForgetPassword = () => {
     password: ''
   })
 
+  const [errors, setErrors] = React.useState<any>(null)
+
+
   const {mutate: requestResetPassword, isLoading} = api.user.requestResetPassword.useMutation({
-    onSuccess: async (data) => {
+    onSuccess: async () => {
       toast.success('Link do zmiany hasła został wysłany na podany adres email')
-      router.push('/auth/login')
+      return router.push('/auth/login')
     },
     onError: async (e) => {
-      toast.error('Nie udało się wysłać linku do zmiany hasła')
+      setErrors(e?.data?.zodError?.fieldErrors as any)
+      toast.error('Nie udało się wysłać linka do zmiany hasła')
 
     }
   })
 
   const handleChange = (e) => {
-    const {name, value, type, checked} = e.target
+    const {name, value} = e.target
     setForm({
       ...form,
       [name]: value
     })
+    clearError(errors, setErrors, name)
   }
 
 
@@ -41,7 +48,7 @@ const ForgetPassword = () => {
       await requestResetPassword(form)
 
     } catch (e) {
-      console.log(e)
+      toast.error('Nie udało się wysłać linka do zmiany hasła')
     }
 
   }
@@ -63,15 +70,18 @@ const ForgetPassword = () => {
                   Adres email
                 </label>
                 <div className="mt-1">
-                  <Input
-                    placeholder={'Email użyty przy rejestracji'}
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    onChange={handleChange}
-                  />
+                  <Validation errors={errors} field={'email'}>
+                    <Input
+                      className={`${errors?.title ? '!border-red-500' : ''}`}
+                      placeholder={'Email użyty przy rejestracji'}
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      onChange={handleChange}
+                    />
+                  </Validation>
                 </div>
               </div>
               <div className={'flex justify-between'}>

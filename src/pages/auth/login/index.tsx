@@ -1,14 +1,13 @@
 'use client'
 
 import React, {useEffect} from 'react'
-import {Checkbox} from "@/components/ui/checkbox"
 import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button";
 import {signIn, useSession} from "next-auth/react";
 import {useRouter} from 'next/router'
 import Link from "next/link";
 import Image from "next/image";
-import {FacebookIcon, Facebook} from "lucide-react"
+import {Facebook} from "lucide-react"
 import {Separator} from "@/components/ui/separator"
 import {Icons} from "@/components/icons";
 import toast from "react-hot-toast";
@@ -53,13 +52,16 @@ const LoginPage = () => {
         password: form.password
       })
       if (res?.error) {
-        toast.error('Nie udało się zalogować')
+        toast.error('Nie udało się zalogować. Upewnij się że podano poprawne dane i że konto zostało aktywowane', {
+          duration: 10000
+        })
         return
       }
       toast.success('Zalogowano pomyślnie')
     } catch (e) {
-      toast.error('Nie udało się zalogować')
-      console.log(e)
+      toast.error('Nie udało się zalogować. Upewnij się że podano poprawne dane i że konto zostało aktywowane', {
+        duration: 10000
+      })
     }
 
   }
@@ -138,14 +140,14 @@ const LoginPage = () => {
               </div>
             </form>
           </div>
-          <div className={'flex items-center gap-3 mt-5'}><Separator className="my-4"/>
+          <div className={'mt-5 flex items-center gap-3'}><Separator className="my-4"/>
             lub
             <Separator className="my-4"/></div>
           <div className={'flex space-x-6'}>
             <div className={'mt-6 w-full'}>
               <Button
                 onClick={() => signIn('google')}
-                className="flex w-full justify-center px-2 py-2 text-sm font-medium text-white">
+                className="flex w-full justify-center p-2 text-sm font-medium text-white">
                 <Image
 
                   src={'/g1.svg'} alt={'google'} width={50} height={50}/>

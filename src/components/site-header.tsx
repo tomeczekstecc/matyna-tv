@@ -5,7 +5,7 @@ import {Icons} from "@/components/icons"
 import {MainNav} from "@/components/main-nav"
 import {ThemeToggle} from "@/components/theme-toggle"
 import {Button, buttonVariants} from "@/components/ui/button"
-import {useSession, signOut} from "next-auth/react";
+import {useSession} from "next-auth/react";
 
 export function SiteHeader() {
 
@@ -20,22 +20,18 @@ export function SiteHeader() {
 
 
         <div className="flex flex-1 items-center justify-end space-x-4">
-          {session ? <Button onClick={() => signOut()} size="sm" variant="ghost">
-              Wyloguj się
-            </Button> :
-            (<>
-                <Link href="/auth/login">
-                  <Button size="sm" variant="ghost">
-                    Zaloguj się
-                  </Button>
-                </Link>
-                <Link href="/auth/register">
-                  <Button size="sm" variant="ghost">
-                    Zarejestruj się
-                  </Button>
-                </Link>
-              </>
-            )
+          {!session && <>
+            <Link href="/auth/login">
+              <Button size="sm" variant="ghost">
+                Zaloguj się
+              </Button>
+            </Link>
+            <Link href="/auth/register">
+              <Button size="sm" variant="ghost">
+                Zarejestruj się
+              </Button>
+            </Link>
+          </>
           }
           <nav className="flex items-center space-x-1">
             <Link
@@ -72,25 +68,7 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
-            {session?.user?.email && <Link href={"#"}
-                                           target="_blank"
-                                           rel="noreferrer"
-                                           onClick={(e) => {
-                                             e.preventDefault()
-                                             return signOut()
-                                           }}
-            >
-              <div
-                className={buttonVariants({
-                  size: "sm",
-                  variant: "ghost",
-                  className: "text-slate-700 dark:text-slate-400",
-                })}
-              >
-                <Icons.logOut className="h-5 w-5 fill-current"/>
-                <span className="sr-only">Facebook</span>
-              </div>
-            </Link>}
+
 
             <ThemeToggle/>
 
