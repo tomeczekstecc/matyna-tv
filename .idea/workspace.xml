@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="minor fixes">
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="delete account and all assets">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/theme-toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/theme-toggle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +177,7 @@
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
       <workItem from="1683397128478" duration="10532000" />
-      <workItem from="1683441698880" duration="26796000" />
+      <workItem from="1683441698880" duration="27559000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -420,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683486546043</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="delete account and all assets">
+      <created>1683488452055</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683488452055</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="qwdfqwd" />
     <MESSAGE value="trpc add" />
     <MESSAGE value="zdjęcia" />
     <MESSAGE value="detail page" />
@@ -470,6 +473,7 @@
     <MESSAGE value="trpc validation forms, clear validation in client" />
     <MESSAGE value="check error" />
     <MESSAGE value="minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
+    <MESSAGE value="delete account and all assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete account and all assets" />
   </component>
 </project>

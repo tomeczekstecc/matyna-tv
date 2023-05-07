@@ -26,6 +26,7 @@ const LoginPage = () => {
   const router = useRouter()
   const {data: session} = useSession();
   const [open, setOpen] = React.useState(false)
+  const [emailConfirm, setEmailConfirm] = React.useState('')
 
   const [form, setForm] = React.useState({
     email: '',
@@ -41,7 +42,7 @@ const LoginPage = () => {
       [name]: value
     })
   }
-  const {mutate: deleteAccountAndUser} = api.user.deleteAccountAndUser.useMutation({
+  const {mutate: deleteAccountAndUser, isLoading: isLoadingDeleteAcc} = api.user.deleteAccountAndUser.useMutation({
     onSuccess: async () => {
       await signOut()
       toast.success('Konto zostało usunięte')
@@ -83,11 +84,24 @@ const LoginPage = () => {
             pewna/pewien? operacja jest
             nieodwracalna.
           </DialogDescription>
+          <DialogDescription>
+            <p className={'mb-1'}>Wpisz swój <strong>adres email</strong> aby potwierdzić</p>
+            <Input
+              id="emailConfirm"
+              name={'emailConfirm'}
+              type={'emailConfirm'}
+              placeholder={'Wpisz email aby potwierdzić'}
+              value={emailConfirm}
+              onChange={e => setEmailConfirm(e.target.value)}
+            />
+          </DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <Button color={'red'} onClick={() => setOpen(false)} type="submit">REZYGNUJĘ</Button>
-          <Button onClick={() => deleteAccountAndUser({userId: session?.user?.id})} variant={'destructive'}
-                  type="submit">{isLoading &&
+          <Button
+            disabled={emailConfirm !== session?.user?.email}
+            onClick={() => deleteAccountAndUser({userId: session?.user?.id})} variant={'destructive'}
+            type="submit">{isLoadingDeleteAcc &&
             <div className={'mr-2'}><LoadingSpinner size={18}/></div>} usuwam</Button>
         </DialogFooter>
       </DialogContent>
@@ -265,7 +279,6 @@ const LoginPage = () => {
 
             <div className={'text-2xl font-extrabold'}>Usuwanie konta</div>
             <div>Usuwanie konta jest nieodwracalne. Po usunięciu konta nie będzie możliwości jego odzyskania.</div>
-
             Usuń konto z bazy danych
             <div className={'mt-8'}>
               <Button
