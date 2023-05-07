@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="trpc validation forms, clear validation in client">
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="check error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/services/sendMail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/services/sendMail.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +177,7 @@
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
       <workItem from="1683397128478" duration="10532000" />
-      <workItem from="1683441698880" duration="12368000" />
+      <workItem from="1683441698880" duration="13881000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -392,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683452317797</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="check error">
+      <created>1683456778398</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1683456778398</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,6 +444,7 @@
     <MESSAGE value="Image blur" />
     <MESSAGE value="trpc validation poc" />
     <MESSAGE value="trpc validation forms, clear validation in client" />
-    <option name="LAST_COMMIT_MESSAGE" value="trpc validation forms, clear validation in client" />
+    <MESSAGE value="check error" />
+    <option name="LAST_COMMIT_MESSAGE" value="check error" />
   </component>
 </project>

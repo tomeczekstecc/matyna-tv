@@ -12,13 +12,14 @@ export const sendMail = async (email: string, token: string, type = 'reset') => 
       to: email,
       subject: 'Potwierdź swój adres email',
       text,
-      html: `<h3>Click <a href=${href}>${text}</a></h3>`
+      html: `<h3>Kliknij tu:  <a href=${href}>${text}</a></h3>`
     })
     return {status: 'ok', message: 'Email sent'}
   } catch (e) {
     throw new TRPCError({
       code: 'FORBIDDEN',
       message: 'Something went wrong during email sending',
+      cause: e.message
     })
   }
 }
