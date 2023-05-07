@@ -37,9 +37,9 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" forceMount>
-        <span className={'ml-1 text-sm font-bold'}>Użytkownik</span>
-
         {session?.user?.email && <>
+          <span className={'ml-1 text-sm font-bold'}>Użytkownik</span>
+
           <DropdownMenuItem onClick={() => router.push('/auth/profile')}>
             <Icons.profile className="mr-2 h-4 w-4"/>
             <span>Profil</span>

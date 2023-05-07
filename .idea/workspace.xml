@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="minor fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/icons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/theme-toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/theme-toggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/site.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/site.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/forget/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/helpers/makeToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/helpers/makeToken.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +180,7 @@
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
       <workItem from="1683397128478" duration="10532000" />
-      <workItem from="1683441698880" duration="24980000" />
+      <workItem from="1683441698880" duration="26796000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -419,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683467510664</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="minor fixes">
+      <created>1683486546043</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1683486546043</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

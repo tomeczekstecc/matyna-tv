@@ -2,7 +2,7 @@
 import React from 'react'
 import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button";
-import {signIn, useSession} from "next-auth/react";
+import {signIn, signOut, useSession} from "next-auth/react";
 import {useRouter} from 'next/router'
 import {api} from "@/utils/api";
 import toast from "react-hot-toast";
@@ -35,13 +35,19 @@ const LoginPage = () => {
   })
 
   const handleChange = (e) => {
-    const {name, value, type, checked} = e.target
+    const {name, value} = e.target
     setForm({
       ...form,
       [name]: value
     })
   }
-
+  const {mutate: deleteAccountAndUser} = api.user.deleteAccountAndUser.useMutation({
+    onSuccess: async () => {
+      await signOut()
+      toast.success('Konto zostało usunięte')
+      await router.push('/')
+    }
+  })
   const {mutate: change, isLoading} = api.user.changePassword.useMutation({
     onSuccess: async () => {
       await signIn('credentials', {
@@ -52,7 +58,7 @@ const LoginPage = () => {
       toast.success('Hasło zostało zmienione')
       await router.push('/')
     },
-    onError: async (e) => {
+    onError: async () => {
       toast.error('Nie udało się zmienić hasła')
     }
   })
@@ -66,11 +72,6 @@ const LoginPage = () => {
     }
   }
 
-  const handleOnDeleteClick = (id) => {
-    setOpen(true)
-  }
-
-
   const dialogDelete = (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>
@@ -78,22 +79,29 @@ const LoginPage = () => {
           <DialogClose asChild onClick={() => setOpen(false)}/>
           <DialogTitle>Czy na pewno?</DialogTitle>
           <DialogDescription>
-            Zamierzasz usunąć wpis bloga o tytule {}. Czy jesteś pewna/pewien? operacja jest
+            Zamierzasz usunąć konto użytkownika i wszystkie związane z nim dane (komentarze, blogi). Czy jesteś
+            pewna/pewien? operacja jest
             nieodwracalna.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <Button color={'red'} onClick={() => setOpen(false)} type="submit">REZYGNUJĘ</Button>
-          <Button onClick={() => null} variant={'destructive'} type="submit">{isLoading &&
+          <Button onClick={() => deleteAccountAndUser({userId: session?.user?.id})} variant={'destructive'}
+                  type="submit">{isLoading &&
             <div className={'mr-2'}><LoadingSpinner size={18}/></div>} usuwam</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
   )
 
+  const handleDeleteAccountAndUser = () => {
+    setOpen(true)
+  }
+
   // @ts-ignore
   return (
     <>
+      {dialogDelete}
       <div className={'mb-6 flex items-center gap-6'}>
         <Header title={'Profil'} subtitle={'Strona konta użytkownika'} className={undefined}/>
         {session?.user?.image &&
@@ -184,8 +192,8 @@ const LoginPage = () => {
 
           <div className={'text-2xl font-extrabold'}>Zmiana hasła</div>
           <div>Zmień hasło do swojego konta</div>
-          <div className={'w-7/12 m-auto p-6'}>
-            <Icons.logo className="mb-1 m-auto h-20 w-20 "/>
+          <div className={'m-auto w-7/12 p-6'}>
+            <Icons.logo className="m-auto mb-1 h-20 w-20 "/>
             <div>
               <h2 className="mt-6 text-center text-3xl font-extrabold">
                 Zmiana hasła
@@ -262,7 +270,7 @@ const LoginPage = () => {
             <div className={'mt-8'}>
               <Button
                 className={'!hover:bg-red-600 !active:bg-red-700 !focus:bg-red-700 !bg-red-500'}
-                // onClick={handleDeleteAccount}
+                onClick={handleDeleteAccountAndUser}
               >
                 Usuń konto
               </Button>

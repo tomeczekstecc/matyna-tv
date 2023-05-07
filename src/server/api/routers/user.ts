@@ -1,4 +1,4 @@
-import {createTRPCRouter} from "@/server/api/trpc";
+import {authProcedure, createTRPCRouter} from "@/server/api/trpc";
 import {publicProcedure} from "@/server/api/trpc";
 import {TRPCError} from "@trpc/server";
 import {z} from "zod";
@@ -293,6 +293,52 @@ export const userRouter = createTRPCRouter({
 
       }
     ),
+  deleteAccountAndUser: authProcedure.input(z.object({
+    userId: z.string(),
+  }))
+    .mutation(async ({input, ctx}) => {
+        if (!ctx.user) {
+          throw new TRPCError({
+            code: 'UNAUTHORIZED',
+            message: 'Not authorized',
+          })
+        }
+        if (ctx.user.id !== input.userId) {
+          throw new TRPCError({
+            code: 'UNAUTHORIZED',
+            message: 'Not authorized',
+          })
+        }
+
+        await ctx.prisma.blogPost.deleteMany({
+            where: {
+              userId: input.userId,
+            }
+          }
+        )
+
+        await ctx.prisma.account.deleteMany({
+            where: {
+              userId: input.userId,
+            }
+          }
+        )
+
+        const user = await ctx.prisma.user.delete({
+          where: {
+            id: input.userId,
+          }
+        })
+        if (!user) {
+          throw new TRPCError({
+            code: 'NOT_FOUND',
+            message: 'User not found',
+          })
+        }
+        return true
+      }
+    ),
+
 })
 
 
