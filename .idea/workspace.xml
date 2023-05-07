@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="trpc validation poc">
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/edit/[slug].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/new.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/new.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +176,7 @@
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
       <workItem from="1683397128478" duration="10532000" />
-      <workItem from="1683441698880" duration="5116000" />
+      <workItem from="1683441698880" duration="5133000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -375,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683415167006</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="trpc validation poc">
+      <created>1683448174979</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1683448174979</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

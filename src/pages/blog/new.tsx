@@ -14,7 +14,7 @@ type BlogPost = {
   slug: string
 }
 
-export default function NewBlogPage(props) {
+export default function NewBlogPage() {
   const router = useRouter()
   const [post, setPost] = useState<BlogPost>({
     subtitle: "",
