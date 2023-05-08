@@ -109,7 +109,7 @@ export const authOptions: NextAuthOptions =
             session.user.createdAt = token.createdAt
           }
         }
-        return session
+        return {...session, ...token}
       },
       // @ts-ignore
       async jwt({token, user}) {
@@ -138,7 +138,7 @@ export const authOptions: NextAuthOptions =
           }
 
         }
-        return token
+        return {...token, ...user}
       },
     },
     secret: process.env.NEXTAUTH_SECRET,
