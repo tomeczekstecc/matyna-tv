@@ -30,7 +30,7 @@ function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
 
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false}/>
-        <SessionProvider session={session} basePath={'api/auth'}>
+        <SessionProvider session={session} basePath={'/api/auth'}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Layout>
               <Toaster position={"bottom-center"}/>
