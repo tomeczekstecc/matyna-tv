@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="email confirm delete">
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="films model">
+      <change afterPath="$PROJECT_DIR$/src/components/AdminAddContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/filmForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/films/edit/[slug].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/films/new.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/api/routers/film.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/root.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/root.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +68,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/prisma&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/martyna-tv/src/server/api/routers&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -70,11 +82,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\dev\martyna-tv\prisma" />
-      <recent name="C:\dev\martyna-tv" />
+      <recent name="C:\dev\martyna-tv\src\server\api\routers" />
       <recent name="C:\dev\martyna-tv\src\components" />
-      <recent name="C:\dev\martyna-tv\src\pages\auth" />
+      <recent name="C:\dev\martyna-tv\src\pages\films" />
       <recent name="C:\dev\martyna-tv\src\pages" />
+      <recent name="C:\dev\martyna-tv\prisma" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\dev\martyna-tv\src\components\ui" />
@@ -178,7 +190,9 @@
       <workItem from="1683042333090" duration="11428000" />
       <workItem from="1683124661882" duration="18064000" />
       <workItem from="1683397128478" duration="10532000" />
-      <workItem from="1683441698880" duration="28655000" />
+      <workItem from="1683441698880" duration="31526000" />
+      <workItem from="1683493926644" duration="3571000" />
+      <workItem from="1683561053290" duration="497000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -432,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683489260348</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="films model">
+      <created>1683490375185</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1683490375185</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +478,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="zdjęcia" />
     <MESSAGE value="detail page" />
     <MESSAGE value="fix router" />
     <MESSAGE value="switch to planet scale" />
@@ -482,6 +502,18 @@
     <MESSAGE value="minor fixes" />
     <MESSAGE value="delete account and all assets" />
     <MESSAGE value="email confirm delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="email confirm delete" />
+    <MESSAGE value="films model" />
+    <option name="LAST_COMMIT_MESSAGE" value="films model" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/server/api/routers/user.ts</url>
+          <line>232</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

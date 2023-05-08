@@ -65,17 +65,17 @@ const BlogCard = ({post, refetch, featured}) => {
   return (
     <div className={"relative"}>
       {dialogDelete}
-      {(authStatus === 'authenticated' && session?.user?.role === 'ADMIN') && <div
-        className={"absolute top-4 left-4 flex gap-2 rounded border-2 border-slate-600 bg-slate-900 px-4 py-2 opacity-80"}>
-        <Link title={'Edytuj wpis'} href={`/blog/edit/${slug}`}>
-          <Edit className={'text-white'} size={22}/>
-        </Link>
+      {(authStatus === 'authenticated' && session?.user?.role === 'ADMIN') &&
         <div
-          // onClick={() => deletePost({id: post.id})}
-          title={'Usuń wpis'}>
-          <Trash onClick={() => handleOnDeleteClick(post.id)} size={22}
-                 className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/></div>
-      </div>}
+          className={"absolute top-4 left-4 flex gap-2 rounded border-2 border-slate-600 bg-slate-900 px-4 py-2 opacity-80"}>
+          <Link title={'Edytuj wpis'} href={`/blog/edit/${slug}`}>
+            <Edit className={'text-white'} size={22}/>
+          </Link>
+          <div
+            title={'Usuń wpis'}>
+            <Trash onClick={() => handleOnDeleteClick(post.id)} size={22}
+                   className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/></div>
+        </div>}
 
       <Image
         placeholder={'blur'}

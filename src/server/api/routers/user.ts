@@ -225,7 +225,7 @@ export const userRouter = createTRPCRouter({
       }
     ),
   changePassword: publicProcedure.input(z.object({
-      oldPassword: z.string(),
+      oldPassword: z.string().min(8, 'Hasło musi mieć minimum 8 znaków').max(30, 'Hasło może mieć maksymalnie 30 znaków'),
       newPassword: z.string(),
       confirmPassword: z.string(),
     }

@@ -65,7 +65,7 @@ model User {
   // sessions          Session[]
   Comment           Comment[]
   BlogPost          BlogPost[]
-  films             Films[]
+  Film              Film[]
   role              Role       @default(USER)
   createdAt         DateTime   @default(now())
   updatedAt         DateTime   @updatedAt
@@ -82,11 +82,13 @@ model Comment {
   userId     String
 }
 
-model Films {
+model Film {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   title     String
   subtitle  String
+  slug      String
+  url       String
   userId    String
   User      User     @relation(fields: [userId], references: [id])
 }

@@ -149,7 +149,6 @@ const LoginPage = () => {
                 onClick={() => signIn('google')}
                 className="flex w-full justify-center p-2 text-sm font-medium text-white">
                 <Image
-
                   src={'/g1.svg'} alt={'google'} width={50} height={50}/>
                 <div>Zaloguj się z Google</div>
               </Button>

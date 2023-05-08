@@ -16,6 +16,7 @@ import {Suspense} from "react";
 import Blog from "./components/Blog";
 import {LoadingPage} from "@/components/loading";
 import {useSession} from "next-auth/react";
+import AdminAddContent from "@/components/AdminAddContent";
 
 
 export const metadata = {
@@ -34,20 +35,7 @@ export default function IndexPage() {
     <div>
       <div className={'flex gap-3 align-middle'}>
         <Header title={'Blog'} subtitle={'Najnowsze wpisy bloga'} className={'mb-10'}/>
-        {session?.user?.role === 'ADMIN' && <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link href={'blog/new'}>
-                <Button variant="outline" className="w-10 rounded-full p-0">
-                  <Plus className="h-4 w-4"/>
-                  <span className="sr-only">Dodaj wpis bloga</span>
-                </Button></Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Dodaj wpis bloga</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>}
+        {session?.user?.role === 'ADMIN' && <AdminAddContent href={'/blog/new'} tooltipText={'Dodaj wpis bloga'}/>}
       </div>
       <Suspense fallback={<LoadingPage size={50}/>}>
         <Blog refetch={refetch} posts={posts}/>
