@@ -133,7 +133,7 @@ const isAuthenticated = t.middleware((opts) => {
   }
 );
 
-export const adminProcedure = t.procedure.use(isAuthenticated).use(isAdmin);
+export const adminProcedure = t.procedure.use(isAdmin);
 export const authProcedure = t.procedure.use(isAuthenticated);
 
 
