@@ -117,9 +117,9 @@ const isAdmin = t.middleware((opts) => {
 
   const {req} = ctx;
 
-  // if (!ctx.user || ctx.user.role !== 'ADMIN') {
-  //   throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
-  // }
+  if (!ctx.user || ctx.user.role !== 'ADMIN') {
+    throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
+  }
   return opts.next();
 });
 
