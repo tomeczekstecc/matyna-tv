@@ -29,6 +29,7 @@ import superjson from "superjson"
 import {prisma} from "../db"
 import {decode} from "next-auth/jwt";
 import {ZodError} from "zod";
+import * as process from "process";
 
 type CreateContextOptions = Record<string, never>
 
@@ -60,8 +61,8 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const user = await decode({
     token: req.cookies?.['next-auth.session-token'], secret: process.env.NEXTAUTH_SECRET as string
   })
-
-
+  console.log(req.cookies?.['next-auth.session-token'], 'req.cookies?.[\'next-auth.session-token\']')
+  console.log(process.env.NEXTAUTH_SECRET)
   return {
     prisma,
     user,
