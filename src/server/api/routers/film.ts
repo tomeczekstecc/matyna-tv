@@ -16,7 +16,6 @@ export const filmRouter = createTRPCRouter({
     .input(filmInput)
     .mutation(async ({input, ctx}) => {
 
-      console.log(ctx.user)
 
       const film = await ctx.prisma.film.create({
         data: {

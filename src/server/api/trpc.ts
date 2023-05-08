@@ -117,9 +117,6 @@ const isAdmin = t.middleware((opts) => {
 
   const {req} = ctx;
 
-  console.log('ctx', ctx?.user);
-  console.log('ctx', ctx?.user?.role);
-
   if (!ctx.user || ctx.user.role !== 'ADMIN') {
     throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
   }

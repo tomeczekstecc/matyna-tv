@@ -72,8 +72,6 @@ export const authOptions: NextAuthOptions =
               role: user.role,
 
             }
-          } else {
-            console.log('no user')
           }
         },
 
