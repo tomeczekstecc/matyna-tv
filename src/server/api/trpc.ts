@@ -59,10 +59,9 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const {req} = opts;
 
   const user = await decode({
-    token: req.cookies?.['next-auth.session-token'], secret: process.env.NEXTAUTH_SECRET as string
+    token: req.cookies?.['next-auth.session-token'] || req.cookies?.['__Secure-next-auth.session-token'],
+    secret: process.env.NEXTAUTH_SECRET as string
   })
-  console.log(req.cookies?.['__Secure-next-auth.session-token'], 'req.cookies?.[\'next-auth.session-token\']')
-  console.log(process.env.NEXTAUTH_SECRET)
   return {
     prisma,
     user,
