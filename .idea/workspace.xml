@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="films model">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/api/trpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/trpc.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +194,7 @@
       <workItem from="1683397128478" duration="10532000" />
       <workItem from="1683441698880" duration="31526000" />
       <workItem from="1683493926644" duration="3571000" />
-      <workItem from="1683561053290" duration="1890000" />
+      <workItem from="1683561053290" duration="2049000" />
     </task>
     <task id="LOCAL-00001" summary="qwdfqwd">
       <created>1676395341844</created>
@@ -470,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683562498986</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="films model">
+      <created>1683562974690</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1683562974690</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

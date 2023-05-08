@@ -117,20 +117,18 @@ const isAdmin = t.middleware((opts) => {
 
   const {req} = ctx;
 
-  if (!ctx.user
-    // || ctx.user.role !== 'ADMIN'
-  ) {
-    throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień do wykonania tej operacji'});
-  }
+  // if (!ctx.user || ctx.user.role !== 'ADMIN') {
+  //   throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
+  // }
   return opts.next();
 });
 
 
 const isAuthenticated = t.middleware((opts) => {
     const {ctx} = opts;
-    if (!ctx.user) {
-      throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień do wykonania tej operacji'});
-    }
+    // if (!ctx.user) {
+    //   throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
+    // }
     return opts.next();
   }
 );
