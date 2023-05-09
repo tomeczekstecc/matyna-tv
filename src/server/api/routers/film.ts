@@ -4,10 +4,10 @@ import {Film} from "@prisma/client";
 
 const filmInput = z.object({
   id: z.string().optional(),
-  title: z.string().min(3, 'Tytuł musi zawierać conajmniej 3 znaki ').max(100, 'Tytuł jest za długi: max 100 znaków'),
+  title: z.string({required_error: 'Pole jest wymagane'}).min(3, 'Tytuł musi zawierać conajmniej 3 znaki ').max(100, 'Tytuł jest za długi: max 100 znaków'),
   subtitle: z.string().min(3, 'Podtytuł musi zawierać conajmniej 3 znaki ').max(100, 'Podtytuł jest za długi: max 300 znaków'),
   slug: z.string({required_error: 'Dodaj slug'}),
-  url: z.string().url({message: 'Podaj prawidłowy adres url'}),
+  url: z.string({required_error: 'Pole jest wymagane'}).url({message: 'Podaj prawidłowy adres url'}),
 })
 
 
@@ -16,6 +16,7 @@ export const filmRouter = createTRPCRouter({
     .input(filmInput)
     .mutation(async ({input, ctx}) => {
 
+      console.log(ctx.user)
 
       const film = await ctx.prisma.film.create({
         data: {
@@ -48,7 +49,7 @@ export const filmRouter = createTRPCRouter({
     })
   }),
   getOneFilm: publicProcedure.input(z.object({slug: z.string()})).query(async ({input, ctx}) => {
-    return ctx.prisma.blogPost.findUnique({
+    return ctx.prisma.film.findUnique({
       where: {
         slug: input.slug
       },

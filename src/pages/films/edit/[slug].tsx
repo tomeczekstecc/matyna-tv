@@ -1,30 +1,30 @@
 import {useRouter} from "next/router";
-import BlogForm from "@/components/blogForm";
 import {useState} from "react";
 import {api} from "@/utils/api";
-import {BlogPost} from "@prisma/client";
+import {Film} from "@prisma/client";
 import {clearError} from "@/lib/clearError";
 import toast from "react-hot-toast";
+import FilmForm from "@/components/filmForm";
 
-const EditBlogPage = () => {
+const EditFilmPage = () => {
   const router = useRouter();
   const {slug} = router.query;
-  const [post, setPost] = useState<BlogPost>()
+  const [film, setFilm] = useState<Film>()
   const [errors, setErrors] = useState<any>(null)
 
 
   // @ts-ignore
-  const {isLoading} = api.blog.getOnePost.useQuery({slug}, {
+  const {isLoading} = api.film.getOneFilm.useQuery({slug}, {
     refetchOnWindowFocus: false,
     onSuccess: (data) => {
-      setPost(data as BlogPost)
+      setFilm(data as unknown as Film)
     }
   })
   const {
-    mutate: updatePost,
-  } = api.blog.updateOnePost.useMutation({
+    mutate: updateFilm,
+  } = api.film.updateOneFilm.useMutation({
     onSuccess: () => {
-      return router.push('/blog')
+      return router.push('/films')
     },
     onError: (error) => {
       setErrors(error?.data?.zodError?.fieldErrors as any)
@@ -34,12 +34,12 @@ const EditBlogPage = () => {
 
   return (
 
-    <BlogForm
-      errors={errors} setErrors={setErrors} isLoading={isLoading} setPost={setPost} post={post}
-      addBlog={updatePost}
+    <FilmForm
+      errors={errors} setErrors={setErrors} isLoading={isLoading} setFilm={setFilm} film={film}
+      addFilm={updateFilm}
       clearError={clearError}/>
 
   );
 };
 
-export default EditBlogPage;
+export default EditFilmPage;

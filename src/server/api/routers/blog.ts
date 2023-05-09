@@ -4,12 +4,12 @@ import {BlogPost} from "@prisma/client";
 
 const blogInput = z.object({
   id: z.string().optional(),
-  title: z.string().min(3, 'Tytuł musi zawierać conajmniej 3 znaki ').max(100, 'Tytuł jest za długi: max 100 znaków'),
-  subtitle: z.string().min(3, 'Podtytuł musi zawierać conajmniej 3 znaki ').max(100, 'Podtytuł jest za długi: max 300 znaków'),
-  content: z.string().min(3, 'Treść musi zawierać conajmniej 100 znaków (html) ').max(100000, 'Treść jest za długa: max 100000 znaków'),
-  categoryId: z.string({required_error: 'Wybierz kategorię'}),
-  imgURL: z.string({required_error: 'Dodaj zdjęcie'}).url({message: 'Nie dodano zdjęcia lub niepoprawny adres URL zdjęcia'} as any),
-  slug: z.string({required_error: 'Dodaj slug'})
+  title: z.string({required_error: 'Pole jest wymagane'}).min(3, 'Tytuł musi zawierać conajmniej 3 znaki ').max(100, 'Tytuł jest za długi: max 100 znaków'),
+  subtitle: z.string({required_error: 'Pole jest wymagane'}).min(3, 'Podtytuł musi zawierać conajmniej 3 znaki ').max(300, 'Podtytuł jest za długi: max 300 znaków'),
+  content: z.string({required_error: 'Pole jest wymagane'}).min(3, 'Treść musi zawierać conajmniej 100 znaków (html) ').max(100000, 'Treść jest za długa: max 100000 znaków'),
+  categoryId: z.string({required_error: 'Pole jest wymagane'}),
+  imgURL: z.string({required_error: 'Pole jest wymagane'}).url({message: 'Nie dodano zdjęcia lub niepoprawny adres URL zdjęcia'} as any),
+  slug: z.string({required_error: 'Pole jest wymagane'})
 })
 
 
@@ -31,8 +31,6 @@ export const blogRouter = createTRPCRouter({
       return {...post}
     }),
   getAllPosts: publicProcedure.query(({ctx}) => {
-    //get all post with category
-
     return ctx.prisma.blogPost.findMany({
       // @ts-ignore
       orderBy: {
@@ -49,6 +47,7 @@ export const blogRouter = createTRPCRouter({
 
     })
   }),
+
   getOnePost: publicProcedure.input(z.object({slug: z.string()})).query(async ({input, ctx}) => {
     return ctx.prisma.blogPost.findUnique({
       where: {

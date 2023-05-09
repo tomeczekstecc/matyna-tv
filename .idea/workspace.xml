@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="films model">
+    <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="minor fixes">
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/auth/[...nextauth].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Validation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Validation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filmForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filmForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/films.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/films/edit/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/edit/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/api/routers/film.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/film.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/trpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/trpc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,14 +208,9 @@
       <workItem from="1683397128478" duration="10532000" />
       <workItem from="1683441698880" duration="31526000" />
       <workItem from="1683493926644" duration="3571000" />
-      <workItem from="1683561053290" duration="9269000" />
-    </task>
-    <task id="LOCAL-00005" summary="detail page">
-      <created>1679168794813</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1679168794813</updated>
+      <workItem from="1683561053290" duration="12435000" />
+      <workItem from="1683581241582" duration="3564000" />
+      <workItem from="1683648278289" duration="2216000" />
     </task>
     <task id="LOCAL-00006" summary="fix router">
       <created>1681035349583</created>
@@ -542,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683577363892</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="films model">
+      <created>1683578098541</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1683578098541</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,18 +601,18 @@
     <MESSAGE value="trpc validation poc" />
     <MESSAGE value="trpc validation forms, clear validation in client" />
     <MESSAGE value="check error" />
-    <MESSAGE value="minor fixes" />
     <MESSAGE value="delete account and all assets" />
     <MESSAGE value="email confirm delete" />
     <MESSAGE value="films model" />
-    <option name="LAST_COMMIT_MESSAGE" value="films model" />
+    <MESSAGE value="minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/server/api/routers/user.ts</url>
-          <line>232</line>
+          <line>237</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -87,7 +87,7 @@ model Film {
   createdAt DateTime @default(now())
   title     String
   subtitle  String
-  slug      String
+  slug      String   @unique
   url       String
   userId    String
   User      User     @relation(fields: [userId], references: [id])

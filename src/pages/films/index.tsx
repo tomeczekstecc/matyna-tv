@@ -2,7 +2,6 @@ import React from "react"
 
 import FilmCard from "@/components/ui/filmCard"
 import {Header} from "@/components/ui/Header"
-import filmsList from "../../data/films.json"
 import AdminAddContent from "@/components/AdminAddContent";
 import {useSession} from "next-auth/react";
 import {api} from "@/utils/api";
@@ -22,7 +21,7 @@ export default function index() {
           subtitle={"Ciekawe filmy do obejrzenia"} className={undefined}/>
         {session?.user?.role === 'ADMIN' && <AdminAddContent href={'/films/new'} tooltipText={'Dodaj film'}/>}
       </div>
-      <section className=" grid grid-cols-3 gap-4">
+      <section className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
         {films?.map((film) => {
           return (
             <FilmCard

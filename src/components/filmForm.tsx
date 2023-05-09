@@ -51,7 +51,7 @@ const FilmForm = ({setFilm, film, addFilm, isLoading, errors, setErrors, clearEr
             </Label>
             <Validation errors={errors} field={'subtitle'}>
               <Input
-                className={`${errors?.title ? '!border-red-500' : ''}`}
+                className={`${errors?.subtitle ? '!border-red-500' : ''}`}
                 onChange={(e) => handleChange('subtitle', e.target.value)}
                 name={"subtitle"}
                 type="text"
@@ -66,7 +66,7 @@ const FilmForm = ({setFilm, film, addFilm, isLoading, errors, setErrors, clearEr
             </Label>
             <Validation errors={errors} field={'url'}>
               <Input
-                className={`${errors?.title ? '!border-red-500' : ''}`}
+                className={`${errors?.url ? '!border-red-500' : ''}`}
                 onChange={(e) => handleChange('url', e.target.value)}
                 name={"url"}
                 type="text"

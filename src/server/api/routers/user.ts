@@ -1,7 +1,7 @@
 import {authProcedure, createTRPCRouter} from "@/server/api/trpc";
 import {publicProcedure} from "@/server/api/trpc";
 import {TRPCError} from "@trpc/server";
-import {z} from "zod";
+import {z, ZodError} from "zod";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import {hasValidVerificationUrl} from "@/server/helpers/validVerificationUrl";
@@ -12,20 +12,25 @@ import {sendMail} from "@/server/services/sendMail";
 export const userRouter = createTRPCRouter({
   register: publicProcedure
     .input(z.object({
-        email: z.string(),
-        password: z.string(),
-        name: z.string(),
-        surname: z.string(),
-        confirmPassword: z.string(),
-      }
-    ))
-    .mutation(async ({input, ctx}) => {
-        // @ts-ignore
+      email: z.string().email('Niepoprawny adres email'),
+      password: z.string().min(8, 'Hasło musi zawierać conajmniej 8 znaków').regex(/[a-z]/, 'Hasło musi zawierać conajmniej 1 małą literę').regex(/[A-Z]/, 'Hasło musi zawierać conajmniej 1 dużą literę').regex(/[0-9]/, 'Hasło musi zawierać conajmniej 1 cyfrę').regex(/[^a-zA-Z0-9]/, 'Hasło musi zawierać conajmniej 1 znak specjalny'),
+      name: z.string().min(3, 'Imię musi zawierać conajmniej 3 znaki ').max(100, 'Imię jest za długie: max 100 znaków'),
+      surname: z.string().min(3, 'Nazwisko musi zawierać conajmniej 3 znaki ').max(100, 'Nazwisko jest za długie: max 100 znaków'),
+      confirmPassword: z.string()
+    })).mutation(async ({input, ctx}) => {
         if (input.password !== input.confirmPassword) {
-          throw new TRPCError({
-            code: 'BAD_REQUEST',
-            message: 'Passwords do not match',
-          })
+          throw new ZodError([
+              // @ts-ignore
+              {
+                path: ['confirmPassword'],
+                message: 'Potwierdzenie hasła nie zgadza się z hasłem',
+              }
+            ]
+          )
+          // throw new TRPCError({
+          //   code: 'BAD_REQUEST',
+          //   message: 'Passwords do not match',
+          // })
         }
 
         const existUser = await ctx.prisma.user.findUnique({
