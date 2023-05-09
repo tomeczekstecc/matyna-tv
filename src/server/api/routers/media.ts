@@ -1,11 +1,11 @@
 import {z} from "zod"
 
-import {createTRPCRouter, publicProcedure} from "../trpc"
+import {adminProcedure, createTRPCRouter, publicProcedure} from "../trpc"
 import {mapImages, search} from "@/lib/cloudinary";
 
 export const mediaRouter = createTRPCRouter({
 
-  getAllImages: publicProcedure.input(z.object({
+  getAllImages: adminProcedure.input(z.object({
     nextCursor: z.string().optional()
   })).query(async ({ctx}) => {
     const res = await search({

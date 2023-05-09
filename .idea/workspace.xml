@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5075c683-c289-4630-967c-742a1eda8110" name="Changes" comment="minor fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Validation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Validation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/filmForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filmForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/site-header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/filmCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/films.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/films/edit/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/edit/[slug].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/films/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/films/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/film.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/film.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/api/routers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gallery.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/api/routers/media.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/routers/media.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,14 +198,7 @@
       <workItem from="1683493926644" duration="3571000" />
       <workItem from="1683561053290" duration="12435000" />
       <workItem from="1683581241582" duration="3564000" />
-      <workItem from="1683648278289" duration="2216000" />
-    </task>
-    <task id="LOCAL-00006" summary="fix router">
-      <created>1681035349583</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1681035349583</updated>
+      <workItem from="1683648278289" duration="4616000" />
     </task>
     <task id="LOCAL-00007" summary="switch to planet scale">
       <created>1681054604013</created>
@@ -555,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683578098541</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="minor fixes">
+      <created>1683656441249</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1683656441249</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,6 +602,12 @@
           <url>file://$PROJECT_DIR$/src/server/api/routers/user.ts</url>
           <line>237</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ui/filmCard.tsx</url>
+          <line>32</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

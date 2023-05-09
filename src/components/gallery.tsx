@@ -35,18 +35,20 @@ const Gallery = (props) => {
   }, [media])
 
   return (<div>  {isLoading && <LoadingPage size={30}/>}
-    <section className={'grid grid-cols-4 gap-6'}>
+
+    <section className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'}>
 
       {images?.map((item, index) => {
           // @ts-ignore
           return (
 
-            <div className={'flex justify-items-center rounded-xl align-middle transition hover:scale-150'}
+            <div className={'flex justify-items-center rounded-xl align-middle transition hover:scale-125'}
                  key={index}>
-              <div className={'cursor-pointer'}>
-                {/*// @ts-ignore*/}
+              <div className={props.setCurUrl && 'cursor-pointer'}>
 
-                <div onClick={() => props.setCurUrl(item.image)}>
+                {/*// @ts-ignore*/}
+                <div onClick={() => props.setCurUrl && props.setCurUrl(item.image)
+                }>
 
                   <Image
                     placeholder={'blur'}
@@ -58,7 +60,7 @@ const Gallery = (props) => {
                     alt={'picture'} width={450} height={300}/>
                 </div>
                 {/*// @ts-ignore*/}
-                <p className={'text-sm break-all'}>{item.title}</p>
+                <p className={'break-all text-sm'}>{item.title}</p>
               </div>
             </div>
           )
