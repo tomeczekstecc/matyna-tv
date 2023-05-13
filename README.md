@@ -2,19 +2,27 @@
 
 ## user use-case
  - [X] 1. user may see films page
- - [ ] 2. admin may add films, remove films, edit films
- - [ ] 3. admin may add blogs, remove blogs, edit blogs
-        - [ ] fields: title, subtitle, content, category, image
+ - [X] 2. admin may add films, remove films, edit films
+ - [X] 3. admin may add blogs, remove blogs, edit blogs
+        - [X] fields: title, subtitle, content, category, image
         - [ ] features: image upload, comment, like, share, unlike
- - [ ] 4. user may see blogs page
- - [ ] 5. user may see blog details page
+ - [X] 4. user may see blogs page
+ - [X] 5. user may see blog details page
  - [ ] 6. user may search blog
- - [ ] 7. user may persist data
-         - [ ] add trpc
-         - [ ] prisma
-         - [ ] add supabase
-         - [ ] add auth
-         - [ ] add models
+ - [X] 7. user may persist data
+         - [X] add trpc
+         - [X] prisma
+         - [X] add postgres
+         - [X] add auth
+         - [X] add models
+ - [ ] 8. Comments
+         - [ ] user may add only one comment per blog
+         - [ ] user may remove own comment
+         - [ ] user may edit own comment
+         - [ ] user may like comment but own
+         - [ ] user may unlike comment
+         - [ ] admin may remove any comment
+
 
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
