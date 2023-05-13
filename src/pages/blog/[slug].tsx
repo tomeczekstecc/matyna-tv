@@ -42,10 +42,10 @@ const DetailBlogPage = () => {
   const [errors, setErrors] = useState<any>(null)
   const [content, setContent] = useState<string>('')
 
-
   // @ts-ignore
   const {data, isLoading} = api.blog.getOnePost.useQuery({slug})
 
+  // @ts-ignore
   const {refetch} = api.comment.getBlogCommentsByPostId.useQuery({id: data?.id})
   const {mutate: addComment, isLoading: isCreating} = api.comment.addBlogComment.useMutation({
     onSuccess: () => {
