@@ -49,6 +49,7 @@ const BlogCard = ({post, refetch, featured}) => {
           <DialogDescription>
             Zamierzasz usunąć wpis bloga o tytule {title}. Czy jesteś pewna/pewien? operacja jest
             nieodwracalna.
+            
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
