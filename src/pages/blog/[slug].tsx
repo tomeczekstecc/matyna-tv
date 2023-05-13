@@ -6,7 +6,7 @@ import Ago from "@/components/Ago"
 import Category from "@/components/Category"
 import {blurURI} from "@/config/blutURI";
 import {Button} from "@/components/ui/button";
-import React from "react";
+import React, {useState} from "react";
 import {
   Dialog,
   DialogContent,
@@ -17,17 +17,48 @@ import {
 } from "@/components/ui/dialog";
 import {DialogClose} from "@radix-ui/react-dialog";
 import {LoadingSpinner} from "@/components/loading";
-import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
+import toast from "react-hot-toast";
+import {Validation} from "@/components/Validation";
+import {signIn, useSession} from "next-auth/react";
+import Comments from "@/components/comments";
 
-``
+
+const AuthButton = ({authStatus, setOpen}) => {
+  if (authStatus === 'authenticated') {
+    return <Button onClick={() => setOpen(true)}>Dodaj komentarz</Button>
+  } else if (authStatus === 'unauthenticated') {
+    return <Button onClick={() => signIn()} variant={'subtle'}>Zaloguj się aby dodać
+      komentarz</Button>
+  } else return <LoadingSpinner size={20}/>
+}
+
+
 const DetailBlogPage = () => {
   const router = useRouter()
+  const {status: authStatus} = useSession()
   const {slug} = router.query
   const [open, setOpen] = React.useState(false)
+  const [errors, setErrors] = useState<any>(null)
+  const [content, setContent] = useState<string>('')
+
 
   // @ts-ignore
-  const {data, error, isLoading} = api.blog.getOnePost.useQuery({slug})
+  const {data, isLoading} = api.blog.getOnePost.useQuery({slug})
+
+  const {refetch} = api.comment.getBlogCommentsByPostId.useQuery({id: data?.id})
+  const {mutate: addComment, isLoading: isCreating} = api.comment.addBlogComment.useMutation({
+    onSuccess: () => {
+      setOpen(false)
+      refetch()
+    },
+    onError: (error) => {
+      setErrors(error?.data?.zodError?.fieldErrors as any)
+      if (error?.data?.zodError?.fieldErrors) toast.error('Nie udało się zapisać komentarza')
+      if (error?.message && !error?.data?.zodError?.fieldErrors) toast.error(error?.message)
+    }
+  })
+  // @ts-ignore
 
 
   const dialogComment = (
@@ -37,11 +68,20 @@ const DetailBlogPage = () => {
           <DialogClose asChild onClick={() => setOpen(false)}/>
           <DialogTitle>Dodaj komentarz</DialogTitle>
           <DialogDescription>
-            <Textarea/>
+            <Validation errors={errors} field={'content'}>
+              <Textarea
+                onChange={(e) => setContent(e.target.value)}
+                className={`${errors?.content ? '!border-red-500' : ''}`}
+              />
+            </Validation>
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button onClick={() => null} variant={'subtle'} type="submit">{isLoading &&
+          <Button onClick={() => addComment({
+            content,
+            // @ts-ignore
+            blogPostId: data?.id,
+          })} type="submit">{isLoading &&
             <div className={'mr-2'}><LoadingSpinner size={18}/></div>} Zapisz komentarz</Button>
         </DialogFooter>
       </DialogContent>
@@ -71,15 +111,15 @@ const DetailBlogPage = () => {
           <Ago user={"Martynka"} createdAt={data?.createdAt}/>
 
           <div>Id: {data?.id}</div>
-          <Button onClick={() => setOpen(true)}>Dodaj komentarz</Button>
+          <AuthButton authStatus={authStatus} setOpen={setOpen}/>
         </div>
       </div>
       <div className={'text-left'}>
         <h2 className="my-6 text-2xl italic">{data?.subtitle}</h2>
         <div dangerouslySetInnerHTML={{__html: data?.content as string}} className="mb-2 text-left"/>
       </div>
-      <Button onClick={() => setOpen(true)}>Dodaj komentarz</Button>
-
+      <AuthButton authStatus={authStatus} setOpen={setOpen}/>
+      <Comments postId={data?.id}/>
     </div>
   )
 }

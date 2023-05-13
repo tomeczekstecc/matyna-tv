@@ -1,19 +1,10 @@
 import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import slugify from "slugify";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-import {categories} from "@/utils/options/cataegories";
-import DialogModal from "@/components/dialog";
-import Gallery from "@/components/gallery";
-import Image from "next/image";
-import {transformImg} from "@/utils/transformImg";
-import WYSIWYG from "@/components/WYCIWYG";
 import {Button} from "@/components/ui/button";
 import {Header} from "@/components/ui/Header";
 import {LoadingSpinner} from "@/components/loading";
-import {blurURI} from "@/config/blutURI";
 import {Validation} from "@/components/Validation";
-import {useSession} from "next-auth/react";
 
 const FilmForm = ({setFilm, film, addFilm, isLoading, errors, setErrors, clearError}) => {
 

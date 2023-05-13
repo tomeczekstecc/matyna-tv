@@ -28,7 +28,7 @@ const EditFilmPage = () => {
     },
     onError: (error) => {
       setErrors(error?.data?.zodError?.fieldErrors as any)
-      toast.error('Nie udało się zapisać postu')
+      toast.error('Nie udało się zapisać filmu')
     }
   })
 

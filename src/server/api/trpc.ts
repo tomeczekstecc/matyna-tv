@@ -118,7 +118,7 @@ const isAdmin = t.middleware((opts) => {
   const {req} = ctx;
 
   if (!ctx.user || ctx.user.role !== 'ADMIN') {
-    throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
+    throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień - tylko administrator może wykonać tę operację'});
   }
   return opts.next();
 });
@@ -126,14 +126,16 @@ const isAdmin = t.middleware((opts) => {
 
 const isAuthenticated = t.middleware((opts) => {
     const {ctx} = opts;
-    // if (!ctx.user) {
-    //   throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień'});
-    // }
+    if (!ctx.user) {
+      throw new TRPCError({code: 'UNAUTHORIZED', message: 'Brak uprawnień - użytkownik musi być zalogowany'});
+    }
     return opts.next();
   }
 );
 
+
 export const adminProcedure = t.procedure.use(isAdmin);
 export const authProcedure = t.procedure.use(isAuthenticated);
+export const commentOwnerProcedure = t.procedure.use(isAuthenticated);
 
 

@@ -13,9 +13,12 @@ export const userRouter = createTRPCRouter({
   register: publicProcedure
     .input(z.object({
       email: z.string().email('Niepoprawny adres email'),
-      password: z.string().min(8, 'Hasło musi zawierać conajmniej 8 znaków').regex(/[a-z]/, 'Hasło musi zawierać conajmniej 1 małą literę').regex(/[A-Z]/, 'Hasło musi zawierać conajmniej 1 dużą literę').regex(/[0-9]/, 'Hasło musi zawierać conajmniej 1 cyfrę').regex(/[^a-zA-Z0-9]/, 'Hasło musi zawierać conajmniej 1 znak specjalny'),
-      name: z.string().min(3, 'Imię musi zawierać conajmniej 3 znaki ').max(100, 'Imię jest za długie: max 100 znaków'),
-      surname: z.string().min(3, 'Nazwisko musi zawierać conajmniej 3 znaki ').max(100, 'Nazwisko jest za długie: max 100 znaków'),
+      // password: z.string().min(8, 'Hasło musi zawierać conajmniej 8 znaków').regex(/[a-z]/, 'Hasło musi zawierać conajmniej 1 małą literę').regex(/[A-Z]/, 'Hasło musi zawierać conajmniej 1 dużą literę').regex(/[0-9]/, 'Hasło musi zawierać conajmniej 1 cyfrę').regex(/[^a-zA-Z0-9]/, 'Hasło musi zawierać conajmniej 1 znak specjalny'),
+      password: z.string(),
+      // name: z.string().min(3, 'Imię musi zawierać conajmniej 3 znaki ').max(100, 'Imię jest za długie: max 100 znaków'),
+      name: z.string(),
+      // surname: z.string().min(3, 'Nazwisko musi zawierać conajmniej 3 znaki ').max(100, 'Nazwisko jest za długie: max 100 znaków'),
+      surname: z.string(),
       confirmPassword: z.string()
     })).mutation(async ({input, ctx}) => {
         if (input.password !== input.confirmPassword) {

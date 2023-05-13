@@ -49,7 +49,7 @@ const BlogCard = ({post, refetch, featured}) => {
           <DialogDescription>
             Zamierzasz usunąć wpis bloga o tytule {title}. Czy jesteś pewna/pewien? operacja jest
             nieodwracalna.
-            
+
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -70,11 +70,11 @@ const BlogCard = ({post, refetch, featured}) => {
         <div
           className={"absolute top-4 left-4 flex gap-2 rounded border-2 border-slate-600 bg-slate-900 px-4 py-2 opacity-80"}>
           <Link title={'Edytuj wpis'} href={`/blog/edit/${slug}`}>
-            <Edit className={'text-white'} size={22}/>
+            <Edit className={'text-white'} size={18 }/>
           </Link>
           <div
             title={'Usuń wpis'}>
-            <Trash onClick={() => handleOnDeleteClick(post.id)} size={22}
+            <Trash onClick={() => handleOnDeleteClick(post.id)} size={18  }
                    className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/></div>
         </div>}
 
