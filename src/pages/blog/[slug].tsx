@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image"
 import {useRouter} from "next/router"
 import {api} from "@/utils/api"
@@ -6,7 +8,7 @@ import Ago from "@/components/Ago"
 import Category from "@/components/Category"
 import {blurURI} from "@/config/blutURI";
 import {Button} from "@/components/ui/button";
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import {
   Dialog,
   DialogContent,
@@ -21,7 +23,11 @@ import {Textarea} from "@/components/ui/textarea";
 import toast from "react-hot-toast";
 import {Validation} from "@/components/Validation";
 import {signIn, useSession} from "next-auth/react";
-import Comments from "@/components/comments";
+import dynamic from 'next/dynamic';
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+
+const Comments = dynamic(() => import('@/components/comments'))
+
 
 
 const AuthButton = ({authStatus, setOpen}) => {
@@ -38,6 +44,10 @@ const DetailBlogPage = () => {
   const router = useRouter()
   const {status: authStatus} = useSession()
   const {slug} = router.query
+  const ref = useRef<HTMLDivElement | null>(null)
+  const entry = useIntersectionObserver(ref, {})
+  const isVisible = !!entry?.isIntersecting
+
   const [open, setOpen] = React.useState(false)
   const [errors, setErrors] = useState<any>(null)
   const [content, setContent] = useState<string>('')
@@ -119,8 +129,10 @@ const DetailBlogPage = () => {
         <div dangerouslySetInnerHTML={{__html: data?.content as string}} className="mb-2 text-left"/>
       </div>
       <AuthButton authStatus={authStatus} setOpen={setOpen}/>
+   <div ref={ref} >
       <Comments postId={data?.id}/>
     </div>
+</div>
   )
 }
 

@@ -57,19 +57,21 @@ const Comment = ({comment, refetch}) => {
 
   const manage = () =>
     <div
-
       className={"flex gap-2 px-4 py-2 opacity-80 hover:cursor-pointer"}>
+
+      <div   title={'Edytuj wpis'} >
       <Edit onClick={() => {
         setOpenEdit(true)
         setType('edit')
-      }} className={'text-white'} size={18}/>
+      }} className={'text-slate-900 dark:text-white'} size={18}/></div>
       <div
         title={'Usuń wpis'}>
         <Trash onClick={() => {
           setOpenDelete(true)
           setType('delete')
         }} size={18}
-               className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/></div>
+               className={"text-red-600 hover:cursor-pointer dark:text-red-300"}/>
+      </div>
     </div>
 
 

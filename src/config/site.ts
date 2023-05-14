@@ -8,7 +8,6 @@ interface SiteConfig {
     twitter: string
     github: string
     docs: string
-    logout: string
   }
 }
 
@@ -28,6 +27,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "Media",
       href: "/media",
+      admin: true,
     },
     {
       title: "Sklep",
@@ -38,6 +38,5 @@ export const siteConfig: SiteConfig = {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
     docs: "https://ui.shadcn.com",
-    logout: "#",
   },
 }
