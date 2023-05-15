@@ -20,7 +20,7 @@ import toast from "react-hot-toast";
 import {LoadingSpinner} from "@/components/loading";
 import {blurURI} from "@/config/blutURI";
 
-const BlogCard = ({post, refetch, featured}) => {
+const BlogCard = ({post, refetch, featured, nosubtitle}) => {
   const {data: session, status: authStatus} = useSession()
   const imgHeight = 500
   const imgWidth = 650
@@ -100,9 +100,9 @@ const BlogCard = ({post, refetch, featured}) => {
               className={`my-3 ${featured ? 'text-3xl' : 'text-2xl'} font-bold tracking-tight text-gray-900 dark:text-white`}>
               {title}
             </h5>
-            <p className={`mb-3 ${featured ? 'text-xl' : ''} text-gray-600 dark:text-gray-400`}>
+            {!nosubtitle && <p className={`mb-3 ${featured ? 'text-xl' : ''} text-gray-600 dark:text-gray-400`}>
               {subtitle}
-            </p>
+            </p>}
             <Link className={`flex ${featured ? 'text-xl' : ''} items-center gap-1 hover:underline`}
                   href={`blog/${slug}`}> <span>Czytaj dalej</span>
               <ArrowBigRight/></Link>

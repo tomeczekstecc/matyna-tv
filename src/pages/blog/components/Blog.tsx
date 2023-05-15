@@ -19,7 +19,8 @@ const Blog = ({posts, refetch}) => {
         <div key={post.id}>
           <BlogCard refetch={refetch} key={post.id} post={post} featured={false}/></div>
       ))
-      } </div>
+      }
+    </div>
   </div>)
 }
 

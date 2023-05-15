@@ -11,7 +11,7 @@ export default function index() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const {data: session} = useSession()
 
-  const {data: films, refetch} = api.film.getAllFilms.useQuery()
+  const {data: films, isLoading, refetch} = api.film.getAllFilms.useQuery()
 
   return (
     <>
