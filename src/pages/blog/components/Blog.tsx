@@ -17,7 +17,7 @@ const Blog = ({posts, refetch}) => {
     <div className={'grid grid-cols-1 gap-y-5 gap-x-10 lg:grid-cols-3 '}>
       {posts?.slice(2).map((post) => (
         <div key={post.id}>
-          <BlogCard refetch={refetch} key={post.id} post={post} featured={false}/></div>
+          <BlogCard refetch={refetch} key={post.id} post={post} featured={false } nosubtitle={false}/></div>
       ))
       }
     </div>
