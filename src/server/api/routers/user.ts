@@ -324,6 +324,14 @@ export const userRouter = createTRPCRouter({
             }
         })
 
+      await ctx.prisma.film.deleteMany({
+          where: {
+            userId: input.userId,
+
+          }
+      }
+    )
+
         await ctx.prisma.blogPost.deleteMany({
             where: {
               userId: input.userId,
