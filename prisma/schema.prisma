@@ -76,9 +76,9 @@ model Comment {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   content    String
-  BlogPost   BlogPost @relation(fields: [blogPostId], references: [id])
+  BlogPost   BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade)
   blogPostId String
-  User       User     @relation(fields: [userId], references: [id])
+  User       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId     String
 }
 
@@ -90,7 +90,7 @@ model Film {
   slug      String   @unique
   url       String
   userId    String
-  User      User     @relation(fields: [userId], references: [id])
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model BlogPost {
@@ -102,11 +102,11 @@ model BlogPost {
   title       String       @unique @db.VarChar(255)
   subtitle    String       @db.Text
   content     String       @db.Text
-  category    Category     @relation(fields: [categoryId], references: [id])
+  category    Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   categoryId  CategoryEnum
   imgURL      String?
   slug        String       @unique
-  User        User?        @relation(fields: [userId], references: [id])
+  User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String?
   Comment     Comment[]
 }
