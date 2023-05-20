@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
     },
     {
       title: "Sklep",
-      href: "/sklep",
+      href: "/store",
     },
   ],
   links: {
