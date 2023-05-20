@@ -69,6 +69,7 @@ model User {
   role              Role       @default(USER)
   createdAt         DateTime   @default(now())
   updatedAt         DateTime   @updatedAt
+  Order             Order[]
 }
 
 model Comment {
@@ -109,4 +110,38 @@ model BlogPost {
   User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String?
   Comment     Comment[]
+}
+
+model ProductCategory {
+  id      String    @id @default(cuid())
+  name    String
+  color   String
+  Product Product[]
+}
+
+model Product {
+  id               String          @id @default(cuid())
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  publishedAt      DateTime?
+  price            Float           @default(0) @db.DoublePrecision
+  name             String          @unique @db.VarChar(255)
+  shortDescription String          @db.VarChar(255)
+  description      String          @db.Text
+  category         ProductCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId       String
+  imgURL           String?
+  slug             String          @unique
+  Order            Order[]
+}
+
+model Order {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    String
+  total     Float     @default(0) @db.DoublePrecision
+  User      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  Products  Product[]
 }
