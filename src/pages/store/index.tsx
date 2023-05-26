@@ -1,104 +1,96 @@
-import React from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "@/components/CheckoutForm";
+import Link from "next/link";
+import ShopItemCard from "@/components/ShopItemCard";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {calculateTotals} from "@/redux/shoppingCart";
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  'pk_test_51N9D7lGv4q4YodSWviIt5WYLzrye0ERItJAlFGbMyebtUUvyULenw0UJndvvsa4YRnH6ULx55LAjWGlVnJCILfeF00gv2DBtkj'
-);
-export default function PreviewPage() {
-  React.useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-    if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
+const StoreHomePages: React.FC = () => {
+
+  const dispatch = useDispatch()
+  // @ts-ignore
+  const cartData = useSelector(state => state.shoppingCart.cartItems)
+
+  type Product = {
+    id: number;
+    name: string;
+    price: number;
+    description: string;
+    image: string;
+    category: string;
+    featured?: boolean;
+    hero?: boolean;
+  }
+
+  const data: Product[] = [
+    {
+      id: 1,
+      name: "Product 1",
+      price: 100,
+      description: "This is a description of product 1",
+      image: "https://picsum.photos/400/300",
+      category: "category 1",
+      featured: true,
+      hero: true,
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      price: 200,
+      description: "This is a description of product 2",
+      image: "https://picsum.photos/400/300",
+      category: "category 1",
+
+
+    },
+    {
+      id: 3,
+      name: "Product 3",
+      price: 300,
+      description: "This is a description of product 3",
+      image: "https://picsum.photos/400/300",
+      category: "category 1",
+
+
+    },
+    {
+      id: 4,
+      name: "Product 4",
+      price: 400,
+      description: "This is a description of product 4 This is a description of product 4",
+      image: "https://picsum.photos/400/300",
+      category: "category 1",
+
+
+    },
+    {
+      id: 5,
+      name: "Product 5",
+      price: 500,
+      description: "This is a description of product 5",
+      image: "https://picsum.photos/400/300",
+      category: "category 1",
+
     }
+  ]
 
-    if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
-    }
-  }, []);
-  const [clientSecret, setClientSecret] = React.useState("");
+  useEffect(() => {
 
-  React.useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/api/store/payment_inetent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => {
-        console.log(res);
- return       res.json()
-      })
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+    dispatch(calculateTotals())
 
-  const appearance = {
-    theme: 'stripe',
-  };
-  const options = {
-    clientSecret,
-    appearance,
-  };
+  }, [cartData])
 
   return (
     <>
-
-      <div>
-        {clientSecret && (
-  // @ts-ignore
-          <Elements options={options} stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
-        )}
+      <h1>Store</h1>
+      <p>Store Home Page</p>
+      <div className={'grid grid-cols-4 gap-4'}>
+        {data.map((product) => (
+          <ShopItemCard key={product.id} item={product} onAddToCart={() => null}/>
+        ))}
       </div>
-
-
-    <form action="/api/store/checkout_sessions" method="POST">
-      <section>
-        <button type="submit" role="link">
-          Checkout
-        </button>
-      </section>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
-      session
-    </form>
-
-
-
-
-
-
-
     </>
   );
-}
+};
+
+
+export default StoreHomePages;

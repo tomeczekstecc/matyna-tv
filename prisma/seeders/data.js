@@ -108,6 +108,21 @@ const blogPosts = [
 
 ]
 
+
+const productCategories = [
+  {
+    id: "Zabawki",
+    name: "Zabawki",
+    color: "red",
+  },
+  {
+    id: "Ubrania",
+    name: "Ubrania",
+    color: "green",
+  }
+]
+
+
 module.exports = {
   categories,
   blogPosts

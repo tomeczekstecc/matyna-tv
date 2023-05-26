@@ -134,20 +134,24 @@ const LoginPage = () => {
               <div className={'w-full'}>
                 <Button
                   type="submit"
-                  className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                  className="flex w-full justify-center px-4 py-2 text-sm font-medium"
+                >
                   Zaloguj się
                 </Button>
               </div>
             </form>
           </div>
-          <div className={'mt-5 flex items-center gap-3'}><Separator className="my-4"/>
+          <div className={'mt-5 flex content-center items-center justify-center gap-3'}
+          ><Separator className="my-4 w-2/5"/>
             lub
-            <Separator className="my-4"/></div>
+            <Separator className="my-4 w-2/5"/>
+          </div>
           <div className={'flex space-x-6'}>
             <div className={'mt-6 w-full'}>
               <Button
+
                 onClick={() => signIn('google')}
-                className="flex w-full justify-center p-2 text-sm font-medium text-white">
+                className="flex w-full justify-center p-2 text-sm font-medium">
                 <Image
                   src={'/g1.svg'} alt={'google'} width={50} height={50}/>
                 <div>Zaloguj się z Google</div>
@@ -155,8 +159,9 @@ const LoginPage = () => {
             </div>
             <div className={'mt-6 w-full'}>
               <Button
+
                 onClick={() => signIn('facebook')}
-                className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                className="flex w-full justify-center px-4 py-2 text-sm font-medium">
                 <Facebook color={'#1877F2'}/>
                 Zaloguj się z Facebook
                 {/* eslint-disable-next-line react/jsx-no-undef */}

@@ -20,6 +20,17 @@ enum CategoryEnum {
   Inne
 }
 
+enum ProductCategoryEnum {
+  Zawbawki
+  Ubrania
+}
+
+enum OrderStatus {
+  CREATED
+  PAID
+  CANCELED
+}
+
 enum Role {
   ADMIN
   USER
@@ -113,35 +124,35 @@ model BlogPost {
 }
 
 model ProductCategory {
-  id      String    @id @default(cuid())
+  id      ProductCategoryEnum @id
   name    String
   color   String
   Product Product[]
 }
 
 model Product {
-  id               String          @id @default(cuid())
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt
+  id               String              @id @default(cuid())
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
   publishedAt      DateTime?
-  price            Float           @default(0) @db.DoublePrecision
-  name             String          @unique @db.VarChar(255)
-  shortDescription String          @db.VarChar(255)
-  description      String          @db.Text
-  category         ProductCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  categoryId       String
+  price            Float               @default(0) @db.DoublePrecision
+  name             String              @unique @db.VarChar(255)
+  shortDescription String              @db.VarChar(255)
+  description      String              @db.Text
+  category         ProductCategory     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId       ProductCategoryEnum
   imgURL           String?
-  slug             String          @unique
+  slug             String              @unique
   Order            Order[]
 }
 
 model Order {
-  id        String    @id @default(cuid())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  status    String
-  total     Float     @default(0) @db.DoublePrecision
-  User      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id        String      @id @default(cuid())
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  status    OrderStatus
+  total     Float       @default(0) @db.DoublePrecision
+  User      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
   Products  Product[]
 }
