@@ -6,6 +6,7 @@ import {MainNav} from "@/components/main-nav"
 import {ThemeToggle} from "@/components/theme-toggle"
 import {Button, buttonVariants} from "@/components/ui/button"
 import {useSession} from "next-auth/react";
+import ShoppingCart from "@/pages/store/cart";
 
 export function SiteHeader() {
 
@@ -68,7 +69,7 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
-
+            <ShoppingCart/>
 
             <ThemeToggle/>
 

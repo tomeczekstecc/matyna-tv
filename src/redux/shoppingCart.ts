@@ -29,9 +29,7 @@ export const shoppingCartSlice = createSlice({
           if (item.id === action.payload.id) {
             return {
               ...item,
-
               quantity: item.quantity + 1,
-              value: ((item.quantity + 1) * item.price) || item.price,
             };
           }
           return item;
@@ -58,7 +56,7 @@ export const shoppingCartSlice = createSlice({
     },
     decreaseQuantity: (state, action) => {
       state.cartItems = state.cartItems.map((item: any) => {
-        if (item.id === action.payload.id) {
+        if (item.id === action.payload.id && item.quantity > 0) {
           return {
             ...item,
             quantity: item.quantity - 1,
