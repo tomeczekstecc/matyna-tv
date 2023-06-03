@@ -34,7 +34,7 @@ const AuthButton = ({authStatus, setOpen}) => {
   if (authStatus === 'authenticated') {
     return <Button onClick={() => setOpen(true)}>Dodaj komentarz</Button>
   } else if (authStatus === 'unauthenticated') {
-    return <Button onClick={() => signIn()} variant={'subtle'}>Zaloguj się aby dodać
+    return <Button onClick={() => signIn()} variant={'secondary'}>Zaloguj się aby dodać
       komentarz</Button>
   } else return <LoadingSpinner size={20}/>
 }

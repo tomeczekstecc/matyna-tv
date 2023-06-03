@@ -5,6 +5,8 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import {Header} from "@/components/ui/Header";
+import {Button} from "@/components/ui/button";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -22,7 +24,7 @@ export default function CheckoutForm() {
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
-
+    console.log(clientSecret, 'clientSecret')
     if (!clientSecret) {
       return;
     }
@@ -81,28 +83,35 @@ export default function CheckoutForm() {
   };
 
   const paymentElementOptions = {
-    layout: "auto",
+    layout: {
+      type: "tabs",
+      backgroundColor: "red",
+      textColor: "red",
+    },
+
   };
 
-  return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <LinkAuthenticationElement
-        id="link-authentication-element"
-        // @ts-ignore
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      {/*// @ts-ignore*/}
+  return (<div>
+      <form id="payment-form" onSubmit={handleSubmit}>
+        {/*<LinkAuthenticationElement*/}
+        {/*  id="link-authentication-element"*/}
+        {/*  // @ts-ignore*/}
+        {/*  onChange={(e) => setEmail(e.target.value)}*/}
+        {/*/>*/}
+        {/*// @ts-ignore*/}
 
-      <PaymentElement id="payment-element" options={paymentElementOptions}
 
-      />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+        <PaymentElement id="payment-element" options={paymentElementOptions}/>
+
+
+        <Button size={'lg'} className={'my-8 w-full'} disabled={isLoading || !stripe || !elements} id="submit">
+        <span id="button-tex" className={'text-xl'}>
+          {isLoading ? <div className="spinner w-full" id="spinner"></div> : "Zapłać"}
         </span>
-      </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+        </Button>
+        {/* Show any error or success messages */}
+        {message && <div id="payment-message" className={'text-red-600'}>{message}</div>}
+      </form>
+    </div>
   );
 }

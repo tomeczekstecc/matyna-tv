@@ -15,6 +15,7 @@ import Category from "@/components/Category";
 import {useDispatch, useSelector} from "react-redux";
 import {addItem, decreaseQuantity, increaseQuantity, removeItem} from "@/redux/shoppingCart";
 import {Input} from "@/components/ui/input";
+import _ from "lodash";
 
 type ShopItemCardProps = {
   item: {
@@ -22,14 +23,14 @@ type ShopItemCardProps = {
     name: string;
     price: number;
     description: string;
-    image: string;
+    imageURL: string;
     featured?: boolean;
   }
   onAddToCart: (item: any) => void;
   key: number;
 }
 
-const ShopItemCard = ({item, onAddToCart, key, cart}: ShopItemCardProps) => {
+const ShopItemCard = ({item, onAddToCart, key, cart}) => {
 
   const dispatch = useDispatch()
 // @ts-ignore
@@ -41,17 +42,18 @@ const ShopItemCard = ({item, onAddToCart, key, cart}: ShopItemCardProps) => {
     }
   }
 
-
   return (
 
     <Card className={cart ? 'mx-6 mt-3 flex h-36 w-[650px]' : 'max-w-sm'} key={key}>
       <div>
-        <Image src={item.image} alt={'product'}
+        <Image
+          src={item.imgURL || 'https://picsum.photos/400/267'}
+               alt={'product'}
                placeholder={'blur'}
                className={cart ? 'rounded-l-md' : 'rounded-t-md'}
                blurDataURL={blurURI}
-               width={cart ? 190 : 400}
-               height={cart ? 100 : 300}
+               width={cart ? 220 : 400}
+               height={cart ? 100 : 267}
         />
       </div>
       <div className={cart ? 'w-[450px]' : ''}>
@@ -90,7 +92,7 @@ const ShopItemCard = ({item, onAddToCart, key, cart}: ShopItemCardProps) => {
               <Button  className={'h-8 px-2'} variant={'ghost'} onClick={() => dispatch(increaseQuantity({id: item.id}))}>
                 <Plus className="h-4 w-4"/>
               </Button>
-              <Input disabled className={'h-8 w-12 text-right text-white opacity-0'} value={cartData?.quantity}/>
+              <Input disabled className={'h-8 w-12 text-right opacity-0'} value={cartData?.quantity}/>
               <Button  className={'h-8 px-2'} variant={'ghost'} onClick={() => dispatch(decreaseQuantity({id: item.id}))}>
                 <Minus className="h-4 w-4"/>
               </Button>
@@ -107,13 +109,13 @@ const ShopItemCard = ({item, onAddToCart, key, cart}: ShopItemCardProps) => {
                   <div>
                     {!cart ? <div className={'flex gap-1'}>
                         <div>{cartData.quantity}</div>
-                        <div className={''}>{cartData && `(${cartData.quantity * cartData?.price} PLN)`}</div>
+                        <div className={''}>{cartData && `(${_.round((cartData.quantity * cartData?.price),2)} PLN)`}</div>
                       </div>
                       :
                       <div className={'flex items-center gap-2'}>
                         <div className={'text-lg'}>Razem:</div>
                         <div
-                          className={'text-white text-xl font-extrabold'}> {cartData && `${cartData.quantity * cartData?.price} PLN`}</div>
+                          className={'text-xl font-extrabold'}> {cartData && `${_.round((cartData.quantity * cartData?.price),2)} PLN`}</div>
                       </div>
                     }
                   </div>

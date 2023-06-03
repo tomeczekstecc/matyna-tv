@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Product} from "@prisma/client";
+import _ from "lodash";
 
 interface CartItem {
   id: number;
@@ -76,8 +77,8 @@ export const shoppingCartSlice = createSlice({
           total += item.quantity * item.price;
         }
       )
-      state.amount = amount;
-      state.total = total;
+      state.amount = _.round(amount,2) ;
+      state.total = _.round(total,2) ;
     }
   },
 
