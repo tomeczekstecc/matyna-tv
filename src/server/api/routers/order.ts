@@ -158,13 +158,13 @@ export const orderRouter = createTRPCRouter({
 
   }),
 
-  updateOneOrderOnPaymentSuccess: publicProcedure.input(orderInput).mutation(async ({input, ctx}) => {
+  updateOneOrderOnPayment: publicProcedure.input(orderInput).mutation(async ({input, ctx}) => {
     const order = await ctx.prisma.order.update({
       where: {
         id: input.id
       },
       data: {
-        status: 'PAID',
+        status: input.status as any,
         paymentIntentId: input.paymentIntentId,
       },
     })

@@ -31,7 +31,7 @@ const ShopItemCheckout = ({item, onAddToCart, key, cart}) => {
   const data = {
     category: {
       name: 'Wsparcie autora',
-      color: '#F87171'
+      color: '#023636'
     }
   }
 

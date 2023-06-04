@@ -1,10 +1,17 @@
 import {useElements, useStripe} from "@stripe/react-stripe-js";
 import React from "react";
-import {Card} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardTitle} from "@/components/ui/card";
+import {CheckCircle, StopCircle} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import Link from "next/link";
+import {api} from "@/utils/api";
 
 const PaymentResult = () => {
   const stripe = useStripe();
   const [message, setMessage] = React.useState('');
+  const [json, setJson] = React.useState({} as any);
+
+  const {mutate: updateOrder} = api.order.updateOneOrderOnPayment.useMutation({})
 
   React.useEffect(() => {
     if (!stripe) {
@@ -19,19 +26,24 @@ const PaymentResult = () => {
     }
 
     stripe.retrievePaymentIntent(clientSecret).then(({paymentIntent}) => {
+      setJson(paymentIntent)
+      // @ts-ignore
+          updateOrder({id:new URLSearchParams(window.location.search).get(
+              "orderId"
+            ) ,paymentIntentId: paymentIntent?.id, status: paymentIntent?.status === 'succeeded' ? 'PAID' : 'CREATED'})
       // @ts-ignore
       switch (paymentIntent.status) {
         case "succeeded":
-          setMessage(`Payment succeeded! ${JSON.stringify(paymentIntent)}`);
+          setMessage(`Zakup zakończył się sukcesem!`);
           break;
         case "processing":
-          setMessage("Your payment is processing.");
+          setMessage("Płatność jest przetwarzana.");
           break;
         case "requires_payment_method":
-          setMessage(`Your payment was not successful, please try again. ${JSON.stringify(paymentIntent)}`);
+          setMessage(`Płatność nie powiodła się, ponieważ metoda płatności wymaga uwierzytelnienia, które nie powiodło się lub zostało anulowane.`);
           break;
         default:
-          setMessage("Something went wrong.");
+          setMessage("Coś poszło nie tak... Spróbuj ponownie później");
           break;
       }
     });
@@ -39,16 +51,50 @@ const PaymentResult = () => {
 
 
   return (
+
     <div>
-      <h1 className={'text-4xl'}>Super! Wszystko opłacone</h1>
-      <h2 className={'text-2xl'}>Dziękujemy za zakupy</h2>
+      {json && json.status !== 'succeeded' ?
 
-      <h2 className={'text-4xl'} >Co teraz?</h2>
-      <Card>
+        <div className={'flex h-[70vh] flex-col content-center items-center justify-center'}>
+          <h1 className={'bold flex content-center items-center gap-4 text-4xl'}>
+            Ups! Coś poszło nie tak <StopCircle
+            color={'red'} size={46}/></h1>
+          <Card className={'mt-6'}>
+            <CardTitle className={'p-4'}> Wynik płatności</CardTitle>
+            <CardContent>
+              <hr className={'my-1'}/>
+              <p>{message}</p>
+              kwota: {json && (json.amount / 100)?.toFixed(2)} {json && json.currency?.toUpperCase()}
+            </CardContent>
+          </Card>
+          <div className={'space-x-6'}>
+            <Link href={'/'}><Button className={'my-6 w-52'}>Wróć do strony głównej</Button></Link>
+            <Link href={'/store'}><Button className={'my-6 w-52'}>Wróć do sklepu</Button></Link>
+          </div>
 
-      </Card>
 
-      <p>{message}</p>
+        </div>
+        :
+        <div className={'flex h-[70vh] flex-col content-center items-center justify-center'}>
+          <h1 className={'bold flex content-center items-center gap-4 text-4xl'}>Super! Wszystko opłacone <CheckCircle
+            color={'green'} size={46}/></h1>
+          <Card className={'mt-6'}>
+            <CardTitle className={'p-4'}> Wynik płatności</CardTitle>
+            <CardContent>
+              <hr className={'my-1'}/>
+              <p>{message}</p>
+              kwota: {json && (json.amount / 100)?.toFixed(2)} {json && json.currency?.toUpperCase()}
+            </CardContent>
+          </Card>
+          <div className={'space-x-6'}>
+            <Link href={'/'}><Button className={'my-6 w-52'}>Wróć do strony głównej</Button></Link>
+            <Link href={'/store'}><Button className={'my-6 w-52'}>Wróć do sklepu</Button></Link>
+          </div>
+        </div>
+      }
+
+
+      {json && <pre className={'mt-610'}>{JSON.stringify(json, null, 2)}</pre>}
     </div>
   )
 }
