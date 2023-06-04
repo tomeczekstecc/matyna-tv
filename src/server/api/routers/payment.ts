@@ -27,8 +27,6 @@ export const paymentRouter = createTRPCRouter({
         amount: (order?.total * 100),
         currency: "PLN",
         payment_method_types: ['card','p24','blik', 'paypal'],
-        // Verify your integration in this guide by including this parameter
-
         metadata: {integration_check: 'accept_a_payment'},
       });
       return {

@@ -155,6 +155,7 @@ model Order {
   User              User?               @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId            String?
   email             String?
+  paymentIntentId   String?
   ProductOrderPivot ProductOrderPivot[]
   Payment           Payment[]
 }

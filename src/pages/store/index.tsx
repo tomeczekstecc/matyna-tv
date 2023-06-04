@@ -1,73 +1,9 @@
-import Link from "next/link";
 import ShopItemCard from "@/components/ShopItemCard";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {calculateTotals} from "@/redux/shoppingCart";
 import {api} from "@/utils/api";
-
-export type Product = {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  category: string;
-  featured?: boolean;
-  hero?: boolean;
-}
-
-
-export const data: Product[] = [
-  {
-    id: 1,
-    name: "Product 1",
-    price: 100,
-    description: "This is a description of product 1",
-    image: "https://picsum.photos/400/300",
-    category: "category 1",
-    featured: true,
-    hero: true,
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    price: 200,
-    description: "This is a description of product 2",
-    image: "https://picsum.photos/400/300",
-    category: "category 1",
-
-
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    price: 300,
-    description: "This is a description of product 3",
-    image: "https://picsum.photos/400/300",
-    category: "category 1",
-
-
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    price: 400,
-    description: "This is a description of product 4 This is a description of product 4",
-    image: "https://picsum.photos/400/300",
-    category: "category 1",
-
-
-  },
-  {
-    id: 5,
-    name: "Product 5",
-    price: 500,
-    description: "This is a description of product 5",
-    image: "https://picsum.photos/400/300",
-    category: "category 1",
-
-  }
-]
+import {Header} from "@/components/ui/Header";
 
 
 const StoreHomePages: React.FC = () => {
@@ -77,15 +13,14 @@ const StoreHomePages: React.FC = () => {
   const cartData = useSelector(state => state.shoppingCart.cartItems)
 const {data: products} = api.product.getAllProducts.useQuery()
 
-
   useEffect(() => {
     dispatch(calculateTotals())
   }, [cartData, dispatch])
 
   return (
     <>
-      <h1>Store</h1>
-      <p>Store Home Page</p>
+      <Header title={'Sklep'} subtitle={'Zakupy u Martyny'} className={undefined}/>
+      <div className={'text-xl'} >Sklep jest w trakcie rozwoju. Póki co liczę na twoje wsparcie, które jest bardzo przyda mi się w czasie pracy.</div>
       <div className={'grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}>
         {products?.length && products.map((product) => (
           <ShopItemCard cart={false} key={product.id} item={product} onAddToCart={() => null}/>

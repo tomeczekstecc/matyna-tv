@@ -9,23 +9,24 @@ import {
 } from "@/components/ui/sheet"
 import {ShoppingCart as ShoppingCartIcon} from "lucide-react"
 import ShopItemCard from "@/components/ShopItemCard";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Separator} from "@/components/ui/separator";
 import {Badge} from "@/components/ui/badge";
 import {api} from "@/utils/api";
 import {useRouter} from "next/router";
 import {Close} from "@radix-ui/react-dialog";
 import ShopItemCheckout from "@/components/ShopItemCheckout";
+import {clearCart} from "@/redux/shoppingCart";
+import {setOrderId} from "@/redux/order";
 
 
 export const Items = ({items, checkout}) => {
   return (
     <div>
       {items.map((item) => {
-        if(!checkout) {
-        return <ShopItemCard cart={true} item={item} onAddToCart={() => null} key={item.id}/>
-        }
-        else{
+        if (!checkout) {
+          return <ShopItemCard cart={true} item={item} onAddToCart={() => null} key={item.id}/>
+        } else {
           return <ShopItemCheckout cart={true} item={item} onAddToCart={() => null} key={item.id}/>
         }
       })}
@@ -35,18 +36,21 @@ export const Items = ({items, checkout}) => {
 
 const ShoppingCart = () => {
   const router = useRouter()
+  const dispatch = useDispatch()
+
 
   // @ts-ignore
   const cart = useSelector(state => state.shoppingCart)
-  const {mutate: finishOrder} = api.order.addOrder.useMutation({
+  const {data: orderData, mutate: finishOrder} = api.order.addOrder.useMutation({
+
     onSuccess: (res) => {
-      console.log(res,'res')
+      dispatch(setOrderId(res?.orderId))
       return router.push('/store/checkout')
     },
     onError: () => router.push('/store/checkout?error=true')
   })
 
-  const handleFinishOrder =async () => {
+  const handleFinishOrder = async () => {
     const items = cart.cartItems.map((item) => {
         return {
           id: item.id,
@@ -54,12 +58,11 @@ const ShoppingCart = () => {
         }
       }
     )
-    // close sheet
     await finishOrder({items: items})
-
-   const closeBtn =  document?.getElementsByClassName('closeBtn')?.item(0)
+    dispatch(clearCart())
+    const closeBtn = document?.getElementsByClassName('closeBtn')?.item(0)
     // @ts-ignore
-    if(closeBtn) closeBtn.click()
+    if (closeBtn) closeBtn.click()
   }
   return (
     <Sheet>
@@ -76,29 +79,45 @@ const ShoppingCart = () => {
         <SheetHeader>
           <SheetTitle className={'text-3xl'}>Twój koszyk</SheetTitle>
         </SheetHeader>
+        { cart.cartItems?.length  ?  <div>
+          <Items items={cart.cartItems} checkout={false}/>
 
-        <Items items={cart.cartItems} checkout={false}/>
+          <Separator className={'my-6 mt-10'}/>
+          <div className={'flex flex-col gap-4'}>
+            <div className={'text-2xl font-bold'}>Podsumowanie</div>
+            <div className={'flex justify-between'}>
+              <div className={'text-xl'}>Suma do zapłaty</div>
+              <div className={'text-xl font-bold'}>{cart.total?.toFixed(2)} PLN</div>
+            </div>
+            <div className={'flex justify-between'}>
+              <div className={'text-xl'}>Liczba przedmiotów</div>
+              <div className={'text-xl font-bold'}>{cart.amount}</div>
+            </div>
+          </div>
 
-        <Separator className={'my-6 mt-10'}/>
-        <div className={'flex flex-col gap-4'}>
-          <div className={'text-2xl font-bold'}>Podsumowanie</div>
-          <div className={'flex justify-between'}>
-            <div className={'text-xl'}>Suma do zapłaty</div>
-            <div className={'text-xl font-bold'}>{cart.total} PLN</div>
-          </div>
-          <div className={'flex justify-between'}>
-            <div className={'text-xl'}>Liczba przedmiotów</div>
-            <div className={'text-xl font-bold'}>{cart.amount}</div>
-          </div>
+          <SheetFooter className={'flex flex-col-reverse'}>
+            <Close className={'closeBtn'}>
+            </Close>
+            <Button onClick={() => handleFinishOrder()} className={'mt-8 w-full text-lg'} size={'lg'} type="submit">Dokończ
+              zakup
+            </Button>
+          </SheetFooter>
         </div>
+        :
 
-        <SheetFooter className={'flex flex-col-reverse'}>
-          <Close className={'closeBtn'}>
-          </Close>
-          <Button onClick={() => handleFinishOrder()} className={'mt-8 w-full text-lg'} size={'lg'} type="submit">Dokończ
-            zakup
-          </Button>
-        </SheetFooter>
+          <div>
+          <div className={'p-2 py-6'}>Twój koszyk jest pusty</div>
+          <SheetFooter className={'flex flex-col-reverse'}>
+            <Close className={'closeBtn'}>
+            <Button onClick={() => router.push('/store')} className={'mt-8 w-full text-lg'} size={'lg'} type="submit">Idź
+              do sklepu
+            </Button>
+            </Close>
+          </SheetFooter>
+
+
+        </div>
+        }
       </SheetContent>
     </Sheet>
   );

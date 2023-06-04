@@ -1,4 +1,5 @@
 import type {AppProps} from "next/app"
+
 import {api} from "@/utils/api"
 import {Inter as FontSans} from "@next/font/google"
 import {ThemeProvider} from "next-themes"
@@ -22,7 +23,6 @@ const queryClient = new QueryClient();
 
 function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
 
-
   return (
     <>
       <style jsx global>{`
@@ -32,6 +32,7 @@ function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
 
         }`}</style>
       <Provider store={store}>
+
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen={false}/>
           <SessionProvider session={session}
@@ -45,6 +46,7 @@ function App({Component, pageProps: {session, ...pageProps}}: AppProps) {
             </ThemeProvider>
           </SessionProvider>
         </QueryClientProvider>
+
       </Provider>
     </>
   )

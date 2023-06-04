@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import {Product} from "@prisma/client";
 import _ from "lodash";
 
@@ -7,7 +7,7 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
-  image?: string;
+  imgURL: string;
 }
 
 const initialState = {
@@ -24,6 +24,7 @@ export const shoppingCartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
+      console.log(action.payload, 'action.payload'  )
       const alreadyAdded = state.cartItems?.find(item => item.id === action.payload.id)
       if (alreadyAdded) {
         state.cartItems = state.cartItems.map((item: any) => {
@@ -69,6 +70,14 @@ export const shoppingCartSlice = createSlice({
     setIsCartOpen: (state, action) => {
       state.isCartOpen = action.payload;
     },
+
+
+    clearCart: (state) => {
+      state.cartItems = [];
+
+    },
+
+
     calculateTotals: (state) => {
       let amount = 0;
       let total = 0;
@@ -77,8 +86,8 @@ export const shoppingCartSlice = createSlice({
           total += item.quantity * item.price;
         }
       )
-      state.amount = _.round(amount,2) ;
-      state.total = _.round(total,2) ;
+      state.amount = _.round(amount, 2);
+      state.total = _.round(total, 2);
     }
   },
 
@@ -90,7 +99,8 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   setIsCartOpen,
-calculateTotals
+  calculateTotals,
+  clearCart
 } = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

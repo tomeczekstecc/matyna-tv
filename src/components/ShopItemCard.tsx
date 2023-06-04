@@ -1,4 +1,4 @@
-import {ChevronDown, Circle, Minus, Plus, ShoppingCart, Star, Trash} from "lucide-react"
+import {Minus, Plus, ShoppingCart, Star, Trash} from "lucide-react"
 
 import {Button} from "@/components/ui/button"
 import {
@@ -17,18 +17,18 @@ import {addItem, decreaseQuantity, increaseQuantity, removeItem} from "@/redux/s
 import {Input} from "@/components/ui/input";
 import _ from "lodash";
 
-type ShopItemCardProps = {
-  item: {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
-    imageURL: string;
-    featured?: boolean;
-  }
-  onAddToCart: (item: any) => void;
-  key: number;
-}
+// type ShopItemCardProps = {
+//   item: {
+//     id: number;
+//     name: string;
+//     price: number;
+//     description: string;
+//     imgURL: string;
+//     featured?: boolean;
+//   }
+//   onAddToCart: (item: any) => void;
+//   key: number;
+// }
 
 const ShopItemCard = ({item, onAddToCart, key, cart}) => {
 
@@ -37,7 +37,7 @@ const ShopItemCard = ({item, onAddToCart, key, cart}) => {
   const cartData = useSelector(state => state.shoppingCart.cartItems.find((cartItem) => cartItem.id === item.id))
   const data = {
     category: {
-      name: 'Category 1',
+      name: 'Wsparcie autora',
       color: '#F87171'
     }
   }
@@ -76,13 +76,13 @@ const ShopItemCard = ({item, onAddToCart, key, cart}) => {
         <CardContent>
           <div className="flex w-full items-center justify-between">
             <div className={cart ? "text-2xl font-semibold" : "text-4xl font-semibold"}>
-              {item.price} PLN
+              {item.price.toFixed(2)} <span className={'text-2xl'}>PLN</span>
             </div>
             {!cart && <Button onClick={() => dispatch(addItem({
               name: item.name,
               id: item.id,
               quantity: 1,
-              image: item.image,
+              imgURL: item.imgURL,
               price: item.price
             }))}>
               <Plus className="h-6 w-6"/>
@@ -105,17 +105,16 @@ const ShopItemCard = ({item, onAddToCart, key, cart}) => {
             <div>
               {cartData && cartData.quantity > 0 &&
                 <div className={cart ? "flex items-center text-2xl" : "flex items-center"}>
-                  {/*<ShoppingCart className="mr-1 h-4 w-4"/>*/}
                   <div>
                     {!cart ? <div className={'flex gap-1'}>
                         <div>{cartData.quantity}</div>
-                        <div className={''}>{cartData && `(${_.round((cartData.quantity * cartData?.price),2)} PLN)`}</div>
+                        <div className={''}>{cartData && `(${_.round((cartData.quantity * cartData?.price),2).toFixed(2)} PLN)`}</div>
                       </div>
                       :
                       <div className={'flex items-center gap-2'}>
                         <div className={'text-lg'}>Razem:</div>
                         <div
-                          className={'text-xl font-extrabold'}> {cartData && `${_.round((cartData.quantity * cartData?.price),2)} PLN`}</div>
+                          className={'text-xl font-extrabold'}> {cartData && `${_.round((cartData.quantity * cartData?.price),2).toFixed(2)} PLN`}</div>
                       </div>
                     }
                   </div>

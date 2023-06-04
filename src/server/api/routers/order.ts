@@ -1,31 +1,25 @@
 import {z} from "zod"
-import {adminProcedure, createTRPCRouter, publicProcedure} from "../trpc"
-import {BlogPost, Order} from "@prisma/client";
+import { createTRPCRouter, publicProcedure} from "../trpc"
+import {Order} from "@prisma/client";
 import _ from "lodash";
-import {prisma} from "@/server/db";
 
 const orderInput = z.object({
   // id: z.string().optional(),
-  id: z.number().optional(),
+  id: z.string().optional(),
   status: z.string().optional(),
+  paymentIntentId: z.string().optional(),
   email: z.string().optional(),
   items: z.array(z.object({
       id: z.string(),
       quantity: z.number(),
     }
-  ))
+  )).optional(),
 })
 
 export const orderRouter = createTRPCRouter({
   addOrder: publicProcedure
     .input(orderInput)
     .mutation(async ({input, ctx}) => {
-
-      const totalQuantity = input.items?.reduce((acc, item) => {
-          return acc + item.quantity
-        }
-        , 0)
-
       const itemsWithPrice = await ctx.prisma.product.findMany({
         where: {
           id: {
@@ -63,9 +57,10 @@ export const orderRouter = createTRPCRouter({
       ) as unknown as Order
 
 //@ crate order pivots
-      const pivots = await ctx.prisma.productOrderPivot.createMany({
+    await ctx.prisma.productOrderPivot.createMany({
         // @ts-ignore
         data: itemsWithPriceAndQuantity?.map(item => {
+
             return {
               quantity: item.quantity,
               productId: item.id,
@@ -97,7 +92,7 @@ export const orderRouter = createTRPCRouter({
       return {
         orderId: order.id,
         success: true,
-        message: 'Gratulacje! Utworzono zamówienie'
+        message: 'Gratulacje! Utworzono zamówienie',
       }
     }),
   // getAllOrdersByUserId: publicProcedure.query(({ctx}) => {
@@ -118,41 +113,63 @@ export const orderRouter = createTRPCRouter({
   //   })
   // }),
 
-  // getOneOrder: publicProcedure.input(z.object({slug: z.string()})).query(async ({input, ctx}) => {
-  //   return ctx.prisma.blogPost.findUnique({
-  //     where: {
-  //       slug: input.slug
-  //     },
-  //     include: {
-  //       category: {
-  //         select: {
-  //           name: true,
-  //           color: true,
-  //         }
-  //       }
-  //     }
-  //   })
-  // }),
+  getOneOrderWithItemsById: publicProcedure.input(z.object({id: z.string()})).query(async ({input, ctx}) => {
+    const order = await ctx.prisma.order.findUnique({
+      where: {
+        id: input.id
+      },
+    })
 
-  // updateOneOrder: adminProcedure.input(blogInput).mutation(async ({input, ctx}) => {
-  //   const post = await ctx.prisma.blogPost.update({
-  //     where: {
-  //       id: input.id
-  //     },
-  //     data: {
-  //       title: input.title,
-  //       subtitle: input.subtitle,
-  //       // @ts-ignore
-  //       categoryId: input.categoryId,
-  //       imgURL: input.imgURL,
-  //       content: input.content,
-  //       slug: input.slug,
-  //     },
-  //   })
-  //   return {...post}
-  // }),
+    const items = await ctx.prisma.productOrderPivot.findMany({
+      where: {
+        orderId: order?.id
+      },
+    })
 
+    const itemsWithProduct = await ctx.prisma.product.findMany({
+        where: {
+          id: {
+            in: items?.map(item => item.productId)
+          }
+        },
+        select: {
+          id: true,
+          name: true,
+          price: true,
+          imgURL: true,
+        }
+      }
+    )
 
+    const itemsWithProductAndQuantity = itemsWithProduct.map(item => {
+      const quantity = items?.find(i => i.productId === item.id)?.quantity
+      return {
+        ...item,
+        quantity
+      }
+    }
+    )
+
+    return {
+      ...order,
+      quantity: items?.reduce((acc, item) => {  return acc + item.quantity}, 0),
+      items: itemsWithProductAndQuantity
+    }
+
+  }),
+
+  updateOneOrderOnPaymentSuccess: publicProcedure.input(orderInput).mutation(async ({input, ctx}) => {
+    const order = await ctx.prisma.order.update({
+      where: {
+        id: input.id
+      },
+      data: {
+        status: 'PAID',
+        paymentIntentId: input.paymentIntentId,
+      },
+    })
+    return {...order}
+  }),
 })
 
 
