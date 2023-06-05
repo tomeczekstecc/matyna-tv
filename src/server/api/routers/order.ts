@@ -1,7 +1,8 @@
 import {z} from "zod"
-import { createTRPCRouter, publicProcedure} from "../trpc"
+import {createTRPCRouter, publicProcedure} from "../trpc"
 import {Order} from "@prisma/client";
 import _ from "lodash";
+import {TRPCError} from "@trpc/server";
 
 const orderInput = z.object({
   // id: z.string().optional(),
@@ -20,6 +21,7 @@ export const orderRouter = createTRPCRouter({
   addOrder: publicProcedure
     .input(orderInput)
     .mutation(async ({input, ctx}) => {
+
       const itemsWithPrice = await ctx.prisma.product.findMany({
         where: {
           id: {
@@ -32,6 +34,8 @@ export const orderRouter = createTRPCRouter({
         }
       })
 
+      if (!itemsWithPrice.length) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie znaleziono produktów'})
+
       const itemsWithPriceAndQuantity = itemsWithPrice.map(item => {
         const quantity = input.items?.find(i => i.id === item.id)?.quantity
         return {
@@ -40,6 +44,10 @@ export const orderRouter = createTRPCRouter({
         }
       })
 
+      if (!itemsWithPriceAndQuantity.length) throw new TRPCError({
+        code: 'BAD_REQUEST',
+        message: 'Nie znaleziono produktów'
+      })
 
       const totalToPay = itemsWithPriceAndQuantity?.reduce((acc, item) => {
           return _.round((acc + (item.quantity || 0) * item.price), 2)
@@ -56,8 +64,10 @@ export const orderRouter = createTRPCRouter({
         }
       ) as unknown as Order
 
+      if (!order) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie udało się utworzyć zamówienia'})
+
 //@ crate order pivots
-    await ctx.prisma.productOrderPivot.createMany({
+      await ctx.prisma.productOrderPivot.createMany({
         // @ts-ignore
         data: itemsWithPriceAndQuantity?.map(item => {
 
@@ -120,11 +130,15 @@ export const orderRouter = createTRPCRouter({
       },
     })
 
+    if (!order) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie znaleziono zamówienia'})
+
     const items = await ctx.prisma.productOrderPivot.findMany({
       where: {
         orderId: order?.id
       },
     })
+
+    if (!items) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie znaleziono produktów'})
 
     const itemsWithProduct = await ctx.prisma.product.findMany({
         where: {
@@ -141,18 +155,24 @@ export const orderRouter = createTRPCRouter({
       }
     )
 
+    if (!itemsWithProduct) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie znaleziono produktów'})
+
     const itemsWithProductAndQuantity = itemsWithProduct.map(item => {
-      const quantity = items?.find(i => i.productId === item.id)?.quantity
-      return {
-        ...item,
-        quantity
+        const quantity = items?.find(i => i.productId === item.id)?.quantity
+        return {
+          ...item,
+          quantity
+        }
       }
-    }
     )
+
+    if(!itemsWithProductAndQuantity) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie znaleziono produktów'})
 
     return {
       ...order,
-      quantity: items?.reduce((acc, item) => {  return acc + item.quantity}, 0),
+      quantity: items?.reduce((acc, item) => {
+        return acc + item.quantity
+      }, 0),
       items: itemsWithProductAndQuantity
     }
 
@@ -168,7 +188,11 @@ export const orderRouter = createTRPCRouter({
         paymentIntentId: input.paymentIntentId,
       },
     })
-    return {...order}
+
+
+    if (!order) throw new TRPCError({code: 'BAD_REQUEST', message: 'Nie znaleziono zamówienia'})
+
+    return {...order, message: 'Zaktualizowano zamówienie'}
   }),
 })
 

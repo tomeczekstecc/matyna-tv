@@ -1,17 +1,22 @@
-import {useElements, useStripe} from "@stripe/react-stripe-js";
+import {useStripe} from "@stripe/react-stripe-js";
 import React from "react";
-import {Card, CardContent, CardDescription, CardTitle} from "@/components/ui/card";
+import {Card, CardContent,CardTitle} from "@/components/ui/card";
 import {CheckCircle, StopCircle} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {api} from "@/utils/api";
+import {LoadingPage} from "@/components/loading";
+import toast from "react-hot-toast";
 
 const PaymentResult = () => {
   const stripe = useStripe();
   const [message, setMessage] = React.useState('');
   const [json, setJson] = React.useState({} as any);
 
-  const {mutate: updateOrder} = api.order.updateOneOrderOnPayment.useMutation({})
+  const {mutate: updateOrder} = api.order.updateOneOrderOnPayment.useMutation({
+    onError: (err) =>toast.error(err.message),
+    onSuccess: (data) => toast.success(data.message)
+  })
 
   React.useEffect(() => {
     if (!stripe) {
@@ -34,7 +39,7 @@ const PaymentResult = () => {
       // @ts-ignore
       switch (paymentIntent.status) {
         case "succeeded":
-          setMessage(`Zakup zakończył się sukcesem!`);
+          setMessage(`Płatność zakończyła się sukcesem!`);
           break;
         case "processing":
           setMessage("Płatność jest przetwarzana.");
@@ -47,8 +52,10 @@ const PaymentResult = () => {
           break;
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stripe]);
 
+  if(!json || Object.keys(json).length === 0) return <LoadingPage size={50}/>
 
   return (
 
@@ -71,8 +78,6 @@ const PaymentResult = () => {
             <Link href={'/'}><Button className={'my-6 w-52'}>Wróć do strony głównej</Button></Link>
             <Link href={'/store'}><Button className={'my-6 w-52'}>Wróć do sklepu</Button></Link>
           </div>
-
-
         </div>
         :
         <div className={'flex h-[70vh] flex-col content-center items-center justify-center'}>

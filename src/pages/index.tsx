@@ -3,10 +3,12 @@ import BlogCard from "@/components/blogCard";
 import {api} from "@/utils/api";
 import FilmCard from "@/components/ui/filmCard";
 import React from "react";
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
 export default function IndexPage() {
-  const {data: posts, refetch: refetchPosts, isLoading: isloadingPosts} = api.blog.getAllPosts.useQuery()
-  const {data: films, isLoading: isLoadingFilms, refetch: refetchFilms} = api.film.getAllFilms.useQuery()
+  const {data: posts, refetch: refetchPosts} = api.blog.getAllPosts.useQuery()
+  const {data: films,  refetch: refetchFilms} = api.film.getAllFilms.useQuery()
 
 
   // @ts-ignore
@@ -62,11 +64,16 @@ export default function IndexPage() {
 
         <section>
           <h2 className={'mb-4 mt-10 text-3xl font-bold '}>Top promocje w sklepie</h2>
-          <div className={'flex'}>
-{/*sklep w budowie*/}
-             <div className={'text-2xl'} >
-               Sklep w budowie
-             </div>
+          <div className={'flex flex-col gap-2'}>
+            {/*sklep w budowie*/}
+            <div className={'text-2xl'}>
+              Sklep w budowie
+            </div>
+            <Link type={'button'} href={'/store'}>
+              <Button className={'text-xl'}>
+                Wsparcie autora
+              </Button>
+            </Link>
           </div>
         </section>
       </div>
