@@ -1,5 +1,6 @@
 import {z} from "zod"
 import {createTRPCRouter, publicProcedure} from "../trpc"
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 
@@ -26,11 +27,8 @@ export const paymentRouter = createTRPCRouter({
         // @ts-ignore
         amount: (order?.total * 100),
         currency: "PLN",
-        automatic_payment_methods: {
-          enabled: true,
-
-        },
-        payment_method_types: ['card','p24','blik'],
+        payment_method: 'blik',
+        payment_method_types: ['card', 'p24', 'blik'],
         metadata: {integration_check: 'accept_a_payment'},
         return_url: `${process.env.BASE_URL}/store/checkout`,
         confirm: true,
