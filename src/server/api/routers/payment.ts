@@ -28,6 +28,8 @@ export const paymentRouter = createTRPCRouter({
         currency: "PLN",
         payment_method_types: ['card','p24','blik'],
         metadata: {integration_check: 'accept_a_payment'},
+        return_url: `${process.env.BASE_URL}/store/checkout`,
+
       });
       return {
         clientSecret: paymentIntent.client_secret,
