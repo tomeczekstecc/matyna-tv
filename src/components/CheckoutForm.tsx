@@ -6,6 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import {Button} from "@/components/ui/button";
 import {useSelector} from "react-redux";
+import * as process from "process";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -23,7 +24,7 @@ const orderId = useSelector(state => state.order.orderId)
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `http://localhost:3000/store/checkout/?orderId=${orderId}`,
+        return_url: `${process.env.BASE_URL}store/checkout/?orderId=${orderId}`,
       },
     });
   };
