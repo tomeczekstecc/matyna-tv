@@ -2,11 +2,12 @@
 
 import {api} from "@/utils/api";
 import {Header} from "@/components/ui/Header";
-import {Suspense} from "react";
+import React, {Suspense} from "react";
 import Blog from "./components/Blog";
 import {LoadingPage} from "@/components/loading";
 import {useSession} from "next-auth/react";
 import AdminAddContent from "@/components/AdminAddContent";
+import {Skeleton} from "@/components/ui/skeleton";
 
 
 export const metadata = {
@@ -19,7 +20,6 @@ export default function IndexPage() {
   const {data: session} = useSession()
 
   // @ts-ignore
-  if (isLoading) return <LoadingPage size={50}/>
   return (
 
     <div>

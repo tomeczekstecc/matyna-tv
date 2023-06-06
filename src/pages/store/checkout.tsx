@@ -7,7 +7,7 @@ import {useTheme} from "next-themes";
 import {Header} from "@/components/ui/Header";
 import {Items} from "@/pages/store/cart";
 import {useSelector} from "react-redux";
-import PaymentResult from "@/pages/store/(payment-result)";
+import PaymentResult from "@/components/(payment-result)";
 import {LoadingPage} from "@/components/loading";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.

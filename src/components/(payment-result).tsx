@@ -1,4 +1,5 @@
-import {useStripe} from "@stripe/react-stripe-js";
+'use client'
+import {useElements, useStripe} from "@stripe/react-stripe-js";
 import React from "react";
 import {Card, CardContent,CardTitle} from "@/components/ui/card";
 import {CheckCircle, StopCircle} from "lucide-react";
@@ -10,6 +11,7 @@ import toast from "react-hot-toast";
 
 const PaymentResult = () => {
   const stripe = useStripe();
+  const elements = useElements();
   const [message, setMessage] = React.useState('');
   const [json, setJson] = React.useState({} as any);
 

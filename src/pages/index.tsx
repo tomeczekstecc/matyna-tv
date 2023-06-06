@@ -5,10 +5,35 @@ import FilmCard from "@/components/ui/filmCard";
 import React from "react";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
+import {Skeleton} from "@/components/ui/skeleton";
+
+
+const SkeletonPosts = ({isLoading}) => {
+ return<>{
+    isLoading && [1, 2, 3].map(i =>
+      <div className={'flex flex-col gap-2'}>
+        <Skeleton className="h-[280px] w-[420px] rounded-md bg-slate-200 dark:bg-slate-800"/>
+        <Skeleton className="h-[24px] w-[220px] rounded-md bg-slate-200 dark:bg-slate-800"/>
+        <Skeleton className="h-[28px] w-[360px] rounded-md bg-slate-200 dark:bg-slate-800"/>
+        <Skeleton className="h-[28px] w-[260px] rounded-md bg-slate-200 dark:bg-slate-800"/>
+      </div>
+    )
+  }</>
+}
+
+
+const SkeletonFilms = ({isLoading}) => {
+  return<>{
+    isLoading && [1, 2].map(i =>
+      <Skeleton className="h-[315px] w-72 rounded-md bg-slate-200 dark:bg-slate-800"/>
+    )
+  }</>
+}
+
 
 export default function IndexPage() {
-  const {data: posts, refetch: refetchPosts} = api.blog.getAllPosts.useQuery()
-  const {data: films,  refetch: refetchFilms} = api.film.getAllFilms.useQuery()
+  const {data: posts, isLoading: isLoadingPosts, refetch: refetchPosts} = api.blog.getAllPosts.useQuery()
+  const {data: films, isLoading:isLoadingFilms, refetch: refetchFilms} = api.film.getAllFilms.useQuery()
 
 
   // @ts-ignore
@@ -36,6 +61,7 @@ export default function IndexPage() {
       <section>
         <h2 className={'mb-4 mt-10 text-3xl font-bold '}>Najnowsze wpisy bloga</h2>
         <div className={'grid grid-cols-1 gap-y-5 gap-x-10 lg:grid-cols-3'}>
+          <SkeletonPosts isLoading={isLoadingPosts}/>
           {posts?.slice(0, 3).map((post) => (
             <div key={post.id}>
               <BlogCard refetch={refetchPosts} key={post.id} post={post} featured={false} nosubtitle/>
@@ -49,6 +75,8 @@ export default function IndexPage() {
         <section>
           <h2 className={'mb-4 mt-10 text-3xl font-bold '}>Najnowsze filmy</h2>
           <div className={'flex gap-4'}>
+            <SkeletonFilms isLoading={isLoadingFilms}/>
+
             {films?.slice(0, 2)?.map((film) => (
                 <div key={film.id}>
                   <FilmCard
