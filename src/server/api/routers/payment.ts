@@ -26,6 +26,10 @@ export const paymentRouter = createTRPCRouter({
         // @ts-ignore
         amount: (order?.total * 100),
         currency: "PLN",
+        automatic_payment_methods: {
+          enabled: true,
+
+        },
         payment_method_types: ['card','p24','blik'],
         metadata: {integration_check: 'accept_a_payment'},
         return_url: `${process.env.BASE_URL}/store/checkout`,
