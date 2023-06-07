@@ -22,12 +22,18 @@ export const paymentRouter = createTRPCRouter({
           id: true,
           total: true,
         }
-      })
+      }) as any
+
+    console.log(order?.total * 100)
+
       const paymentIntent = await stripe.paymentIntents.create({
         // @ts-ignore
         amount: (order?.total * 100),
         currency: "PLN",
-        payment_method_types: ['card', 'p24', 'blik'],
+        // payment_method_types: ['card', 'p24', 'blik'],
+        automatic_payment_methods: {
+          enabled: true,
+        },
         metadata: {integration_check: 'accept_a_payment'},
 
       });

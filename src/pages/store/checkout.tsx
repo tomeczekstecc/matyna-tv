@@ -26,7 +26,10 @@ export default function Checkout() {
     // error,
     isLoading
   } = api.payment.addPaymentIntent.useMutation({})
-  const {data: orderResponse, error: orderError} = api.order.getOneOrderWithItemsById.useQuery({id: orderId})
+  const {data: orderResponse, error: orderError} = api.order.getOneOrderWithItemsById.useQuery({id: orderId},{
+    enabled: !!orderId,
+
+  })
 
   useEffect(() => {
       getClientSecret({orderId})

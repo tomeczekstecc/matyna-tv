@@ -8,29 +8,41 @@ import {Button} from "@/components/ui/button";
 import {useSelector} from "react-redux";
 import * as process from "process";
 import toast from "react-hot-toast";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
   const [isLoading] = React.useState(false);
-  {/*// @ts-ignore*/}
+  {/*// @ts-ignore*/
+  }
 
-const orderId = useSelector(state => state.order.orderId)
+  const orderId = useSelector(state => state.order.orderId)
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
       return;
     }
 
+    console.log(stripe,'stripe')
+
     const {error} = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
         return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/store/checkout/?orderId=${orderId}`,
-              },
+      },
     });
+    if (error) {
+      //@ts-ignore
+      console.log(error)
+      toast.error(error.message)
+    }
+
   };
+
 
   const paymentElementOptions = {
     layout: {
