@@ -37,7 +37,7 @@ const useAxiosCloudinary = makeUseAxios({
 
 export const Axios = (() => {
     const instance = axios.create({
-      baseURL: process.env.BASE_URL,
+      baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     });
 
     instance.interceptors.request.use((config) => {

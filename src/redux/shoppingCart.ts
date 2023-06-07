@@ -24,7 +24,6 @@ export const shoppingCartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      console.log(action.payload, 'action.payload'  )
       const alreadyAdded = state.cartItems?.find(item => item.id === action.payload.id)
       if (alreadyAdded) {
         state.cartItems = state.cartItems.map((item: any) => {

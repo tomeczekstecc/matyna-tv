@@ -23,12 +23,11 @@ export default function Checkout() {
   const {
     data: clientSecretResponse,
     mutate: getClientSecret,
-    error,
+    // error,
     isLoading
   } = api.payment.addPaymentIntent.useMutation({})
   const {data: orderResponse, error: orderError} = api.order.getOneOrderWithItemsById.useQuery({id: orderId})
 
-  console.log(clientSecretResponse, 'clientSecretResponse')
   useEffect(() => {
       getClientSecret({orderId})
       const clientSec = new URLSearchParams(window.location.search).get(
@@ -62,6 +61,8 @@ export default function Checkout() {
       name: 'My Company',
     }
   };
+
+
 
   if (isLoading) return <LoadingPage size={50}/>
 

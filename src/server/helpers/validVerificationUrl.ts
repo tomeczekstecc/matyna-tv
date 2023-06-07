@@ -1,4 +1,4 @@
-import {createHash, createHmac, timingSafeEqual} from 'crypto';
+import {createHmac, timingSafeEqual} from 'crypto';
 
 export const signVerificationUrl = (url: string) => {
   return createHmac('sha256', process.env.APP_SECRET as string).update(url).digest('hex')
@@ -6,7 +6,7 @@ export const signVerificationUrl = (url: string) => {
 
 export const makeVerificationUrl = (token: string, action = 'reset') => {
 
-  const url = `${process.env.BASE_URL}/auth/${action}?token=${token}`
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/${action}?token=${token}`
   const signature = signVerificationUrl(token)
   return `${url}&signature=${signature}`
 }

@@ -30,7 +30,6 @@ export default function PreviewPage() {
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
     })
       .then((res) => {
-        console.log(res);
  return       res.json()
       })
       .then((data) => setClientSecret(data.clientSecret));

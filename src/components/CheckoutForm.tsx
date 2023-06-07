@@ -7,6 +7,8 @@ import {
 import {Button} from "@/components/ui/button";
 import {useSelector} from "react-redux";
 import * as process from "process";
+import toast from "react-hot-toast";
+
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -20,12 +22,13 @@ const orderId = useSelector(state => state.order.orderId)
     if (!stripe || !elements) {
       return;
     }
+
     const {error} = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${process.env.BASE_URL}store/checkout/?orderId=${orderId}`,
-      },
+        return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/store/checkout/?orderId=${orderId}`,
+              },
     });
   };
 
