@@ -100,9 +100,7 @@ export default function MediaPage(props) {
         <TabsContent value="images">
           <div className={'flex-2'}>
             <Header className={'mb-8'} title={'Przesłane zdjęcia'} subtitle={'lista plików na serwerze'}/>
-            <Suspense fallback={<LoadingSpinner size={30}/>}>
               <Gallery/>
-            </Suspense>
           </div>
         </TabsContent>
       </Tabs>

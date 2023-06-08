@@ -101,7 +101,7 @@ const PaymentResult = () => {
       }
 
 
-      {json && <pre className={'mt-610'}>{JSON.stringify(json, null, 2)}</pre>}
+      {/*{json && <pre className={'mt-610'}>{JSON.stringify(json, null, 2)}</pre>}*/}
     </div>
   )
 }

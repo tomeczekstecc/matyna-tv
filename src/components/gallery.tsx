@@ -2,11 +2,23 @@ import Image from "next/image";
 import {transformImg} from "@/utils/transformImg";
 import {Button} from "@/components/ui/button";
 import {api} from "@/utils/api";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {AxiosCloudinary} from "@/utils/axios";
 import {mapImages} from "@/lib/cloudinary";
 import {LoadingPage} from "@/components/loading";
 import {blurURI} from "@/config/blutURI";
+import {Skeleton} from "@/components/ui/skeleton";
+
+const SkeletonImages = ({isLoading}) => {
+  return <>{
+    isLoading && [1, 2, 3,4,5,6].map(i =>
+      <div className={'flex flex-col gap-1'}>
+        <Skeleton className=" h-[270px] rounded-md bg-slate-200 dark:bg-slate-700"/>
+        <Skeleton className=" h-4 w-60 rounded-md bg-slate-200 dark:bg-slate-800"/>
+      </div>
+    )
+  }</>
+}
 
 const Gallery = (props) => {
   const [images, setImages] = useState([])
@@ -34,9 +46,11 @@ const Gallery = (props) => {
     }
   }, [media])
 
-  return (<div>  {isLoading && <LoadingPage size={30}/>}
+  return (<div>
 
-    <section className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'}>
+    <section className={'grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'}>
+
+      <SkeletonImages isLoading={isLoading}/>
 
       {images?.map((item, index) => {
           // @ts-ignore

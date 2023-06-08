@@ -9,10 +9,10 @@ import {Skeleton} from "@/components/ui/skeleton";
 
 const SkeletonProducts = ({isLoading}) => {
   return <>{
-    !isLoading && [1, 2, 3,4].map(i =>
+    isLoading && [1, 2, 3,4].map(i =>
       <div className={'flex flex-col'}>
-        <Skeleton className=" h-full rounded-b-none bg-slate-200 dark:bg-slate-700"/>
-        <Skeleton className=" h-full rounded-t-none bg-slate-200 dark:bg-slate-800"/>
+        <Skeleton className=" h-[190px] rounded-b-none bg-slate-200 dark:bg-slate-700"/>
+        <Skeleton className=" h-[190px] rounded-t-none bg-slate-200 dark:bg-slate-800"/>
       </div>
     )
   }</>
