@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {loadStripe} from "@stripe/stripe-js";
-import {Elements} from "@stripe/react-stripe-js";
+import {Elements, useStripe} from "@stripe/react-stripe-js";
 import CheckoutForm from "@/components/CheckoutForm";
 import {api} from "@/utils/api";
 import {useTheme} from "next-themes";
@@ -72,6 +72,7 @@ export default function Checkout() {
   return (
     // @ts-ignore
     <Elements options={options} stripe={stripePromise}>
+
       {clientSecretFromUrl ?
         <PaymentResult/>
         :

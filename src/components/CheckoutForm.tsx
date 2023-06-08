@@ -16,10 +16,8 @@ export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
   const [isLoading] = React.useState(false);
-  {/*// @ts-ignore*/
-  }
-
-  const orderId = useSelector(state => state.order.orderId)
+  // @ts-ignore
+  const orderId = useSelector(state => state?.order?.orderId as string)
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
@@ -38,7 +36,7 @@ export default function CheckoutForm() {
     if (error) {
       //@ts-ignore
       console.log(error)
-      toast.error(error.message)
+      toast.error(error?.message || 'Wystąpił błąd podczas płatności')
     }
 
   };
