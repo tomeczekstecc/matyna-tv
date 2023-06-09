@@ -181,7 +181,7 @@ const RegisterPage = () => {
 
                 <Button
                   type="submit"
-                  className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                  className="flex w-full justify-center px-4 py-2 text-sm font-medium">
                   Zarejestruj się
                 </Button>
               </div>

@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {loadStripe} from "@stripe/stripe-js";
-import {Elements, useStripe} from "@stripe/react-stripe-js";
+import {Elements} from "@stripe/react-stripe-js";
 import CheckoutForm from "@/components/CheckoutForm";
 import {api} from "@/utils/api";
 import {useTheme} from "next-themes";
@@ -26,7 +26,7 @@ export default function Checkout() {
     // error,
     isLoading
   } = api.payment.addPaymentIntent.useMutation({})
-  const {data: orderResponse, error: orderError} = api.order.getOneOrderWithItemsById.useQuery({id: orderId},{
+  const {data: orderResponse, error: orderError} = api.order.getOneOrderWithItemsById.useQuery({id: orderId}, {
     enabled: !!orderId,
 
   })
@@ -48,7 +48,7 @@ export default function Checkout() {
     variables: {
       colorPrimary: '#0570de',
       colorBackground: theme === 'dark' ? '#334155' : '#cbd5e1',
-      colorText: theme === 'dark' ? '#ffffff' : '#000000',
+      colorText: theme === 'dark' ? '#ffffff' : theme === 'light' ? '#000000' : '#90909a',
       colorDanger: '#df1b41',
       fontFamily: 'Ideal Sans, system-ui, sans-serif',
       spacingUnit: '3px',
@@ -64,7 +64,6 @@ export default function Checkout() {
       name: 'My Company',
     }
   };
-
 
 
   if (isLoading) return <LoadingPage size={50}/>

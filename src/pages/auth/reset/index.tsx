@@ -101,7 +101,7 @@ const ResetPassword = () => {
               <div className={'w-full'}>
                 <Button
                   disabled={(isLoading || !form?.password || !form?.email)}
-                  className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                  className="flex w-full justify-center px-4 py-2 text-sm font-medium">
                   {isLoading &&
                     <div className={'mr-2'}><LoadingSpinner size={22}/></div>}
                   Utwórz nowe hasło

@@ -264,7 +264,7 @@ const LoginPage = () => {
 
                   <div className={'w-full'}>
                     <Button
-                      className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                      className="flex w-full justify-center px-4 py-2 text-sm font-medium">
                       {isLoading ? <LoadingSpinner size={22}/> : 'Zmień hasło'}
                     </Button>
                   </div>

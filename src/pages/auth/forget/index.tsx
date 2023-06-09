@@ -99,7 +99,7 @@ const ForgetPassword = () => {
               <div className={'w-full'}>
                 <Button
                   disabled={!form.email || isLoading}
-                  className="flex w-full justify-center px-4 py-2 text-sm font-medium text-white">
+                  className="flex w-full justify-center px-4 py-2 text-sm font-medium">
                   {isLoading && <div className={'mr-2'}><LoadingSpinner size={22}/></div>}Resetuj hasło
                 </Button>
               </div>

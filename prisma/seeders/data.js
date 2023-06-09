@@ -194,10 +194,36 @@ const products = [
   }
 ]
 
+
+const films = [
+  {
+    title: 'Skyrim',
+    subtitle: 'Ambient music',
+    slug: 'skyrim',
+    url: 'https://www.youtube.com/embed/yFDo_uR4-cc',
+    userId:'clip2izd20004hyfsywc78h2g'
+  },
+  {
+    title: 'Witcher 3',
+    subtitle: 'Ambient music',
+    slug: 'witcher-3',
+    url: 'https://www.youtube.com/embed/fuQ-nObE3c4',
+    userId:'clip2izd20004hyfsywc78h2g'
+  },
+  {
+    title: 'Lofi Girl',
+    subtitle: 'Ambient music',
+    slug: 'lofi-girl',
+    url: 'https://www.youtube.com/embed/jfKfPfyJRdk',
+    userId:'clip2izd20004hyfsywc78h2g'
+  },
+]
+
 module.exports = {
   categories,
   blogPosts,
   productCategories,
   comments,
-  products
+  products,
+  films
 }
