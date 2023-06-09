@@ -32,8 +32,7 @@ const StoreHomePages: React.FC = () => {
   return (
     <>
       <Header title={'Sklep'} subtitle={'Zakupy u Martyny'} className={undefined}/>
-      <div className={'text-xl'}>Sklep jest w trakcie rozwoju. Póki co liczę na twoje wsparcie, które jest bardzo przyda
-        mi się w czasie pracy.
+      <div className={'text-xl'}>Sklep jest w trakcie rozwoju. Ciężko nad tym pracuję, więc przydałoby się troszkę wsparcia 😁😁😁. Kliknij i kup mi 👜 coś fajnego na wzmocnienie 💪.
       </div>
       <div className={'grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}>
         <SkeletonProducts isLoading={isLoadingProducts}/>
