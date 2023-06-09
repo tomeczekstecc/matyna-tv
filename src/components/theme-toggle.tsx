@@ -10,6 +10,8 @@ import {
 import {Separator} from "@/components/ui/separator";
 import {signOut, useSession} from "next-auth/react";
 import router from "next/router";
+import Image from "next/image";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 export function ThemeToggle() {
   const {setTheme} = useTheme()
@@ -40,6 +42,16 @@ export function ThemeToggle() {
         {session?.user?.email && <>
           <span className={'ml-1 text-sm font-bold'}>Użytkownik</span>
 
+          <DropdownMenuItem onClick={() => router.push('/auth/profile')}>
+            <div className={'flex gap-1'}>
+            <Avatar className={'h-5 w-5'} >
+              <AvatarImage className={'text-white'} src={session.user.image || '/unknownUser.svg'}
+                           alt={session.user?.name || session.user?.User?.email || 'logo użytkownika'}/>
+              <AvatarFallback>{session.user?.name || 'UN'}</AvatarFallback>
+            </Avatar>
+            <span>{session.user.name} ({session.user.email})</span>
+          </div>
+          </DropdownMenuItem>
           <DropdownMenuItem onClick={() => router.push('/auth/profile')}>
             <Icons.profile className="mr-2 h-4 w-4"/>
             <span>Profil</span>

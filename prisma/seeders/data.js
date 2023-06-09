@@ -219,11 +219,40 @@ const films = [
   },
 ]
 
+
+const users = [
+  {
+    id: 'cliozsksh0006mf08wuk4d3bi',
+    name: 'Tomasz Steć',
+    email: 'tomeczekstecc@gmail.com',
+    role: 'ADMIN',
+    image:'https://lh3.googleusercontent.com/a/AAcHTtev-AkzQSBIzMCu9I8X8DAmdtq8LykqwyUuHCGJ5Q=s96-c',
+  },
+  {
+    id: 'cliozty4t000cmf08oj2vuu2d',
+    name: 'Sonia Pełkowska',
+    email: 'sonia.pelkowskaa@gmail.com',
+    role: 'USER',
+    image:'https://lh3.googleusercontent.com/a/AAcHTtcuNG0niPVkiUAW001Kxa0T-9Gb7C9XYf8OnEWV=s96-c',
+  },
+  {
+    id: 'clip2izd20004hyfsywc78h2g',
+    name: 'Tomasz',
+    email: 'gabinet520@ozatvn.com',
+    role: 'ADMIN',
+    password: '$2a$10$5ecRHEZOz3S3POKiBGrqgOCgBZWGRnaZG1Ly6i36fbBYpfkAecNtO',
+    surname: 'Iksiński',
+    emailVerified: '2023-05-16T19:20:30.451Z'
+  },
+
+]
+
 module.exports = {
   categories,
   blogPosts,
   productCategories,
   comments,
   products,
-  films
+  films,
+  users
 }
