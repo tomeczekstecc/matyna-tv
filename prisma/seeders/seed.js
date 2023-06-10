@@ -6,41 +6,44 @@ const prisma = new PrismaClient()
 
 const load = async () => {
   try {
-    // await prisma.blogPost.deleteMany()
-    // await prisma.category.deleteMany()
-    // await prisma.productCategory.deleteMany()
-    // await prisma.comment.deleteMany()
-    // await prisma.product.deleteMany()
-    // await prisma.film.deleteMany()
-    await prisma.user.deleteMany()
 
-    //
-    //
-    // await prisma.category.createMany({
-    //   data: categories
-    // })
-    //
-    // await prisma.blogPost.createMany({
-    //   data: blogPosts
-    // })
-    //
-    // await prisma.productCategory.createMany({
-    //   data: productCategories
-    // })
-    // await prisma.comment.createMany({
-    //   data: comments
-    // })
-    //
-    // await prisma.product.createMany({
-    //   data: products
-    // })
-    //
-    // await prisma.film.createMany({
-    //   data: films
-    // })
+    await prisma.category.deleteMany()
+    await prisma.category.createMany({
+      data: categories
+    })
+
+
+    await prisma.productCategory.deleteMany()
+    await prisma.productCategory.createMany({
+      data: productCategories
+    })
+
+    await prisma.user.deleteMany()
     await prisma.user.createMany({
       data: users
     })
+
+
+    await prisma.blogPost.deleteMany()
+    await prisma.blogPost.createMany({
+      data: blogPosts
+    })
+
+    await prisma.comment.deleteMany()
+    await prisma.comment.createMany({
+      data: comments
+    })
+
+    await prisma.product.deleteMany()
+    await prisma.product.createMany({
+      data: products
+    })
+
+    await prisma.film.deleteMany()
+    await prisma.film.createMany({
+      data: films
+    })
+
 
 
   } catch (e) {

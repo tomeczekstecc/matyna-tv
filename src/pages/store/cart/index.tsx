@@ -18,6 +18,7 @@ import {Close} from "@radix-ui/react-dialog";
 import ShopItemCheckout from "@/components/ShopItemCheckout";
 import {clearCart} from "@/redux/shoppingCart";
 import {setOrderId} from "@/redux/order";
+import {LoadingPage} from "@/components/loading";
 
 
 export const Items = ({items, checkout}) => {
@@ -41,7 +42,7 @@ const ShoppingCart = () => {
 
   // @ts-ignore
   const cart = useSelector(state => state.shoppingCart)
-  const {data: orderData, mutate: finishOrder} = api.order.addOrder.useMutation({
+  const {data: orderData, mutate: finishOrder, isLoading: isLoadingFinishOrder} = api.order.addOrder.useMutation({
 
     onSuccess: (res) => {
       dispatch(setOrderId(res?.orderId))
@@ -63,7 +64,10 @@ const ShoppingCart = () => {
     const closeBtn = document?.getElementsByClassName('closeBtn')?.item(0)
     // @ts-ignore
     if (closeBtn) closeBtn.click()
+
   }
+
+  if (isLoadingFinishOrder) return  <LoadingPage size={50}/>
   return (
     <Sheet>
       <SheetTrigger asChild>

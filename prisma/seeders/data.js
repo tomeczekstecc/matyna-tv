@@ -124,41 +124,41 @@ const productCategories = [
 
 
 const comments = [
-  {
-
-    content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
-    blogPostId: "cliog9rcq0000hy7kyjl74xyt",
-    userId: 'clhcbcexg0000hyogr3hh9u56'
-
-  },
-  {
-
-    content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
-    blogPostId: "cliog9rcq0001hy7kgibaeq8z",
-    userId: 'clhcbcexg0000hyogr3hh9u56'
-
-  },
-  {
-
-    content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
-    blogPostId: "cliog9rcq0002hy7k25ufbrrj",
-    userId: 'clhcbcexg0000hyogr3hh9u56'
-
-  },
-  {
-
-    content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
-    blogPostId: "cliog9rcq0004hy7krza8kug0",
-    userId: 'clhcbcexg0000hyogr3hh9u56'
-
-  },
-  {
-
-    content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
-    blogPostId: "cliog9rcq0005hy7kfs6guad7",
-    userId: 'clhcbcexg0000hyogr3hh9u56'
-
-  },
+  // {
+  //
+  //   content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
+  //   blogPostId: "cliog9rcq0000hy7kyjl74xyt",
+  //   userId: 'clhcbcexg0000hyogr3hh9u56'
+  //
+  // },
+  // {
+  //
+  //   content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
+  //   blogPostId: "cliog9rcq0001hy7kgibaeq8z",
+  //   userId: 'clhcbcexg0000hyogr3hh9u56'
+  //
+  // },
+  // {
+  //
+  //   content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
+  //   blogPostId: "cliog9rcq0002hy7k25ufbrrj",
+  //   userId: 'clhcbcexg0000hyogr3hh9u56'
+  //
+  // },
+  // {
+  //
+  //   content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
+  //   blogPostId: "cliog9rcq0004hy7krza8kug0",
+  //   userId: 'clhcbcexg0000hyogr3hh9u56'
+  //
+  // },
+  // {
+  //
+  //   content: "Phasellus cursus iaculis augue, sit amet fermentum mi vestibulum vitae. Nulla blandit eros et accumsan pellentesque. Donec rutrum, lacus egestas dignissim sagittis, risus dui finibus ex, venenatis malesuada elit lectus vitae dui. Donec auctor ex a placerat tempus. Aliquam vitae sollicitudin odio. Curabitur dapibus, est non aliquet vulputate, sem enim convallis nisi, eu malesuada lacus libero eu augue. Aliquam eu posuere libero, eget bibendum felis. Morbi laoreet eleifend sapien, non porttitor erat tincidunt viverra. Nunc nec velit consectetur, hendrerit risus ut, luctus augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam luctus ante at erat finibus suscipit. Nunc sed nibh est. Pellentesque vel vulputate tortor, at tincidunt enim. Donec facilisis blandit ligula et molestie. Pellentesque tempus, magna vel imperdiet semper, nisi tellus pellentesque ante, at auctor elit massa ac nulla. Integer in quam purus. Vivamus finibus lacus vel venenatis tempor. Morbi sit amet eros ac nunc aliquet mollis vel sed tortor. Fusce consectetur nec nisl ut iaculis. Praesent eu egestas felis.",
+  //   blogPostId: "cliog9rcq0005hy7kfs6guad7",
+  //   userId: 'clhcbcexg0000hyogr3hh9u56'
+  //
+  // },
 
 ]
 
