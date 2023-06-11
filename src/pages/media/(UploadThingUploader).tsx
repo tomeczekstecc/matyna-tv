@@ -32,7 +32,7 @@ const UploadThingUploader = () => {
     onUploadError: () => {
       console.log(permittedFileInfo, "permittedFileInfo")
       // @ts-ignore
-      toast.error(`Wystąpił błąd podczas przesyłania plików. Możesz przesłać maksymalnie ${permittedFileInfo.config.image.maxFileCount} pliki jednocześnie, o rozmiarze nie większym niż ${permittedFileInfo.config.image.maxFileSize} każdy.`);
+      toast.error(`Wystąpił błąd podczas przesyłania plików. Możesz przesłać maksymalnie ${permittedFileInfo?.config?.image?.maxFileCount} pliki jednocześnie, o rozmiarze nie większym niż ${permittedFileInfo?.config?.image?.maxFileSize} każdy.`);
     },
   });
 
@@ -52,32 +52,32 @@ const UploadThingUploader = () => {
       {/*/>*/}
 
       <div
-        className={'h-100 mt-6 flex h-52 w-full flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-gray-300 cursor-pointer'} {...getRootProps()}>
+        className={'h-100 mt-6 flex h-52 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-gray-300'} {...getRootProps()}>
         <input {...getInputProps()} />
         <div>
-          {files.length > 0 && (
+          {files?.length > 0 && (
             <Button
               disabled={isUploading}
               onClick={(e) => {
-                e.stopPropagation()
+                e?.stopPropagation()
                 startUpload(files)
               }}>
               {isUploading && <LoadingSpinner size={16}/>}
-              Prześlij {files.length} plik(i)
+              Prześlij {files?.length} plik(i)
             </Button>
           )}
         </div>
-        {!files.length && <Button variant={'ghost'} className={'py-8 px-10'} ><UploadCloudIcon className={'h-12 w-12'}/></Button> }
-        {!files.length ? <div>Przeciągnij plik tutaj lub kliknij w to pole, aby wybrać plik(i) do przesłania</div>
+        {/*{!files?.length && <Button variant={'ghost'} className={'py-8 px-10'} ><UploadCloudIcon className={'h-12 w-12'}/></Button> }*/}
+        {!files?.length ? <div>Przeciągnij plik tutaj lub kliknij w to pole, aby wybrać plik(i) do przesłania</div>
           :
           <div>
-            {files.map((file, i) => (
+            {files?.map((file, i) => (
               <div>
-                <div className={'text-sm font-bold flex items-center gap-2'} key={i}>{file.name}
+                <div className={'flex items-center gap-2 text-sm font-bold'} key={i}>{file?.name}
 
                   <Trash className={'h-3 w-3.5 cursor-pointer text-red-500'} onClick={(e) => {
                     e.stopPropagation()
-                    setFiles(files.filter((f) => f.name !== file.name))
+                    setFiles(files?.filter((f) => f?.name !== file?.name))
                   }}/>
                 </div>
               </div>
