@@ -8,7 +8,7 @@ import {
   LogOut,
   User,
   UserCog,
-  type Icon as LucideIcon,
+  type Icon as LucideIcon, Gitlab,
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -18,6 +18,7 @@ export const Icons = {
   moon: Moon,
   laptop: Laptop,
   twitter: Twitter,
+  gitlab: Gitlab,
   logo: Tv,
   logOut: LogOut,
   profile: User,

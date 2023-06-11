@@ -7,6 +7,7 @@ interface SiteConfig {
   links: {
     twitter: string
     github: string
+    gitlab: string
     docs: string
   }
 }
@@ -36,7 +37,8 @@ export const siteConfig: SiteConfig = {
   ],
   links: {
     twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
+    github: "https://github.com/tomeczekstecc/matyna-tv",
+    gitlab: "https://gitlab.com/tomeczekstecc/martyna-tv",
     docs: "https://ui.shadcn.com",
   },
 }

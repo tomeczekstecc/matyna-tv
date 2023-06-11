@@ -9,6 +9,8 @@ import {SessionProvider} from "next-auth/react";
 import {Toaster} from 'react-hot-toast';
 import {Provider} from "react-redux";
 import store from "@/redux/store";
+import "@uploadthing/react/styles.css";
+
 
 import "@/styles/globals.css"
 import {Layout} from "@/components/layout"

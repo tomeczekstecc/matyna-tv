@@ -6,6 +6,7 @@ const nextConfig = {
     domains: ["images.unsplash.com", "res.cloudinary.com","picsum.photos"],
   },
   experimental: {
+    esmExternals: false, // THIS IS THE FLAG THAT MATTERS
     fontLoaders: [
       {
         loader: "@next/font/google",

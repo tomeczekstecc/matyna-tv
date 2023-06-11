@@ -2,6 +2,7 @@ import {z} from "zod"
 import {adminProcedure, createTRPCRouter, publicProcedure} from "../trpc"
 import {BlogPost} from "@prisma/client";
 
+
 const blogInput = z.object({
   id: z.string().optional(),
   title: z.string({required_error: 'Pole jest wymagane'}).min(3, 'Tytuł musi zawierać conajmniej 3 znaki ').max(100, 'Tytuł jest za długi: max 100 znaków'),
@@ -27,6 +28,8 @@ export const blogRouter = createTRPCRouter({
           slug: input.slug,
         } as BlogPost,
       })
+
+
 
       return {...post}
     }),
